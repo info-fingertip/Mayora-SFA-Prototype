@@ -405,6 +405,54 @@
   .role-pick .select-wrap svg{ position:absolute; right:12px; top:50%; transform:translateY(-50%); width:15px; pointer-events:none; color:var(--muted);}
   .beat-row.pjp{ background:#E5F6E9;} .cb-tag{ background:var(--green); color:#fff; font-size:10px; font-weight:800; padding:2px 8px; border-radius:999px;}
   .cb-div{ text-align:center; font-size:11.5px; font-weight:700; color:var(--muted); margin:14px 0 10px; position:relative;}
+  /* import from secondary */
+  .import-sec{ width:100%; border:1.5px dashed var(--orange); background:var(--orange-soft); color:var(--orange); font-family:var(--font); font-weight:800; font-size:13.5px; padding:11px; border-radius:12px; cursor:pointer; margin-bottom:12px;}
+  .imp-row{ display:flex; align-items:center; gap:10px; border:1.5px solid var(--avb,#D9D2C2); border-radius:12px; padding:11px 12px; margin-bottom:9px;}
+  .imp-b{ flex:1; min-width:0;} .imp-n{ font-size:13.5px; font-weight:800;} .imp-m{ font-size:11.5px; color:var(--muted); margin-top:2px;}
+  .imp-qty{ display:flex; align-items:center; gap:8px; border:1.5px solid var(--field-border); border-radius:9px; padding:3px 6px; flex:none;}
+  .imp-qty button{ width:24px; height:24px; border:none; background:var(--cream); border-radius:6px; font-size:15px; font-weight:800; cursor:pointer; color:var(--ink);}
+  .imp-qty span{ min-width:22px; text-align:center; font-weight:800; font-size:13px;}
+  .imp-add{ border:none; background:var(--orange); color:#fff; border-radius:9px; padding:8px 12px; font-family:var(--font); font-weight:800; font-size:12px; cursor:pointer; flex:none;}
+  .imp-row.added{ opacity:.55;} .imp-row.added .imp-add{ background:var(--green);}
+  /* tele order new UI */
+  .view[data-view="teleorder"]{ height:100%; min-height:0; }
+  .teleo-wrap{ display:block; flex:1 1 auto; min-height:0; overflow-y:auto; padding:14px 14px 12px;}
+  .teleo-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;}
+  .teleo-searchrow{ display:flex; gap:7px; margin-bottom:9px;}
+  .teleo-search{ flex:1.4; display:flex; align-items:center; gap:7px; background:#fff; border:1.5px solid var(--field-border); border-radius:10px; padding:0 10px; height:38px;}
+  .teleo-search svg{ width:15px; height:15px; color:var(--muted);} .teleo-search input{ border:none; outline:none; width:100%; font-family:var(--font); font-size:12.5px; background:transparent;}
+  .teleo-dd{ flex:1; position:relative;} .teleo-dd .input{ height:38px; font-size:11.5px; font-weight:700; padding:0 26px 0 9px; appearance:none; -webkit-appearance:none;}
+  .teleo-dd svg{ position:absolute; right:7px; top:50%; transform:translateY(-50%); width:13px; pointer-events:none; color:var(--muted);}
+  .teleo-qf{ margin-bottom:10px;}
+  .teleo-body{ display:flex; gap:9px; align-items:flex-start;}
+  .teleo-brands{ flex:none; width:78px; display:flex; flex-direction:column; gap:5px; position:sticky; top:6px;}
+  .teleo-brand{ font-size:11px; font-weight:800; text-align:center; padding:9px 4px; border-radius:9px; background:var(--cream); color:var(--ink-2); cursor:pointer; border:1.5px solid transparent;}
+  .teleo-brand.sel{ background:var(--orange); color:#fff;}
+  .teleo-prods{ flex:1; padding-right:2px; min-width:0;}
+  .tprod{ display:flex; align-items:center; flex-wrap:wrap; gap:8px; border:1px solid var(--line); border-radius:10px; padding:8px 9px; margin-bottom:6px;}
+  .tprod-b{ flex:1; min-width:0;}
+  .tprod-n{ font-size:11.5px; font-weight:800; line-height:1.25;}
+  .tprod-meta{ font-size:10px; color:var(--muted); margin-top:1px;}
+  .tprod-tag{ display:inline-block; font-size:8.5px; font-weight:800; padding:1px 6px; border-radius:999px; margin-top:2px;}
+  .tprod-tag.ms{ background:#FDEADF; color:var(--orange);} .tprod-tag.fs{ background:#E6EEFB; color:var(--blue,#2F6BD8);} .tprod-tag.sg{ background:#E5F6E9; color:var(--green);} .tprod-tag.sc{ background:#FFF4DA; color:#C79A1E;}
+  .tprod-add{ border:none; background:var(--orange); color:#fff; border-radius:8px; padding:6px 11px; font-family:var(--font); font-weight:800; font-size:11px; cursor:pointer; flex:none;}
+  .tprod.added .tprod-add{ background:var(--green);}
+  .tprod-qty{ display:flex; align-items:center; gap:6px; border:1.5px solid var(--orange); border-radius:8px; padding:2px 5px; flex:none;}
+  .tprod-qty button{ width:22px; height:22px; border:none; background:var(--orange-soft); color:var(--orange); border-radius:6px; font-size:14px; font-weight:900; cursor:pointer; line-height:1;}
+  .tprod-qty span{ min-width:18px; text-align:center; font-weight:800; font-size:12px;}
+  .tprod-msr{ flex-basis:100%; display:flex; align-items:center; gap:8px; margin-top:6px; padding-top:7px; border-top:1px dashed var(--line);}
+  .tprod-msr span{ font-size:10.5px; font-weight:700; color:var(--red); flex:none;}
+  .tprod-msr .select-wrap{ flex:1; position:relative;}
+  .tprod-msr select{ width:100%; height:30px; font-family:var(--font); font-size:10.5px; font-weight:700; border:1.5px solid var(--field-border); border-radius:8px; padding:0 24px 0 8px; appearance:none; -webkit-appearance:none; background:#fff; color:var(--ink);}
+  .tprod-msr .select-wrap svg{ position:absolute; right:7px; top:50%; transform:translateY(-50%); width:12px; pointer-events:none; color:var(--muted);}
+  .tprod.added .tprod-msr{ display:none;}
+  .tprod-scheme{ display:inline-block; font-size:9px; font-weight:800; color:var(--orange); border:1px solid var(--orange); border-radius:999px; padding:1px 7px; margin-top:3px; cursor:pointer;}
+  .teleo-schemes{ }
+  .teleo-foot{ flex:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 16px calc(16px + env(safe-area-inset-bottom)); background:#fff; border-top:1px solid var(--line); box-shadow:0 -6px 18px -12px rgba(0,0,0,.3); z-index:20;}
+  .teleo-foot-val{ display:flex; flex-direction:column; line-height:1.2;} .teleo-foot-val span{ font-size:11px; color:var(--muted); font-weight:600;} .teleo-foot-val b{ font-size:18px; font-weight:900;}
+  .teleo-review{ width:auto; padding:0 24px; height:46px; background:var(--orange); color:#fff; display:flex; align-items:center; gap:8px;}
+  .teleo-rcount{ background:rgba(255,255,255,.25); border-radius:999px; padding:1px 8px; font-size:12px; font-weight:800;}
+  .teleo-wrap.pad-fab{ padding-bottom:0;}
   .rank-top .nm{ font-size:16px; font-weight:800; color:var(--ink);}
   .rank-top .role{ font-size:11.5px; color:var(--muted);}
   .rank-right{ margin-left:auto; text-align:right;}
@@ -675,8 +723,8 @@
   .ocard-map svg{ width:18px; height:18px; color:#2F6BD8;}
   .ocard .ol-logo{ width:44px; height:44px; align-self:flex-start;}
   .ocard-body{ flex:1; min-width:0;}
-  .ocard-name{ font-size:15px; font-weight:800; color:var(--ink);}
-  .ocard-erp{ font-size:11.5px; color:var(--muted); margin:2px 0 8px;}
+  .ocard-name{ font-size:13px; font-weight:800; color:var(--ink);}
+  .ocard-erp{ font-size:10px; color:var(--muted); margin:2px 0 7px;}
   .ocard-row{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:6px;}
   .ocard-row .ck{ font-size:11px; color:var(--orange); font-weight:600; width:42px; flex:none;}
   .otag{ font-size:10.5px; font-weight:700; padding:4px 9px; border-radius:999px; border:1px solid var(--line); color:var(--ink-2); background:#fff;}
@@ -817,7 +865,8 @@
   .av-sub{ font-size:12.5px; color:var(--muted); margin-top:2px;}
   .av-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:7px; font-size:12px; font-weight:600; color:var(--ink-2);}
   .av-meta .grn{ color:var(--green);} .av-meta .timer{ color:var(--orange);}
-  .av-wrap{ padding:16px 18px 96px; --avb:#D9D2C2; --avd:#E6E0D2;}
+  .av-wrap{ padding:16px 18px 14px; --avb:#D9D2C2; --avd:#E6E0D2; flex:1 1 auto; min-height:0; overflow-y:auto;}
+  .view[data-view="visit"]{ height:100%; min-height:0;}
   .av-info{ border:1.5px solid var(--avb); border-radius:16px; padding:6px 14px; margin-bottom:16px; box-shadow:0 6px 16px -12px rgba(80,60,30,.35);}
   .av-info-row{ display:flex; align-items:center; gap:10px; padding:12px 0; border-bottom:1px solid var(--avd); font-size:13px;}
   .av-info-row:last-child{ border-bottom:none;}
@@ -1076,6 +1125,7 @@
   .av-act .chev{ width:18px; height:18px; color:#b3aa95; margin-left:auto;}
   .av-act.done .chev{ margin-left:8px;}
   .av-checkout, .cart-place, .co-submit{ position:absolute; left:18px; right:18px; bottom:16px; height:54px; background:var(--red); color:#fff; font-size:16px; box-shadow:0 -2px 0 0 rgba(0,0,0,0), 0 14px 24px -12px rgba(208,31,47,.85); width:auto;}
+  .av-checkout{ position:static; flex:none; left:auto; right:auto; bottom:auto; margin:0 18px calc(14px + env(safe-area-inset-bottom)); box-shadow:0 -2px 18px -10px rgba(0,0,0,.28), 0 14px 24px -12px rgba(208,31,47,.85);}
 
   /* Take order */
   .to-wrap{ padding:14px 18px 90px;}
@@ -1116,19 +1166,19 @@
   .ms-reason select{ width:100%; height:40px; border:1.5px solid var(--field-border); border-radius:10px; padding:0 34px 0 12px; font-family:var(--font); font-size:13px; font-weight:600; color:var(--ink); background:var(--field); outline:none; appearance:none; -webkit-appearance:none;}
   .ms-reason .select-wrap svg{ position:absolute; right:12px; top:50%; transform:translateY(-50%); width:15px; height:15px; color:#8a8478; pointer-events:none;}
   .prod-img{ width:56px; height:56px; border-radius:10px; flex:none; background:var(--cream); object-fit:cover; align-self:flex-start;}
-  .prod-body{ flex:1; min-width:0;} .prod-name{ font-size:14px; font-weight:800; color:var(--ink);} .prod-price{ font-size:15px; font-weight:800; margin-top:1px;}
+  .prod-body{ flex:1; min-width:0;} .prod-name{ font-size:12.5px; font-weight:800; color:var(--ink);} .prod-price{ font-size:13px; font-weight:800; margin-top:1px;}
   .prod-tags{ margin-bottom:5px;}
   .ptag-box{ display:inline-block; font-size:10px; font-weight:800; padding:3px 9px; border-radius:7px;}
   .ptag-box.ms{ background:#FCE5E7; color:var(--red);}
   .ptag-box.fs{ background:var(--orange-soft); color:var(--orange);}
   .ptag-box.sg{ background:#E4ECFB; color:#2F6BD8;}
-  .prod-stock{ font-size:11.5px; color:var(--muted); margin-top:3px; display:none;}
+  .prod-stock{ font-size:10.5px; color:var(--muted); margin-top:2px; display:none;}
   .prod-stock b{ color:var(--ink);}
   .to-wrap.show-stock .prod-stock{ display:block;}
   .prod-scheme{ font-size:11.5px; font-weight:600; margin-top:3px; color:var(--muted);} .prod-scheme.grn{ color:var(--green);} .prod-scheme.org{ color:var(--orange);}
   .scheme-tag{ display:inline-block; cursor:pointer; border:1px solid currentColor; border-radius:999px; padding:2px 9px; margin-top:5px;}
   .ptag{ background:#fff; color:var(--orange); font-size:10px; font-weight:800; padding:3px 8px; border-radius:7px; align-self:flex-start;}
-  .addbtn{ background:var(--red); color:#fff; border:none; font-family:var(--font); font-weight:800; font-size:13px; padding:10px 18px; border-radius:11px; cursor:pointer; align-self:flex-start;}
+  .addbtn{ background:var(--red); color:#fff; border:none; font-family:var(--font); font-weight:800; font-size:11.5px; padding:8px 15px; border-radius:10px; cursor:pointer; align-self:flex-start;}
   .addbtn.org{ background:var(--orange); padding:8px 14px;}
   .qty{ display:flex; align-items:center; gap:0; border:1px solid var(--field-border); border-radius:11px; overflow:hidden; flex:none; align-self:flex-start;}
   .qty button{ width:34px; height:34px; border:none; background:var(--orange); color:#fff; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center;}
@@ -1182,21 +1232,21 @@
   .cart-wrap{ padding:14px 18px 90px;}
   .cart-wrap.pad-btn{ padding-bottom:96px;}
   .clear-all{ margin-left:auto; color:var(--orange); font-weight:800; font-size:15px; cursor:pointer;}
-  .cart-prodhead{ display:flex; align-items:center; font-size:16px; font-weight:800; margin:14px 0 12px;}
+  .cart-prodhead{ display:flex; align-items:center; font-size:13.5px; font-weight:800; margin:12px 0 10px;}
   .ci-card{ border:1.5px solid var(--avb,#D9D2C2); border-radius:14px; padding:12px; margin-bottom:11px;}
   .crow-img{ width:46px; height:46px; border-radius:10px; background:var(--cream); object-fit:cover; flex:none;}
   .ci-top{ display:flex; align-items:center; gap:12px;}
   .ci-top .crow-img{ width:44px; height:44px; border-radius:10px;}
   .ci-info{ flex:1; min-width:0;}
-  .ci-price{ font-size:12.5px; color:var(--muted); margin-top:2px; font-weight:700;}
-  .ci-extra{ margin-top:10px; padding-top:10px; border-top:1px dashed var(--line); font-size:12.5px; font-weight:600;}
+  .ci-price{ font-size:11px; color:var(--muted); margin-top:2px; font-weight:700;}
+  .ci-extra{ margin-top:9px; padding-top:9px; border-top:1px dashed var(--line); font-size:11px; font-weight:600;}
   .ci-extra b{ font-weight:800;}
   .ci-extra.disc{ color:var(--red);}
   .ci-extra.free{ color:var(--green);}
   .cart-summary{ border:1px solid var(--line); border-radius:16px; padding:14px 16px; margin-top:18px;}
-  .cs-row{ display:flex; justify-content:space-between; padding:7px 0; font-size:13.5px; color:var(--ink-2);}
+  .cs-row{ display:flex; justify-content:space-between; padding:6px 0; font-size:12.5px; color:var(--ink-2);}
   .cs-row b{ font-weight:800; color:var(--ink);} .cs-row .grn{ color:var(--green);}
-  .cs-row.total{ border-top:1px solid var(--line); margin-top:6px; padding-top:12px; font-size:15px;}
+  .cs-row.total{ border-top:1px solid var(--line); margin-top:6px; padding-top:11px; font-size:14px;}
   .cart-place{ position:sticky; bottom:16px; margin:6px 18px 8px; align-self:stretch; width:auto; height:54px; background:var(--red); color:#fff; box-shadow:0 14px 24px -12px rgba(208,31,47,.85); z-index:6;}
 
   /* Order success */
@@ -2092,7 +2142,7 @@
 
         <!-- ============ EDIT OUTLET (pre-filled) ============ -->
         <section class="view" data-view="editoutlet">
-          <div class="topbar"><div class="back-btn" data-go="outletdetail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Edit Outlet</div></div>
+          <div class="topbar"><div class="back-btn" id="eoBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Edit Outlet</div></div>
           <div class="no-wrap">
             <div class="fgroup"><label class="field-label">Outlet Name<span class="req">*</span></label><input class="input" value="Balaji Super Mart"></div>
             <div class="fgroup"><label class="field-label">Phone Number<span class="req">*</span></label>
@@ -2143,7 +2193,7 @@
                 <div class="od-id-d"><b>10 Feb 2026</b><span>Last Ordered</span></div>
               </div>
             </div>
-            <div class="od-tags"><span class="otag ver-tag">✓ Verified</span><span class="otag gt">GT</span><span class="otag a">A</span><span class="otag chan">School/College Canteen</span></div>
+            <div class="od-tags" id="odTags"><span class="otag ver-tag">✓ Verified</span><span class="otag gt">GT</span><span class="otag a">A</span><span class="otag chan">School/College Canteen</span></div>
 
             <!-- Outlet Sales -->
             <div class="dcard od-sales">
@@ -2209,9 +2259,9 @@
             <!-- Horizontal tabs -->
             <div class="av-tabs">
               <div class="av-tab active" data-avtab="actions">Actions</div>
+              <div class="av-tab" data-avtab="tasks" id="tasksTab" style="display:none;">Tasks <span class="tasks-count" id="tasksCount">0/6</span></div>
               <div class="av-tab" data-avtab="last10">Orders</div>
               <div class="av-tab" data-avtab="targets">Targets</div>
-              <div class="av-tab" data-avtab="tasks" id="tasksTab" style="display:none;">Tasks <span class="tasks-count" id="tasksCount">0/6</span></div>
             </div>
 
             <!-- TAB: Actions -->
@@ -3184,6 +3234,7 @@
               <div class="to-oname">Balaji Super Mart</div>
               <label class="db-toggle"><span>DB Stock</span><input type="checkbox" id="dbStock"><span class="db-track"></span></label>
             </div>
+            <button class="import-sec" id="toImportSec" style="display:none;">⇣ Import from Secondary</button>
             <div class="sc-filters">
               <div class="sc-frow"><span class="sc-flab">Brand</span><div class="sc-chips" id="toBrand">
                 <span class="sc-chip sel" data-v="All">All</span><span class="sc-chip" data-v="Kopiko">Kopiko</span><span class="sc-chip" data-v="Malkist">Malkist</span><span class="sc-chip" data-v="Choki Choki">Choki Choki</span><span class="sc-chip" data-v="Beng Beng">Beng Beng</span><span class="sc-chip" data-v="Jam O Jam">Jam O Jam</span>
@@ -3247,6 +3298,72 @@
           </div>
         </section>
 
+        <!-- ============ IMPORT FROM SECONDARY ============ -->
+        <section class="view" data-view="importsec">
+          <div class="topbar"><div class="back-btn" id="impBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Import from Secondary</div></div>
+          <div class="sub-wrap pad-btn">
+            <p class="sd-intro" style="margin-bottom:12px;">Secondary order lines with suggested quantities. Add lines individually, or add all to the cart.</p>
+            <div id="impList"></div>
+          </div>
+          <button class="btn sub-cta" id="impAddAll">Add All to Cart</button>
+        </section>
+
+        <!-- ============ TELE ORDER (new UI) ============ -->
+        <section class="view" data-view="teleorder">
+          <div class="topbar"><div class="back-btn" id="teleoBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Tele Order</div></div>
+          <div class="teleo-wrap pad-fab">
+            <div class="teleo-top">
+              <div class="to-oname" id="teleoName">Venkateshwara Distributors</div>
+              <label class="db-toggle"><span>DB Stock</span><input type="checkbox" id="teleoDb"><span class="db-track"></span></label>
+            </div>
+            <button class="import-sec" id="teleoImportSec" style="display:none;">⇣ Import from Secondary</button>
+            <div class="teleo-searchrow">
+              <div class="teleo-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="teleoSearch" placeholder="Search SKU"></div>
+              <div class="select-wrap teleo-dd"><select class="input" id="teleoSub"><option value="">Sub Brand</option><option>Kopiko Cappuccino</option><option>Malkist Cheese</option><option>Malkist Combo</option><option>Choki Duo</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+              <div class="select-wrap teleo-dd"><select class="input" id="teleoAlias"><option value="">Alias</option><option>Kopiko Small Pouch</option><option>Malkist Cheese FP</option><option>Malkist Combo Pack</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <div class="to-quickf teleo-qf">
+              <span class="qf-chip sel" data-tqf="all">All</span>
+              <span class="qf-chip" data-tqf="mustsell">Must Sell</span>
+              <span class="qf-chip" data-tqf="focused">Focused Sell</span>
+              <span class="qf-chip" data-tqf="schemes">Schemes</span>
+              <span class="qf-chip" data-tqf="suggested">Suggested</span>
+            </div>
+            <div class="teleo-body">
+              <div class="teleo-brands" id="teleoBrands"></div>
+              <div class="teleo-prods" id="teleoProds"></div>
+            </div>
+            <div class="teleo-schemes" id="teleoSchemes" style="display:none;">
+              <div class="schm-acc">
+                <div class="schm-ah" data-acc><div class="schm-ic">%</div><div class="schm-b"><div class="schm-n">Kopiko – Slab Discount</div><div class="schm-s">Buy 4 get 20% · Buy 10 get 25%</div></div><svg class="schm-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="schm-ab">
+                  <div class="schm-slab"><span class="s-ic">%</span><div class="s-t"><b>Buy 4 → 20% off</b><span>Price discount on 4 units</span></div></div>
+                  <div class="schm-slab"><span class="s-ic">%</span><div class="s-t"><b>Buy 10 → 25% off</b><span>Price discount on 10 units</span></div></div>
+                  <div class="schm-addqty"><span>Quantity</span><div class="qty sm"><button class="qm">–</button><span>0</span><button class="qp">+</button></div><button class="addbtn schm-addbtn">Add</button></div>
+                </div>
+              </div>
+              <div class="schm-acc">
+                <div class="schm-ah" data-acc><div class="schm-ic gift">🎁</div><div class="schm-b"><div class="schm-n">Malkist Cheese – Free Qty</div><div class="schm-s">Buy 8 get 2 free</div></div><svg class="schm-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="schm-ab">
+                  <div class="schm-slab"><span class="s-ic">🎁</span><div class="s-t"><b>Buy 8 → Get 2 Free</b><span>Free quantity offer</span></div></div>
+                  <div class="schm-addqty"><span>Quantity</span><div class="qty sm"><button class="qm">–</button><span>0</span><button class="qp">+</button></div><button class="addbtn schm-addbtn">Add</button></div>
+                </div>
+              </div>
+              <div class="schm-acc">
+                <div class="schm-ah" data-acc><div class="schm-ic">₹</div><div class="schm-b"><div class="schm-n">Jam O Jam – Unit Price Off</div><div class="schm-s">₹5 off per unit on 12+</div></div><svg class="schm-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="schm-ab">
+                  <div class="schm-slab"><span class="s-ic">₹</span><div class="s-t"><b>Buy 12+ → ₹5 off / unit</b><span>Unit price reduced</span></div></div>
+                  <div class="schm-addqty"><span>Quantity</span><div class="qty sm"><button class="qm">–</button><span>0</span><button class="qp">+</button></div><button class="addbtn schm-addbtn">Add</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="teleo-foot">
+            <div class="teleo-foot-val"><span>Order value</span><b id="teleoVal">₹0</b></div>
+            <button class="btn teleo-review" id="teleoCart">Review<span class="teleo-rcount" id="teleoBadge">0</span></button>
+          </div>
+        </section>
+
         <!-- ============ SCHEMES LIST ============ -->
         <section class="view" data-view="schemeslist">
           <div class="topbar"><div class="back-btn" data-go="takeorder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Available Schemes</div></div>
@@ -3267,7 +3384,7 @@
 
         <!-- ============ CART ============ -->
         <section class="view" data-view="cart">
-          <div class="topbar"><div class="back-btn" data-go="takeorder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Cart</div><span class="clear-all" id="cartClear">Clear All</span></div>
+          <div class="topbar"><div class="back-btn" id="cartBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Cart</div><span class="clear-all" id="cartClear">Clear All</span></div>
           <div class="cart-wrap pad-btn">
             <div class="to-outlet"><div class="val">Balaji Super Mart</div></div>
             <div class="cart-prodhead">Product Details</div>
@@ -3777,7 +3894,7 @@
       }
     }
     // global menu hidden on onboarding + order screens
-    const noMenu = ['login','otp','profile','sync','ordersuccess','checkout','cart','takeorder','orderslist','outletdetail','visit','stockcheck','stocksummary','schemeslist','schemedetail','task_selfba','task_smgr','task_expiry','task_facing','task_addvis','task_comp','ow_dvs_list','ow_dvs_form','ow_promo_list','ow_promo_form','ow_train_list','ow_train_form','ow_meet_list','ow_meet_form','ow_dsearch_list','ow_dsearch_form','ow_other_list','ow_other_form','jw_form','pendingitems','helpdesk','helpdesk_form','resource','advleave','advleave_form','shareorder','approval','profileview','pjp_build','claims','claim_new','analytics','dsr','msr','attendance','tgt','empclaims','order_detail','notifications','coins'];
+    const noMenu = ['login','otp','profile','sync','ordersuccess','checkout','cart','takeorder','orderslist','outletdetail','visit','stockcheck','stocksummary','schemeslist','schemedetail','task_selfba','task_smgr','task_expiry','task_facing','task_addvis','task_comp','ow_dvs_list','ow_dvs_form','ow_promo_list','ow_promo_form','ow_train_list','ow_train_form','ow_meet_list','ow_meet_form','ow_dsearch_list','ow_dsearch_form','ow_other_list','ow_other_form','jw_form','pendingitems','helpdesk','helpdesk_form','resource','advleave','advleave_form','shareorder','approval','profileview','pjp_build','claims','claim_new','analytics','dsr','msr','attendance','tgt','empclaims','order_detail','notifications','coins','importsec','teleorder'];
     const gm = document.getElementById('globalMenu');
     if(gm) gm.style.display = (noMenu.includes(name) || name==='home') ? 'none' : 'flex';
     fpMask.classList.remove('show');
@@ -3803,13 +3920,23 @@
     if(name==='outletdetail'){ const w=document.getElementById('odLocWarn'), k=document.getElementById('odLocOk'); if(w&&k){ w.style.display=''; k.style.display='none'; }
       const pr=window._isPrimary; const dots=document.getElementById('odDots'), miss=document.getElementById('odMissed');
       if(dots) dots.style.display = pr ? 'none' : ''; if(miss) miss.style.display = (pr||window._isJoint) ? 'none' : '';
+      const tg=document.getElementById('odTags'); if(tg) tg.style.display = pr ? 'none' : '';
     }
-    if(name==='visit'){ const pr=window._isPrimary;
+    if(name==='visit'){ const pr=window._isPrimary, mr=window._isMerch;
       const av=document.getElementById('avDots'); if(av) av.style.display = pr ? 'none' : '';
-      const col=document.querySelector('.av-act[data-act="collection"]'); if(col) col.style.display = pr ? 'none' : '';
+      // Merchandising: only Take Order + Raise Ticket. Else hide collection/competitor/returnorder/assetsurvey for primary.
+      const hideMerch=['stockcheck','competitor','returnorder','collection','assetsurvey'];
+      ['stockcheck','takeorder','competitor','returnorder','collection','assetsurvey','tickets'].forEach(a=>{
+        const el=document.querySelector('.av-act[data-act="'+a+'"]'); if(!el) return;
+        let hide=false;
+        if(mr) hide = hideMerch.indexOf(a)>=0;
+        else hide = (pr && ['collection','competitor','returnorder','assetsurvey'].indexOf(a)>=0);
+        el.style.display = hide ? 'none' : '';
+      });
     }
     const _cf=document.getElementById('goCart'); if(_cf) _cf.style.display = (name==='takeorder') ? 'flex' : 'none';
-    if(name==='takeorder'){ const ts=document.getElementById('toSchemes'), tl=document.getElementById('toList'); if(ts&&tl){ ts.style.display='none'; tl.style.display=''; } document.querySelectorAll('.qf-chip').forEach(x=>x.classList.toggle('sel', x.dataset.qf==='mustsell')); if(typeof toFilter==='function') toFilter(); }
+    if(name==='takeorder'){ const ts=document.getElementById('toSchemes'), tl=document.getElementById('toList'); if(ts&&tl){ ts.style.display='none'; tl.style.display=''; } document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.toggle('sel', x.dataset.qf==='mustsell')); const imp=document.getElementById('toImportSec'); if(imp) imp.style.display = window._isPrimary ? '' : 'none'; if(typeof toFilter==='function') toFilter(); }
+    if(name==='teleorder' && typeof buildTele==='function') buildTele();
   }
 
   // sidebar open/close
@@ -3864,6 +3991,126 @@
   confirmMask && confirmMask.addEventListener('click', e=>{ if(e.target===confirmMask) confirmMask.classList.remove('show'); });
   // order success back: tele -> beats, else visit
   document.getElementById('osucBack') && (document.getElementById('osucBack').onclick = ()=> show(window._teleMode ? 'beats' : 'visit'));
+
+  /* ===== Import from Secondary ===== */
+  const IMPORT_SKUS = [
+    {n:'Kopiko Small Pouch 50g', m:'₹50 · Kopiko', q:10},
+    {n:'Malkist Cheese FP 120g', m:'₹53 · Malkist', q:6},
+    {n:'Malkist Combo Pack', m:'₹50 · Malkist', q:8},
+    {n:'Choki Duo Pouch 10g', m:'₹10 · Choki Choki', q:24},
+    {n:'Beng Beng 30g', m:'₹30 · Beng Beng', q:12},
+    {n:'Jam O Jam Assorted GB', m:'₹120 · Jam O Jam', q:4}
+  ];
+  function buildImport(){ const box=document.getElementById('impList'); if(!box) return; box.innerHTML='';
+    IMPORT_SKUS.forEach(s=>{ const row=document.createElement('div'); row.className='imp-row';
+      row.innerHTML='<div class="imp-b"><div class="imp-n">'+s.n+'</div><div class="imp-m">'+s.m+'</div></div>'+
+        '<div class="imp-qty"><button class="qd">–</button><span>'+s.q+'</span><button class="qu">+</button></div>'+
+        '<button class="imp-add">Add</button>';
+      const span=row.querySelector('.imp-qty span');
+      row.querySelector('.qd').onclick=()=>{ let v=parseInt(span.textContent)||0; if(v>0) span.textContent=v-1; };
+      row.querySelector('.qu').onclick=()=>{ span.textContent=(parseInt(span.textContent)||0)+1; };
+      row.querySelector('.imp-add').onclick=function(){ if(!row.classList.contains('added')){ row.classList.add('added'); this.textContent='Added'; showToast(s.n+' added to cart'); } };
+      box.appendChild(row);
+    });
+  }
+  function openImport(origin){ window._impOrigin=origin; buildImport(); show('importsec'); }
+  document.getElementById('toImportSec') && (document.getElementById('toImportSec').onclick=()=>openImport('takeorder'));
+  document.getElementById('teleoImportSec') && (document.getElementById('teleoImportSec').onclick=()=>openImport('teleorder'));
+  document.getElementById('impBack') && (document.getElementById('impBack').onclick=()=> show(window._impOrigin||'takeorder'));
+  document.getElementById('impAddAll') && (document.getElementById('impAddAll').onclick=()=>{ window._cartOrigin=window._impOrigin||'takeorder'; show('cart'); showToast('All secondary lines added to cart'); });
+
+  /* ===== Tele Order (new UI) ===== */
+  const TELE_PRODS = [
+    {n:'KOPIKO SMALL POUCH 50g', brand:'Kopiko', sub:'Kopiko Cappuccino', alias:'Kopiko Small Pouch', price:50, stock:240, tag:'mustsell', scheme:true},
+    {n:'KOPIKO CAPPUCCINO 25g', brand:'Kopiko', sub:'Kopiko Cappuccino', alias:'', price:30, stock:180, tag:'focused'},
+    {n:'KOPIKO BROWN COFFEE', brand:'Kopiko', sub:'', alias:'', price:35, stock:120, tag:''},
+    {n:'MALKIST CHEESE FP 120g', brand:'Malkist', sub:'Malkist Cheese', alias:'Malkist Cheese FP', price:53, stock:0, tag:'focused', scheme:true},
+    {n:'MALKIST COMBO PACK', brand:'Malkist', sub:'Malkist Combo', alias:'Malkist Combo Pack', price:50, stock:165, tag:'suggested'},
+    {n:'MALKIST CRACKERS 90g', brand:'Malkist', sub:'', alias:'', price:40, stock:88, tag:''},
+    {n:'CHOKI DUO POUCH 10g', brand:'Choki Choki', sub:'Choki Duo', alias:'', price:10, stock:95, tag:''},
+    {n:'CHOKI CHOKI 15g', brand:'Choki Choki', sub:'', alias:'', price:12, stock:140, tag:'suggested'},
+    {n:'BENG BENG 30g', brand:'Beng Beng', sub:'', alias:'', price:30, stock:120, tag:'mustsell'},
+    {n:'BENG BENG SHARE IT', brand:'Beng Beng', sub:'', alias:'', price:55, stock:60, tag:''},
+    {n:'JAM O JAM ASSORTED GB', brand:'Jam O Jam', sub:'', alias:'', price:120, stock:64, tag:'mustsell', scheme:true}
+  ];
+  let teleBrand='All', teleQf='all', teleCart=0, teleVal=0, teleState={};
+  function buildTeleBrands(){ const box=document.getElementById('teleoBrands'); if(!box) return; const brands=['All'].concat(TELE_PRODS.map(p=>p.brand).filter((v,i,a)=>a.indexOf(v)===i)); box.innerHTML='';
+    brands.forEach(bn=>{ const e=document.createElement('div'); e.className='teleo-brand'+(bn===teleBrand?' sel':''); e.textContent=bn; e.onclick=()=>{ teleBrand=bn; buildTeleBrands(); renderTele(); }; box.appendChild(e); });
+  }
+  function teleAddVal(amt){ teleVal=Math.max(0,teleVal+amt); const v=document.getElementById('teleoVal'); if(v) v.textContent='₹'+teleVal.toLocaleString('en-IN'); }
+  function teleLine(d){ teleCart=Math.max(0,teleCart+d); const bd=document.getElementById('teleoBadge'); if(bd) bd.textContent=teleCart; }
+  function renderTele(){
+    const body=document.querySelector('.view[data-view="teleorder"] .teleo-body'); const brail=document.getElementById('teleoBrands');
+    const sch=document.getElementById('teleoSchemes');
+    // Schemes filter shows the accordion panel instead of products
+    if(teleQf==='schemes'){ if(body) body.style.display='none'; if(sch) sch.style.display=''; return; }
+    if(body) body.style.display=''; if(sch) sch.style.display='none';
+    const box=document.getElementById('teleoProds'); if(!box) return;
+    const q=(document.getElementById('teleoSearch').value||'').toLowerCase();
+    const sub=document.getElementById('teleoSub').value, alias=document.getElementById('teleoAlias').value;
+    const db=document.getElementById('teleoDb').checked;
+    box.innerHTML='';
+    const list=TELE_PRODS.filter(p=>{
+      if(teleBrand!=='All' && p.brand!==teleBrand) return false;
+      if(teleQf!=='all' && p.tag!==teleQf) return false;
+      if(sub && p.sub!==sub) return false;
+      if(alias && p.alias!==alias) return false;
+      if(q && p.n.toLowerCase().indexOf(q)<0) return false;
+      return true;
+    });
+    list.forEach(p=>{
+      const tagcls = p.tag==='mustsell'?'ms':p.tag==='focused'?'fs':p.tag==='suggested'?'sg':'';
+      const taglbl = p.tag==='mustsell'?'Must Sell':p.tag==='focused'?'Focused':p.tag==='suggested'?'Suggested':'';
+      const tags = (taglbl?'<span class="tprod-tag '+tagcls+'">'+taglbl+'</span> ':'');
+      const row=document.createElement('div'); row.className='tprod'+(p.tag==='mustsell'?' ms':'');
+      const st = teleState[p.n] || (teleState[p.n]={qty:0,reason:''});
+      row.dataset.qty=String(st.qty);
+      const msr = p.tag==='mustsell' ? '<div class="tprod-msr"><span>No sale reason</span><div class="select-wrap"><select class="tmsr-sel"><option value="">Select reason</option><option>Out of Stock</option><option>Customer Refused</option><option>High Price</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>' : '';
+      row.innerHTML='<div class="tprod-b"><div class="tprod-n">'+p.n+'</div><div class="tprod-meta">₹'+p.price+(db?(' · DB '+(p.stock+40)+' Pc'):(' · Avail '+p.stock+' Pc'))+'</div>'+(tags?'<div>'+tags+'</div>':'')+(p.scheme?'<div class="tprod-scheme">🏷 View Scheme</div>':'')+'</div>'+
+        '<button class="tprod-add">ADD</button><div class="tprod-qty" style="display:none;"><button class="tq-m">–</button><span>0</span><button class="tq-p">+</button></div>'+msr;
+      if(p.scheme){ row.querySelector('.tprod-scheme').onclick=(e)=>{ e.stopPropagation(); const sn=document.getElementById('spProdName'); if(sn) sn.textContent=p.n; const sm=document.getElementById('schemesMask'); if(sm) sm.classList.add('show'); }; }
+      const addBtn=row.querySelector('.tprod-add'), stp=row.querySelector('.tprod-qty'), qs=stp.querySelector('span');
+      const setQ=(n)=>{ st.qty=n; row.dataset.qty=String(n); qs.textContent=String(n); row.classList.toggle('added', n>0); };
+      // restore prior quantity
+      if(st.qty>0){ qs.textContent=String(st.qty); stp.style.display=''; addBtn.style.display='none'; row.classList.add('added'); }
+      addBtn.onclick=()=>{ setQ(1); stp.style.display=''; addBtn.style.display='none'; teleLine(1); teleAddVal(p.price); };
+      stp.querySelector('.tq-p').onclick=()=>{ setQ(parseInt(row.dataset.qty)+1); teleAddVal(p.price); };
+      stp.querySelector('.tq-m').onclick=()=>{ const v=parseInt(row.dataset.qty)-1; teleAddVal(-p.price); if(v<=0){ setQ(0); stp.style.display='none'; addBtn.style.display=''; teleLine(-1); } else setQ(v); };
+      const rsel=row.querySelector('.tmsr-sel'); if(rsel){ rsel.value=st.reason||''; rsel.onchange=()=>{ st.reason=rsel.value; }; }
+      box.appendChild(row);
+    });
+    if(!list.length) box.innerHTML='<div style="text-align:center;color:var(--muted);font-size:12px;padding:24px 8px;">No products match</div>';
+  }
+  function buildTele(){ teleBrand='All'; teleQf='mustsell'; teleCart=0; teleVal=0; teleState={};
+    const bd=document.getElementById('teleoBadge'); if(bd) bd.textContent='0';
+    const vv=document.getElementById('teleoVal'); if(vv) vv.textContent='₹0';
+    const sb=document.getElementById('teleoSub'); if(sb) sb.value='';
+    const al=document.getElementById('teleoAlias'); if(al) al.value='';
+    const se=document.getElementById('teleoSearch'); if(se) se.value='';
+    document.querySelectorAll('.teleo-qf .qf-chip').forEach(x=>x.classList.toggle('sel', x.dataset.tqf==='mustsell'));
+    const imp=document.getElementById('teleoImportSec'); if(imp) imp.style.display = window._isPrimary ? '' : 'none';
+    buildTeleBrands(); renderTele();
+  }
+  document.querySelectorAll('.teleo-qf .qf-chip').forEach(c=>{ c.onclick=()=>{ document.querySelectorAll('.teleo-qf .qf-chip').forEach(x=>x.classList.remove('sel')); c.classList.add('sel'); teleQf=c.dataset.tqf; renderTele(); }; });
+  // tele schemes accordion: expand/collapse + steppers
+  document.querySelectorAll('#teleoSchemes .schm-ah').forEach(h=>{ h.onclick=()=> h.parentElement.classList.toggle('open'); });
+  setupSchemeAdders('#teleoSchemes');
+  ['teleoSub','teleoAlias'].forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener('change', renderTele); });
+  document.getElementById('teleoSearch') && document.getElementById('teleoSearch').addEventListener('input', renderTele);
+  document.getElementById('teleoDb') && document.getElementById('teleoDb').addEventListener('change', renderTele);
+  document.getElementById('teleoBack') && (document.getElementById('teleoBack').onclick=()=> show('beats'));
+  document.getElementById('teleoCart') && (document.getElementById('teleoCart').onclick=()=>{
+    const pending=TELE_PRODS.filter(p=>p.tag==='mustsell').some(p=>{ const st=teleState[p.n]||{}; return !(st.qty>0) && !st.reason; });
+    if(pending){
+      teleQf='mustsell'; teleBrand='All';
+      document.querySelectorAll('.teleo-qf .qf-chip').forEach(x=>x.classList.toggle('sel', x.dataset.tqf==='mustsell'));
+      buildTeleBrands(); renderTele();
+      const wrap=document.querySelector('.view[data-view="teleorder"] .teleo-wrap'); if(wrap) wrap.scrollTop=0;
+      showToast('Add quantity or a reason for all Must-Sell items');
+      return;
+    }
+    window._cartOrigin='teleorder'; show('cart');
+  });
   // toggle between password and OTP login cards
   document.getElementById('toOtpLogin') && (document.getElementById('toOtpLogin').onclick = ()=>{ document.getElementById('loginPwd').style.display='none'; document.getElementById('loginOtp').style.display=''; });
   document.getElementById('toPwdLogin') && (document.getElementById('toPwdLogin').onclick = ()=>{ document.getElementById('loginOtp').style.display='none'; document.getElementById('loginPwd').style.display=''; });
@@ -4388,7 +4635,7 @@
       odLogo.className = 'ol-logo ' + (logo.className.split(' ')[1]||'brown');
       window._currentOutlet = o;        // remember for missed marking
       window._isPrimary = (o.dataset.cust === 'primary');
-      if(window._teleMode){ show('takeorder'); return; }
+      if(window._teleMode){ const tn=document.getElementById('teleoName'); if(tn){ const nm=o.querySelector('.ocard-name'); tn.textContent = nm?nm.textContent:'Outlet'; } show('teleorder'); return; }
       show('outletdetail');
     };
   });
@@ -4447,7 +4694,7 @@
   if($('avDots')){
     $('avDots').onclick = (e)=>{ e.stopPropagation(); avMenu.classList.toggle('show'); };
     document.addEventListener('click', e=>{ if(avMenu && !avMenu.contains(e.target) && e.target!==$('avDots')) avMenu.classList.remove('show'); });
-    $('avEdit').onclick = ()=>{ avMenu.classList.remove('show'); show('editoutlet'); };
+    $('avEdit').onclick = ()=>{ avMenu.classList.remove('show'); window._eoOrigin='visit'; show('editoutlet'); };
     $('avReverify').onclick = ()=>{ avMenu.classList.remove('show'); $('reverifyMask').classList.add('show'); };
   }
   // Visit: horizontal tabs
@@ -4566,7 +4813,7 @@
   document.addEventListener('click', e=>{ if(odMenu && !odMenu.contains(e.target) && e.target!==$('odDots')) odMenu.classList.remove('show'); });
   const deadMask = $('deadMask'), reverifyMask = $('reverifyMask');
   $('odDead').onclick = ()=>{ odMenu.classList.remove('show'); deadMask.classList.add('show'); };
-  $('odEdit').onclick = ()=>{ odMenu.classList.remove('show'); show('editoutlet'); };
+  $('odEdit').onclick = ()=>{ odMenu.classList.remove('show'); window._eoOrigin='outletdetail'; show('editoutlet'); };
   $('odReverify').onclick = ()=>{ odMenu.classList.remove('show'); reverifyMask.classList.add('show'); };
   // dead outlet sheet
   $('deadClose').onclick = ()=> deadMask.classList.remove('show');
@@ -4574,7 +4821,8 @@
   $('deadSubmit').onclick = ()=>{ deadMask.classList.remove('show'); show('beats'); showToast('Outlet marked as dead'); };
   document.querySelectorAll('.dead-r').forEach(p=>{ p.onclick=()=>{ document.querySelectorAll('.dead-r').forEach(x=>x.classList.remove('sel')); p.classList.add('sel'); }; });
   // edit outlet submit
-  $('editOutletSubmit').onclick = ()=>{ show('outletdetail'); showToast('Outlet updated'); };
+  $('editOutletSubmit').onclick = ()=>{ show(window._eoOrigin||'outletdetail'); showToast('Outlet updated'); };
+  $('eoBack') && ($('eoBack').onclick = ()=> show(window._eoOrigin||'outletdetail'));
   // edit outlet: capture current location
   $('eoGetLoc') && ($('eoGetLoc').onclick = ()=>{
     askConfirm('Update Location?','Do you want to update the outlet location to your current GPS position?', ()=>{
@@ -4741,7 +4989,14 @@
       if(cards&&empty){ cards.style.display = has?'':'none'; empty.style.display = has?'none':''; }
     };
   });
-  $('goCheckout').onclick  = ()=> show('checkout');
+  $('goCheckout').onclick  = ()=>{
+    if(window._isMerch){
+      const mand=[...document.querySelectorAll('.av-pane[data-avpane="tasks"] .task-row')].filter(r=>r.querySelector('.tk-mand'));
+      const allDone = mand.length>0 && mand.every(r=>r.classList.contains('done'));
+      if(!allDone){ if(typeof openVisitTab==='function') openVisitTab('tasks'); showToast('Please complete all mandatory tasks before check out'); return; }
+    }
+    show('checkout');
+  };
 
   // Take order: schemes popup, qty steppers, cart
   const schemesMask = $('schemesMask');
@@ -4785,15 +5040,16 @@
       return qty===0 && !reason;
     });
     if(pending){
-      document.querySelectorAll('.qf-chip').forEach(x=>x.classList.toggle('sel', x.dataset.qf==='mustsell'));
+      document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.toggle('sel', x.dataset.qf==='mustsell'));
       const ts=$('toSchemes'), tl=$('toList'); if(ts&&tl){ ts.style.display='none'; tl.style.display=''; }
       if(typeof toFilter==='function') toFilter();
       showToast('Add quantity or a reason for Must-Sell items');
       return;
     }
-    show('cart');
+    window._cartOrigin='takeorder'; show('cart');
   };
-  $('cartClear') && ($('cartClear').onclick = ()=>{ show('takeorder'); showToast('Cart cleared'); });
+  $('cartClear') && ($('cartClear').onclick = ()=>{ show(window._cartOrigin||'takeorder'); showToast('Cart cleared'); });
+  $('cartBack') && ($('cartBack').onclick = ()=> show(window._cartOrigin||'takeorder'));
   $('placeOrder').onclick = ()=>{ markAct('takeorder'); show('ordersuccess'); };
   document.querySelectorAll('.ms-reasons').forEach(row=>{
     row.querySelectorAll('.ms-r').forEach(r=>{
@@ -4818,9 +5074,9 @@
   });
   // quick filters: All / Must Sell / Focused / Schemes / Suggested
   const toSchemes = $('toSchemes'), toListEl = $('toList');
-  document.querySelectorAll('.qf-chip').forEach(c=>{
+  document.querySelectorAll('.qf-chip[data-qf]').forEach(c=>{
     c.onclick=()=>{
-      document.querySelectorAll('.qf-chip').forEach(x=>x.classList.remove('sel')); c.classList.add('sel');
+      document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.remove('sel')); c.classList.add('sel');
       if(c.dataset.qf==='schemes'){
         toSchemes.style.display=''; toListEl.style.display='none';
       } else {
@@ -4831,7 +5087,7 @@
   $('toSearch') && $('toSearch').addEventListener('input', toFilter);
   function toFilter(){
     const q=($('toSearch').value||'').toLowerCase();
-    const qf=(document.querySelector('.qf-chip.sel')||{}).dataset?.qf||'all';
+    const qf=(document.querySelector('.qf-chip[data-qf].sel')||{}).dataset?.qf||'all';
     document.querySelectorAll('#toList .prod').forEach(p=>{
       const name=(p.querySelector('.prod-name').textContent||'').toLowerCase();
       const okSearch=name.includes(q);
@@ -4843,13 +5099,17 @@
   document.querySelectorAll('#toSchemes .schm-ah').forEach(h=>{
     h.onclick = ()=> h.parentElement.classList.toggle('open');
   });
-  // inline schemes: steppers + Add buttons
-  document.querySelectorAll('#toSchemes .schm-addqty .qty').forEach(q=>{
-    const s=q.querySelector('span');
-    q.querySelector('.qm').onclick=()=> s.textContent=Math.max(0,parseInt(s.textContent)-1);
-    q.querySelector('.qp').onclick=()=> s.textContent=parseInt(s.textContent)+1;
-  });
-  document.querySelectorAll('#toSchemes .schm-addbtn').forEach(b=>{ b.onclick=()=> showToast('Scheme added to cart'); });
+  // Add -> reveals quantity stepper starting at 1 (qm/qp adjust; back to 0 reverts to Add)
+  function setupSchemeAdders(scope){
+    document.querySelectorAll(scope+' .schm-addqty').forEach(box=>{
+      const stepper=box.querySelector('.qty'), addBtn=box.querySelector('.schm-addbtn'), sp=stepper.querySelector('span');
+      stepper.style.display='none'; sp.textContent='0';
+      addBtn.onclick=()=>{ sp.textContent='1'; stepper.style.display=''; addBtn.style.display='none'; showToast('Scheme added to cart'); };
+      stepper.querySelector('.qp').onclick=()=>{ sp.textContent=parseInt(sp.textContent)+1; };
+      stepper.querySelector('.qm').onclick=()=>{ const v=parseInt(sp.textContent)-1; if(v<=0){ sp.textContent='0'; stepper.style.display='none'; addBtn.style.display=''; } else sp.textContent=v; };
+    });
+  }
+  setupSchemeAdders('#toSchemes');
 
   // Scheme list -> detail
   document.querySelectorAll('.schm-card').forEach(c=>{ c.onclick=()=> { buildSchemeDetail(c.dataset.scheme); show('schemedetail'); }; });
