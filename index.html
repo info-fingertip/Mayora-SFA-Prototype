@@ -407,13 +407,18 @@
   .cb-div{ text-align:center; font-size:11.5px; font-weight:700; color:var(--muted); margin:14px 0 10px; position:relative;}
   /* import from secondary */
   .import-sec{ width:100%; border:1.5px dashed var(--orange); background:var(--orange-soft); color:var(--orange); font-family:var(--font); font-weight:800; font-size:13.5px; padding:11px; border-radius:12px; cursor:pointer; margin-bottom:12px;}
-  .imp-row{ display:flex; align-items:center; gap:10px; border:1.5px solid var(--avb,#D9D2C2); border-radius:12px; padding:11px 12px; margin-bottom:9px;}
-  .imp-b{ flex:1; min-width:0;} .imp-n{ font-size:13.5px; font-weight:800;} .imp-m{ font-size:11.5px; color:var(--muted); margin-top:2px;}
-  .imp-qty{ display:flex; align-items:center; gap:8px; border:1.5px solid var(--field-border); border-radius:9px; padding:3px 6px; flex:none;}
-  .imp-qty button{ width:24px; height:24px; border:none; background:var(--cream); border-radius:6px; font-size:15px; font-weight:800; cursor:pointer; color:var(--ink);}
-  .imp-qty span{ min-width:22px; text-align:center; font-weight:800; font-size:13px;}
-  .imp-add{ border:none; background:var(--orange); color:#fff; border-radius:9px; padding:8px 12px; font-family:var(--font); font-weight:800; font-size:12px; cursor:pointer; flex:none;}
-  .imp-row.added{ opacity:.55;} .imp-row.added .imp-add{ background:var(--green);}
+  .imp-dates{ display:flex; gap:10px; margin-bottom:12px;} .imp-dates .fgroup{ flex:1; margin:0;}
+  .imp-dates input[type=date]{ font-family:var(--font); font-weight:700; color:var(--ink);}
+  .imp-card{ border:1.5px solid var(--avb,#D9D2C2); border-radius:14px; padding:12px 13px; margin-bottom:10px;}
+  .imp-n{ font-size:13.5px; font-weight:800; margin-bottom:9px;}
+  .imp-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin-bottom:10px;}
+  .impc{ background:var(--cream); border-radius:9px; padding:7px 4px; text-align:center;}
+  .impc span{ display:block; font-size:9.5px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.3px;}
+  .impc b{ font-size:16px; font-weight:800;}
+  .impc.edit{ background:var(--orange-soft); border:1px solid var(--orange);}
+  .impc.edit input{ width:100%; border:none; background:transparent; text-align:center; font-family:var(--font); font-size:16px; font-weight:800; color:var(--orange); outline:none; padding:0;}
+  .imp-add{ width:100%; border:none; background:var(--orange); color:#fff; border-radius:10px; padding:10px; font-family:var(--font); font-weight:800; font-size:13px; cursor:pointer;}
+  .imp-card.added{ opacity:.6;} .imp-card.added .imp-add{ background:var(--green);}
   /* tele order new UI */
   .view[data-view="teleorder"]{ height:100%; min-height:0; }
   .teleo-wrap{ display:block; flex:1 1 auto; min-height:0; overflow-y:auto; padding:14px 14px 12px;}
@@ -467,6 +472,19 @@
   /* statistics grid */
   .stats-title{ font-size:16px; font-weight:800; color:var(--ink); margin:8px 2px 12px;}
   .stat-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .gm-tabs{ display:flex; gap:6px; background:#F1ECE0; border-radius:12px; padding:4px; margin-bottom:12px;}
+  .gm-tab{ flex:1; text-align:center; padding:8px 6px; border-radius:9px; font-size:12px; font-weight:800; color:var(--muted); cursor:pointer; white-space:nowrap;}
+  .gm-tab.active{ background:#fff; color:var(--orange); box-shadow:0 2px 6px -3px rgba(0,0,0,.25);}
+  .gm-pane{ display:none;} .gm-pane.active{ display:block;}
+  .gm-teamlabel{ font-size:12px; font-weight:800; color:var(--orange); margin-bottom:8px;}
+  .tgt-avg{ display:flex; align-items:center; justify-content:space-between; margin-top:12px; padding-top:11px; border-top:1px dashed var(--line); font-size:13px;}
+  .tgt-avg span{ color:var(--muted); font-weight:600;} .tgt-avg b{ font-size:15px; font-weight:800; color:var(--orange);}
+  .lc-card{ cursor:pointer;} .lc-k{ font-size:10px; font-weight:800; padding:3px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.4px;}
+  .lc-k.nl{ background:#FDEADF; color:var(--orange);} .lc-k.sc{ background:#E5F6E9; color:var(--green);} .lc-k.cm{ background:#E6EEFB; color:#2F6BD8;} .lc-k.hd{ background:#FFF1DA; color:#C79A1E;}
+  .lc-t{ font-size:15px; font-weight:800; margin:9px 0 3px;} .lc-s{ font-size:11.5px; color:var(--muted);}
+  .ld-meta{ margin-top:16px; border-top:1px solid var(--line); padding-top:6px;}
+  .ld-mrow{ display:flex; justify-content:space-between; padding:8px 0; font-size:13px; border-bottom:1px solid var(--line);}
+  .ld-mrow span{ color:var(--muted);} .ld-mrow b{ font-weight:700;}
   .stat-card{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px;
     box-shadow:0 8px 22px -18px rgba(120,90,40,.35);}
   .stat-ic{ width:36px; height:36px; border-radius:11px; display:flex; align-items:center; justify-content:center; margin-bottom:10px;}
@@ -691,7 +709,7 @@
   .bt-head{ padding-top:8px; padding-bottom:12px; padding-right:62px;}
   .bt-filter{ width:40px; height:40px; border-radius:12px; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; cursor:pointer; flex:none;}
   .bt-filter svg{ width:20px; height:20px; color:var(--orange);}
-  .bt-actions{ display:flex; gap:8px; padding:14px 18px 0; overflow-x:auto; scrollbar-width:none;}
+  .bt-actions{ display:flex; gap:8px; padding:8px 18px 0; overflow-x:auto; scrollbar-width:none;}
   .bt-actions::-webkit-scrollbar{ display:none;}
   .bt-search{ display:flex; align-items:center; gap:8px; flex:1; min-width:120px; border:1.5px solid var(--field-border); border-radius:12px; padding:0 12px; height:42px; background:#fff;}
   .bt-search svg{ width:17px; height:17px; color:#9b9588; flex:none;} .bt-search input{ border:none; outline:none; flex:1; font-family:var(--font); font-size:15px; font-weight:600; color:var(--ink); min-width:0;}
@@ -700,11 +718,30 @@
   .bt-abtn svg{ width:14px; height:14px;}
   .bt-abtn.icon-only{ padding:0; width:42px; justify-content:center;}
   .bt-abtn.icon-only svg{ width:18px; height:18px;}
-  .bt-tabs{ display:flex; gap:6px; padding:14px 18px 4px; border-bottom:1px solid var(--line); margin:0 0 4px;}
+  .bt-tabs{ display:flex; gap:6px; padding:10px 18px 4px; border-bottom:1px solid var(--line); margin:0;}
   .bt-tab{ flex:1; text-align:center; padding:10px 4px 12px; font-size:13px; font-weight:700; color:var(--muted); cursor:pointer; border-bottom:2.5px solid transparent; white-space:nowrap;}
   .bt-tab b{ font-weight:800;}
   .bt-tab.active{ color:var(--orange); border-bottom-color:var(--orange);}
+  .bt-status{ display:flex; gap:8px; padding:10px 18px 0;}
+  .bt-stab{ flex:1; text-align:center; padding:8px 6px; border-radius:10px; font-size:12.5px; font-weight:800; color:var(--muted); cursor:pointer; background:#F1ECE0;}
+  .bt-stab.active{ background:var(--orange); color:#fff;}
   .bt-list{ padding:10px 18px 30px;}
+  .od-range .od-rrow{ display:flex; gap:10px;}
+  .od-range .od-rcell{ flex:1; text-align:center;} .od-range .od-rcell b{ display:block; font-size:20px; font-weight:800;} .od-range .od-rcell span{ font-size:10.5px; color:var(--muted);}
+  .empty-list{ text-align:center; color:var(--muted); font-size:13px; padding:40px 12px;}
+  .ord-note{ background:var(--orange-soft); color:var(--orange); border-radius:11px; padding:10px 12px; font-size:11.5px; font-weight:700; margin-top:6px;}
+  .to-last2 .l2-card{ border:1.5px solid var(--avb,#D9D2C2); border-radius:14px; margin-bottom:10px; overflow:hidden;}
+  .l2-head{ display:flex; align-items:center; justify-content:space-between; padding:13px 14px; cursor:pointer;}
+  .l2-id{ font-size:14px; font-weight:800;} .l2-meta{ font-size:11.5px; color:var(--muted); margin-top:2px;}
+  .l2-car{ width:18px; transition:.2s;} .l2-card.open .l2-car{ transform:rotate(180deg);}
+  .l2-body{ display:none; padding:0 14px 12px;} .l2-card.open .l2-body{ display:block;}
+  .l2-th, .l2-row{ display:grid; grid-template-columns:1fr 50px 70px; gap:6px; padding:8px 0; font-size:12.5px; border-top:1px solid var(--line);}
+  .l2-th{ color:var(--muted); font-weight:800; font-size:11px;} .l2-th span:not(:first-child), .l2-row b{ text-align:right;}
+  .l2-row span{ font-weight:600;} .l2-row b{ font-weight:800;}
+  .val-red{ color:var(--red)!important;} .val-org{ color:var(--orange)!important;} .val-grn{ color:var(--green)!important;}
+  .cs-growth{ text-align:right; font-size:11.5px; font-weight:800; margin-top:4px;}
+  .jws-row{ display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--line); font-size:13px;}
+  .jws-row span{ color:var(--muted);} .jws-row b{ font-weight:800;}
   .ocard{ position:relative; display:flex; gap:12px; border:1px solid var(--line); border-radius:16px; padding:14px 14px 14px 18px; margin-bottom:12px; cursor:pointer; transition:.15s; background:#fff; overflow:hidden;}
   .ocard:active{ background:var(--cream);}
   .ocard-bar{ position:absolute; left:0; top:0; bottom:0; width:5px;}
@@ -1005,6 +1042,41 @@
   .jct.sub{ background:#FFF4DA; color:#C79A1E;} .jct.app{ background:#E5F6E9; color:var(--green);} .jct.rej{ background:#FCE5E7; color:var(--red);}
   .cl-filters{ display:flex; gap:7px; overflow-x:auto; margin-bottom:14px; scrollbar-width:none;} .cl-filters::-webkit-scrollbar{display:none;}
   .cl-fchip{ border:1.5px solid var(--field-border); background:#fff; border-radius:999px; padding:6px 13px; font-size:12.5px; font-weight:700; color:var(--ink-2); white-space:nowrap; cursor:pointer; flex:none;}
+  .jc-card{ border:1.5px solid var(--avb,#D9D2C2); border-radius:16px; padding:14px; margin-bottom:12px; cursor:pointer;}
+  .jc-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+  .jc-no{ font-size:16px; font-weight:800;} .jc-amt{ font-size:16px; font-weight:800; color:var(--orange);}
+  .jc-dates{ font-size:12px; color:var(--muted); font-weight:600; margin-bottom:10px;}
+  .jc-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;}
+  .jc-tag{ font-size:10.5px; font-weight:800; padding:4px 9px; border-radius:999px; background:var(--cream); color:var(--ink-2);}
+  .jc-stat{ font-size:11px; font-weight:800; padding:5px 11px; border-radius:999px;}
+  .jc-stat.sub{ background:#E6EEFB; color:#2F6BD8;} .jc-stat.amgr{ background:#FFF1DA; color:#C79A1E;} .jc-stat.afin{ background:#E5F6E9; color:var(--green);}
+  .jc-stat.rel{ background:#E5F6E9; color:var(--green);} .jc-stat.rmgr,.jc-stat.rfin{ background:#FBE3E5; color:var(--red);}
+  .jc-stat.ns{ background:#EFEADD; color:var(--muted);}
+  .cd-attrow{ display:flex; flex-wrap:wrap; gap:6px; padding:10px 0 2px;}
+  .cd-att{ font-size:10.5px; font-weight:800; padding:4px 9px; border-radius:999px; background:var(--orange-soft); color:var(--orange);}
+  .cd-acts{ display:flex; gap:10px; margin-left:auto;} .cd-act{ font-size:12.5px; font-weight:800; color:var(--orange); cursor:pointer;}
+  .cd-meta{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px;}
+  .cd-day{ border:1.5px solid var(--line); border-radius:13px; margin-bottom:10px; overflow:hidden;}
+  .cd-dhead{ display:flex; align-items:center; justify-content:space-between; padding:13px 14px; cursor:pointer;}
+  .cd-dhead b{ font-size:14px; font-weight:800;} .cd-dhead span.dow{ font-size:11px; color:var(--muted); margin-left:6px;}
+  .cd-damt{ display:flex; align-items:center; gap:8px; font-size:14px; font-weight:800;}
+  .cd-damt .chev{ width:16px; transition:.2s;} .cd-day.open .cd-damt .chev{ transform:rotate(90deg);}
+  .cd-dbody{ display:none; padding:0 14px 12px;} .cd-day.open .cd-dbody{ display:block;}
+  .cd-exp{ border-top:1px solid var(--line); padding:11px 0;}
+  .cd-exp-h{ display:flex; justify-content:space-between; align-items:center;} .cd-exp-h b{ font-size:13px; font-weight:800;}
+  .cd-exp-amt{ font-size:13px; font-weight:800;}
+  .cd-exp-g{ display:flex; gap:18px; margin-top:5px; font-size:12px;} .cd-exp-g span{ color:var(--muted);} .cd-exp-g b{ margin-left:5px;}
+  .cd-exp-rm{ font-size:11.5px; color:var(--muted); margin-top:4px;} .cd-exp-photo{ font-size:11px; color:var(--green); font-weight:700; margin-top:3px;}
+  .cd-addexp{ width:100%; border:1.5px dashed var(--orange); background:var(--orange-soft); color:var(--orange); border-radius:10px; padding:10px; font-family:var(--font); font-weight:800; font-size:12.5px; cursor:pointer; margin-top:10px;}
+  .csheet-mask{ position:absolute; inset:0; background:rgba(20,16,10,.46); display:none; align-items:flex-end; z-index:80;}
+  .csheet-mask.show{ display:flex;}
+  .csheet{ background:#fff; width:100%; max-height:86%; border-radius:22px 22px 0 0; display:flex; flex-direction:column; padding:16px 18px 18px; animation:sheetup .25s; transform:none; text-align:left;}
+  @keyframes sheetup{ from{ transform:translateY(40px); opacity:.6;} to{ transform:none; opacity:1;} }
+  .csheet-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;} .csheet-head span{ font-size:16px; font-weight:800;}
+  .csheet-x{ border:none; background:var(--cream); width:30px; height:30px; border-radius:50%; font-size:14px; cursor:pointer;}
+  .csheet-body{ overflow-y:auto; flex:1; margin-bottom:12px;}
+  .ca-hint{ background:var(--cream); border-radius:9px; padding:9px 11px; font-size:11.5px; color:var(--ink-2); font-weight:600; margin-bottom:12px; line-height:1.4;}
+  .da-calc{ background:var(--orange-soft); border-radius:9px; padding:10px 12px; font-size:12.5px; font-weight:700; color:var(--ink-2); margin-bottom:12px;}
   .cl-fchip.sel{ background:var(--orange); color:#fff; border-color:var(--orange);}
   .cl-card{ display:flex; align-items:center; gap:12px; border:1.5px solid var(--avb,#D9D2C2); border-radius:13px; padding:13px; margin-bottom:10px;}
   .cl-b{ flex:1;} .cl-t{ font-size:14px; font-weight:800;} .cl-m{ font-size:12px; color:var(--muted); margin-top:3px;}
@@ -1054,6 +1126,9 @@
   .confirm-no{ flex:1; height:46px; background:#fff; border:1.5px solid var(--field-border); color:var(--ink-2);}
   .confirm-yes{ flex:1; height:46px; background:var(--orange); color:#fff;}
   /* notifications */
+  .nt-banner{ background:var(--orange-soft); color:var(--orange); border-radius:11px; padding:11px 13px; font-size:12.5px; font-weight:700; margin-bottom:12px;}
+  .nt-read{ align-self:center; flex:none; border:1.5px solid var(--orange); background:#fff; color:var(--orange); border-radius:9px; padding:7px 13px; font-family:var(--font); font-weight:800; font-size:12px; cursor:pointer;}
+  .nt-readmark{ align-self:center; flex:none; font-size:11px; font-weight:800; color:var(--green);}
   .nt-card{ display:flex; gap:12px; border:1.5px solid var(--avb,#D9D2C2); border-radius:14px; padding:13px; margin-bottom:10px;}
   .nt-card.unread{ background:var(--orange-soft); border-color:#f6d3bf;}
   .nt-ic{ width:38px; height:38px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:17px; flex:none; color:#fff;}
@@ -1271,6 +1346,15 @@
   /* End day */
   .ed-wrap{ padding:16px 18px 90px;}
   .ed-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-bottom:16px;}
+  .ds-sec-title{ font-size:13px; font-weight:800; color:var(--muted); margin:2px 0 10px; text-transform:uppercase; letter-spacing:.5px;}
+  .rng-tabs{ display:flex; gap:5px; background:#F1ECE0; border-radius:11px; padding:4px; margin-bottom:10px;}
+  .rng-tab{ flex:1; text-align:center; padding:7px 4px; border-radius:8px; font-size:11.5px; font-weight:800; color:var(--muted); cursor:pointer; white-space:nowrap;}
+  .rng-tab.active{ background:#fff; color:var(--orange); box-shadow:0 2px 6px -3px rgba(0,0,0,.25);}
+  .rng-th, .rng-row{ display:grid; grid-template-columns:1fr 70px 88px; gap:6px; align-items:center; padding:9px 4px; font-size:12.5px; border-bottom:1px solid var(--line);}
+  .rng-th{ color:var(--muted); font-weight:800; font-size:11px;} .rng-th span:not(:first-child){ text-align:center;}
+  .rng-row span:first-child{ font-weight:700;} .rng-row .rng-out{ text-align:center; font-weight:700; color:var(--ink-2);}
+  .rng-pct{ display:flex; align-items:center; gap:6px;} .rng-pbar{ flex:1; height:6px; background:var(--line); border-radius:4px; overflow:hidden;} .rng-pbar i{ display:block; height:100%; background:var(--orange); border-radius:4px;} .rng-pv{ font-weight:800; font-size:11.5px; width:34px; text-align:right;}
+  .ed-wa{ width:100%; display:flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#fff; border:none; border-radius:12px; padding:13px; font-family:var(--font); font-weight:800; font-size:14px; cursor:pointer; margin-top:16px;}
   .eds{ border:1px solid var(--line); border-radius:14px; padding:12px; text-align:left;}
   .eds-ic{ width:32px; height:32px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:14px; margin-bottom:8px;}
   .eds-ic.blu{ background:#E4ECFB;} .eds-ic.grn{ background:#E3F5E8; color:var(--green); font-weight:800;} .eds-ic.red{ background:#FCE5E7; color:var(--red);} .eds-ic.org{ background:var(--orange-soft);}
@@ -1297,6 +1381,24 @@
   .cal-day .dot{ width:5px; height:5px; border-radius:50%;}
   .cal-day .dot.ret{ background:var(--orange);} .cal-day .dot.off{ background:#2F6BD8;} .cal-day .dot.lv{ background:var(--red);} .cal-day .dot.ho{ background:#9333EA;} .cal-day .dot.wo{ background:#8a8478;}
   .cal-day.today{ background:var(--orange); color:#fff;}
+  .cal-userfilter{ margin-bottom:12px;}
+  .seg2.four .seg2-btn{ font-size:12px; padding-left:4px; padding-right:4px;}
+  .dt-sumrow{ display:flex; gap:8px; background:var(--cream); border-radius:12px; padding:11px 13px; margin-bottom:16px; font-size:12.5px; font-weight:700;}
+  .dt-sumrow .dts{ flex:1; text-align:center;} .dt-sumrow .dts b{ display:block; font-size:16px; color:var(--orange);} .dt-sumrow .dts span{ font-size:10px; color:var(--muted);}
+  .dt-timeline{ position:relative; padding-left:26px;}
+  .dt-timeline:before{ content:''; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:var(--line);}
+  .dt-node{ position:relative; margin-bottom:14px;}
+  .dt-dot{ position:absolute; left:-26px; top:14px; width:14px; height:14px; border-radius:50%; background:var(--orange); border:3px solid #fff; box-shadow:0 0 0 2px var(--orange);}
+  .dt-node.start .dt-dot{ background:var(--green); box-shadow:0 0 0 2px var(--green);}
+  .dt-node.end .dt-dot{ background:var(--red); box-shadow:0 0 0 2px var(--red);}
+  .dt-node.off .dt-dot{ background:#2F6BD8; box-shadow:0 0 0 2px #2F6BD8;}
+  .dt-card{ border:1.5px solid var(--line); border-radius:13px; padding:11px 13px; background:#fff;}
+  .dt-h{ display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  .dt-h b{ font-size:13.5px; font-weight:800;} .dt-time{ font-size:11px; font-weight:800; color:var(--muted); white-space:nowrap;}
+  .dt-sub{ font-size:11px; color:var(--muted); margin-top:2px;}
+  .dt-chips{ display:grid; grid-template-columns:repeat(5,1fr); gap:5px; margin-top:9px;}
+  .dt-chip{ background:var(--cream); border-radius:8px; padding:6px 2px; text-align:center;}
+  .dt-chip b{ display:block; font-size:13px; font-weight:800;} .dt-chip span{ font-size:8.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.2px;}
   .cal-day.today .dot{ background:#fff;}
   .cal-legend{ display:flex; flex-wrap:wrap; gap:12px; margin-top:16px; padding:0 4px;}
   .cal-legend span{ display:flex; align-items:center; gap:6px; font-size:12px; font-weight:600; color:var(--ink-2);}
@@ -1375,6 +1477,7 @@
   .ro-reason .select-wrap svg{ position:absolute; right:10px; top:50%; transform:translateY(-50%); width:14px; height:14px; color:#8a8478; pointer-events:none;}
   .sc-body{ flex:1; min-width:0;}
   .sc-qty{ display:flex; align-items:center; gap:5px;}
+  .sc-qty.single input{ width:56px;}
   .sc-qty input{ width:38px; height:38px; border:1.5px solid var(--field-border); border-radius:9px; text-align:center; font-family:var(--font); font-weight:700; outline:none;}
   .sc-qty span{ font-size:11px; color:var(--muted); margin-right:4px;}
   .sc-summary{ border:1.5px solid var(--avb,#D9D2C2); border-radius:16px; padding:14px 16px; margin-top:6px;}
@@ -1386,6 +1489,7 @@
   .ss-tblhead span:not(:first-child){ text-align:center;}
   .ss-row{ display:grid; grid-template-columns:1fr 70px 70px; gap:6px; align-items:center; padding:13px 14px; border-bottom:1px solid var(--line); font-size:13.5px;}
   .ss-row .ss-n{ font-weight:700;} .ss-row b{ text-align:center; font-weight:800;}
+  .ss-tblhead.two{ grid-template-columns:1fr 80px;} .ss-row.two{ grid-template-columns:1fr 80px;}
   .sc-sum-tot{ display:flex; justify-content:space-between; border-top:1.5px solid var(--line); margin-top:8px; padding-top:12px; font-size:14px; font-weight:700;}
   .sc-sum-tot b{ color:var(--orange); font-weight:800;}
   /* competitor */
@@ -1503,7 +1607,7 @@
         </div>
         <div class="hm-ic" id="notifBtn" style="cursor:pointer;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
-          <span class="hm-badge">3</span>
+          <span class="hm-badge" id="bellBadge">3</span>
         </div>
         <div class="hm-menu" id="openSidebar">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -1732,11 +1836,12 @@
                   <div><div class="lab">Target</div><div class="val">₹18,00,000</div></div>
                 </div>
               </div>
+              <div class="tgt-avg"><span>Avg Day Sales</span><b>₹27,272</b></div>
             </div>
 
             <!-- Outlet Coverage -->
             <div class="dcard">
-              <h4>Outlet Coverage</h4>
+              <h4 id="covTitle">PC Target · Outlet Coverage</h4>
               <div class="cov-track" id="covTrack">
                 <div class="cov-slide active">
                   <div class="visit-row">
@@ -1772,70 +1877,86 @@
               <div class="dots" id="covDots"><i class="on"></i><i></i><i></i></div>
             </div>
 
-            <!-- Your Rank -->
-            <div class="dcard" id="coinsCard" style="cursor:pointer;">
-              <div class="rank-top">
-                <span class="rank-av"><svg class="uav-svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#FDEADF"/><path d="M14 58c0-10 8-15 18-15s18 5 18 15z" fill="#2F6BD8"/><circle cx="32" cy="27" r="12" fill="#E8B58D"/><path d="M20 25c0-8 5-13 12-13s12 4 12 12c-2-2-4-3-7-4-2 2-9 3-13 1-2 1-3 2-4 4z" fill="#5B3A24"/></svg></span>
-                <div>
-                  <div class="nm">Akhil</div>
-                  <div class="role">SR</div>
+            <!-- Gamification -->
+            <div class="gm-tabs">
+              <div class="gm-tab active" data-gm="game">Gamification</div>
+              <div class="gm-tab sr-only" data-gm="incentive">Incentive</div>
+              <div class="gm-tab sr-only" data-gm="sales">Sales Performance</div>
+            </div>
+
+            <!-- Gamification pane -->
+            <div class="gm-pane active" data-gmpane="game">
+              <div class="mgr-only gm-teamlabel" style="display:none;">👑 Team Top Performer</div>
+              <div class="dcard" id="coinsCard" style="cursor:pointer;">
+                <div class="rank-top">
+                  <span class="rank-av"><svg class="uav-svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#FDEADF"/><path d="M14 58c0-10 8-15 18-15s18 5 18 15z" fill="#2F6BD8"/><circle cx="32" cy="27" r="12" fill="#E8B58D"/><path d="M20 25c0-8 5-13 12-13s12 4 12 12c-2-2-4-3-7-4-2 2-9 3-13 1-2 1-3 2-4 4z" fill="#5B3A24"/></svg></span>
+                  <div>
+                    <div class="nm" id="gmName">Akhil</div>
+                    <div class="role">SR</div>
+                  </div>
+                  <div class="rank-right">
+                    <span class="pill-active">Active</span>
+                    <div class="rank-no">#1</div>
+                  </div>
                 </div>
-                <div class="rank-right">
-                  <span class="pill-active">Active</span>
-                  <div class="rank-no">#3</div>
-                </div>
-              </div>
-              <div class="rank-sub">
-                <div class="c coins">
-                  <span class="coin-ic">🪙</span>
-                  56 Coins
-                </div>
-                <div class="c days">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
-                  11 Days
+                <div class="rank-sub">
+                  <div class="c coins"><span class="coin-ic">🪙</span> 56 Coins</div>
+                  <div class="c days"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg> 11 Days</div>
                 </div>
               </div>
             </div>
 
-            <!-- Ongoing Schemes (auto-scrolling banners) -->
-            <div class="stats-title">Ongoing Schemes &amp; Launches</div>
-            <div class="scheme-wrap">
-              <div class="scheme-track">
-                <div class="scheme s1"><span class="k">New Launch</span><span class="b">Kopiko Brown · Buy 10 Get 1</span></div>
-                <div class="scheme s2"><span class="k">Scheme</span><span class="b">Beng Beng · 5% Off Cartons</span></div>
-                <div class="scheme s3"><span class="k">Combo</span><span class="b">Danisa Cookies Festive Pack</span></div>
-                <div class="scheme s4"><span class="k">Hot Deal</span><span class="b">Le Minerale · Trade Offer</span></div>
-                <!-- duplicate set for seamless loop -->
-                <div class="scheme s1"><span class="k">New Launch</span><span class="b">Kopiko Brown · Buy 10 Get 1</span></div>
-                <div class="scheme s2"><span class="k">Scheme</span><span class="b">Beng Beng · 5% Off Cartons</span></div>
-                <div class="scheme s3"><span class="k">Combo</span><span class="b">Danisa Cookies Festive Pack</span></div>
-                <div class="scheme s4"><span class="k">Hot Deal</span><span class="b">Le Minerale · Trade Offer</span></div>
+            <!-- Incentive pane (SR only) -->
+            <div class="gm-pane sr-only" data-gmpane="incentive">
+              <div class="dcard" id="incentiveCard">
+                <div class="rank-top">
+                  <span class="rank-av"><svg class="uav-svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#E5F6E9"/><path d="M14 58c0-10 8-15 18-15s18 5 18 15z" fill="#27A745"/><circle cx="32" cy="27" r="12" fill="#E8B58D"/><path d="M20 25c0-8 5-13 12-13s12 4 12 12c-2-2-4-3-7-4-2 2-9 3-13 1-2 1-3 2-4 4z" fill="#5B3A24"/></svg></span>
+                  <div><div class="nm">Akhil</div><div class="role">Incentive</div></div>
+                  <div class="rank-right"><div class="rank-no">#5</div></div>
+                </div>
+                <div class="rank-sub">
+                  <div class="c coins"><span class="coin-ic">💰</span> Last JC ₹12,000</div>
+                  <div class="c days">🏆 Rank 5</div>
+                </div>
               </div>
             </div>
 
-            <!-- Your Statistics -->
-            <div class="stats-title">Your Statistics</div>
+            <!-- Sales Performance pane (SR only) -->
+            <div class="gm-pane sr-only" data-gmpane="sales">
+              <div class="dcard" id="salesRankCard">
+                <div class="rank-top">
+                  <span class="rank-av"><svg class="uav-svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#E6EEFB"/><path d="M14 58c0-10 8-15 18-15s18 5 18 15z" fill="#2F6BD8"/><circle cx="32" cy="27" r="12" fill="#E8B58D"/><path d="M20 25c0-8 5-13 12-13s12 4 12 12c-2-2-4-3-7-4-2 2-9 3-13 1-2 1-3 2-4 4z" fill="#5B3A24"/></svg></span>
+                  <div><div class="nm">Akhil</div><div class="role">Sales Performance</div></div>
+                  <div class="rank-right"><div class="rank-no">#8</div></div>
+                </div>
+                <div class="rank-sub">
+                  <div class="c coins">📈 Sales ₹6,00,000</div>
+                  <div class="c days">Avg ₹27,272</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- My Statistics - MTD -->
+            <div class="stats-title">My Statistics - MTD</div>
             <div class="stat-grid">
-              <div class="stat-card">
-                <span class="stat-ic org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
-                <div class="n">45</div><div class="l">Total Calls Planned</div>
+              <div class="stat-card"><span class="stat-ic grn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M9 14l2 2 4-4"/></svg></span><div class="n">22/25</div><div class="l">Days Worked</div></div>
+              <div class="stat-card"><span class="stat-ic org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 21V7l9-4 9 4v14M9 21v-6h6v6"/></svg></span><div class="n">7</div><div class="l">CJC New Outlets</div></div>
+              <div class="stat-card"><span class="stat-ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div class="n">₹1,068</div><div class="l">Avg Outlet Order Value</div></div>
+              <div class="stat-card"><span class="stat-ic blu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7L9 18l-5-5"/></svg></span><div class="n">80%</div><div class="l">Brand Coverage</div></div>
+              <div class="stat-card"><span class="stat-ic org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></span><div class="n">65%</div><div class="l">Sub-Brand Coverage</div></div>
+              <div class="stat-card"><span class="stat-ic grn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18"/></svg></span><div class="n">50%</div><div class="l">SKU Coverage</div></div>
+            </div>
+
+            <!-- Ongoing Schemes & Launches (auto-scroll cards, last) -->
+            <div class="stats-title">Ongoing Schemes &amp; Launches</div>
+            <div class="dcard" style="padding:12px;">
+              <div class="cov-track" id="schemeTrack">
+                <div class="cov-slide active"><div class="lc-card" data-lk="New Launch" data-lt="Kopiko Brown · Buy 10 Get 1" data-ld="Buy 10 cartons of Kopiko Brown Coffee and get 1 carton free. Valid this journey cycle across all GT secondary outlets."><span class="lc-k nl">New Launch</span><div class="lc-t">Kopiko Brown · Buy 10 Get 1</div><div class="lc-s">Tap for scheme details</div></div></div>
+                <div class="cov-slide"><div class="lc-card" data-lk="Scheme" data-lt="Beng Beng · 5% Off Cartons" data-ld="Flat 5% trade discount on all Beng Beng cartons. Applicable on secondary billing for the current journey cycle."><span class="lc-k sc">Scheme</span><div class="lc-t">Beng Beng · 5% Off Cartons</div><div class="lc-s">Tap for scheme details</div></div></div>
+                <div class="cov-slide"><div class="lc-card" data-lk="Combo" data-lt="Danisa Cookies Festive Pack" data-ld="Festive combo pack of Danisa Cookies at a special trade price. Limited stock per outlet."><span class="lc-k cm">Combo</span><div class="lc-t">Danisa Cookies Festive Pack</div><div class="lc-s">Tap for scheme details</div></div></div>
+                <div class="cov-slide"><div class="lc-card" data-lk="Hot Deal" data-lt="Le Minerale · Trade Offer" data-ld="Special trade offer on Le Minerale water cases. Buy 20 get 2 free this cycle."><span class="lc-k hd">Hot Deal</span><div class="lc-t">Le Minerale · Trade Offer</div><div class="lc-s">Tap for scheme details</div></div></div>
               </div>
-              <div class="stat-card">
-                <span class="stat-ic grn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>
-                <div class="n">12</div><div class="l">Productive Calls</div>
-              </div>
-              <div class="stat-card">
-                <span class="stat-ic org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h12M8 12h12M8 18h12M3 6h.01M3 12h.01M3 18h.01"/></svg></span>
-                <div class="n">8</div><div class="l">Line Productive Calls</div>
-              </div>
-              <div class="stat-card">
-                <span class="stat-ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2zM9 7h6M9 11h6M9 15h4"/></svg></span>
-                <div class="n">8</div><div class="l">Billing Productive Calls</div>
-              </div>
-              <div class="stat-card">
-                <span class="stat-ic blu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="11" r="2"/><path d="M5 16c.5-1.5 1.7-2 3-2s2.5.5 3 2M14 9h5M14 13h4"/></svg></span>
-                <div class="n">16</div><div class="l">KYC Completed</div>
-              </div>
+              <div class="dots" id="schemeDots"><i class="on"></i><i></i><i></i><i></i></div>
             </div>
 
           </div>
@@ -1876,6 +1997,10 @@
                   <span class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M2 13h20"/></svg></span>
                   Official Work
                 </div>
+                <div class="sd-opt" data-act="Group Work">
+                  <span class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3.3 2.5-6 7-6s7 2.7 7 6M14 14.2c3 .5 5 2.8 5 5.8"/></svg></span>
+                  Group Work
+                </div>
                 <div class="sd-opt" data-act="Joint Work">
                   <span class="sd-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15.5 14.5c2.6.3 4.5 2.4 4.5 5"/></svg></span>
                   Joint Work
@@ -1896,10 +2021,20 @@
             <!-- 3. City type -->
             <div class="sd-block hidden" data-step="city">
               <div class="sd-label">City Type</div>
+              <div class="sd-pills wrap">
+                <div class="sd-pill" data-city="Metro city">Metro city</div>
+                <div class="sd-pill" data-city="Non-metro city">Non-metro city</div>
+                <div class="sd-pill" data-city="Hill station">Hill station</div>
+                <div class="sd-pill" data-city="Others">Others</div>
+              </div>
+            </div>
+
+            <!-- 3b. Stay type (Outstation only) -->
+            <div class="sd-block hidden" data-step="stay">
+              <div class="sd-label">Outstation Stay</div>
               <div class="sd-pills">
-                <div class="sd-pill" data-city="Metro">Metro</div>
-                <div class="sd-pill" data-city="City">City</div>
-                <div class="sd-pill" data-city="Other">Other</div>
+                <div class="sd-pill" data-stay="Same Day Return">Same Day Return</div>
+                <div class="sd-pill" data-stay="Night Stay">Night Stay</div>
               </div>
             </div>
 
@@ -2021,92 +2156,11 @@
             <div class="bt-tab active" data-cust="secondary">Secondary</div>
             <div class="bt-tab" data-cust="primary">Primary</div>
           </div>
-          <div class="bt-list" id="outletList">
-            <div class="ocard" data-outlet="Balaji Super Mart" data-cust="secondary">
-              <span class="ocard-bar planned"></span>
-              <span class="ol-logo brown">BS</span>
-              <div class="ocard-body">
-                <div class="ocard-name">Balaji Super Mart</div>
-                <div class="ocard-erp">ERPId : FO_617586336 · Kompally</div>
-                <div class="ocard-row"><span class="otag alpha">★ Alpha+</span><span class="otag gt">GT</span><span class="otag type">Mart</span></div>
-              </div>
-              <div class="ocard-actions">
-                <span class="ocard-vfy ok" title="Verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-                <span class="ocard-map" title="Navigate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              </div>
-              <span class="ocard-st planned">Planned</span>
-            </div>
-            <div class="ocard" data-outlet="S Mart" data-cust="secondary">
-              <span class="ocard-bar planned"></span>
-              <span class="ol-logo org">SM</span>
-              <div class="ocard-body">
-                <div class="ocard-name">S Mart</div>
-                <div class="ocard-erp">ERPId : FO_627411768 · Secunderabad</div>
-                <div class="ocard-row"><span class="otag grade">GRADE C</span><span class="otag gt">GT</span><span class="otag type">Kirana</span></div>
-              </div>
-              <div class="ocard-actions">
-                <span class="ocard-vfy ok" title="Verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-                <span class="ocard-map" title="Navigate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              </div>
-              <span class="ocard-st planned">Planned</span>
-            </div>
-            <div class="ocard" data-outlet="Stand Alone Outlet" data-cust="secondary">
-              <span class="ocard-bar completed"></span>
-              <span class="ol-logo grn">SA</span>
-              <div class="ocard-body">
-                <div class="ocard-name">Stand Alone Outlet</div>
-                <div class="ocard-erp">ERPId : DL-535103550 · MG Road</div>
-                <div class="ocard-row"><span class="otag grade">GRADE C</span><span class="otag gt">GT</span><span class="otag type">Tea Shop</span></div>
-              </div>
-              <div class="ocard-actions">
-                <span class="ocard-vfy rej" title="Rejected"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-                <span class="ocard-map" title="Navigate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              </div>
-              <span class="ocard-st completed">Completed</span>
-            </div>
-            <div class="ocard" data-outlet="Hyderabad Bakery &amp; Foods" data-cust="secondary">
-              <span class="ocard-bar missed"></span>
-              <span class="ol-logo brown">HB</span>
-              <div class="ocard-body">
-                <div class="ocard-name">Hyderabad Bakery &amp; Foods</div>
-                <div class="ocard-erp">ERPId : FO_622923477 · Secunderabad</div>
-                <div class="ocard-row"><span class="otag gt">GT</span><span class="otag type">Bakery</span></div>
-              </div>
-              <div class="ocard-actions">
-                <span class="ocard-vfy ok" title="Verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-                <span class="ocard-map" title="Navigate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              </div>
-              <span class="ocard-st missed">Missed</span>
-            </div>
-            <div class="ocard" data-outlet="Venkateshwara Distributors" data-cust="primary">
-              <span class="ocard-bar planned"></span>
-              <span class="ol-logo org">VD</span>
-              <div class="ocard-body">
-                <div class="ocard-name">Venkateshwara Distributors</div>
-                <div class="ocard-erp">ERPId : FO_617586336 · KPHB 5th Phase</div>
-                <div class="ocard-row"><span class="otag dist">Distributor</span><span class="otag gt">GT</span></div>
-              </div>
-              <div class="ocard-actions">
-                <span class="ocard-vfy ok" title="Verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-                <span class="ocard-map" title="Navigate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              </div>
-              <span class="ocard-st planned">Planned</span>
-            </div>
-            <div class="ocard" data-outlet="Sri Sai Super Stockist" data-cust="primary">
-              <span class="ocard-bar completed"></span>
-              <span class="ol-logo grn">SS</span>
-              <div class="ocard-body">
-                <div class="ocard-name">Sri Sai Super Stockist</div>
-                <div class="ocard-erp">ERPId : FO_641223090 · Kukatpally</div>
-                <div class="ocard-row"><span class="otag dist">Super Stockist</span><span class="otag gt">GT</span></div>
-              </div>
-              <div class="ocard-actions">
-                <span class="ocard-vfy ok" title="Verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
-                <span class="ocard-map" title="Navigate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-              </div>
-              <span class="ocard-st completed">Completed</span>
-            </div>
+          <div class="bt-status">
+            <div class="bt-stab active" data-stat="pending">Pending</div>
+            <div class="bt-stab" data-stat="completed">Completed</div>
           </div>
+          <div class="bt-list" id="outletList"></div>
         </section>
 
         <!-- ============ FOOT PLAN (reorder outlets) ============ -->
@@ -2175,7 +2229,7 @@
             <div class="back-btn" data-go="beats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div>
             <div class="av-head-body">
               <div class="av-title" id="odName">Balaji Super Mart</div>
-              <div class="av-sub" id="odErp">ERPId : FO_617586336 · Kompally</div>
+              <div class="av-sub" id="odErp">Code: FO_617586336 · Kompally</div>
             </div>
             <div class="od-dots" id="odDots"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div>
             <div class="od-menu" id="odMenu">
@@ -2201,6 +2255,12 @@
               <div class="od-srow"><div class="od-cell"><b>₹0</b><span>MTD Total Order Value</span></div><div class="od-cell"><b>0</b><span>MTD Total Order Qty</span></div></div>
               <div class="od-srow b3"><div class="od-cell"><b>₹1,068.3</b><span>Last 5 Avg. Value</span></div><div class="od-cell"><b>6.6</b><span>Last 5 Avg. Qty</span></div><div class="od-cell"><b>2.6</b><span>Last 5 LPC</span></div></div>
             </div>
+            <!-- Range selling (secondary only) -->
+            <div class="dcard od-range" id="odRange">
+              <h4>Range Selling</h4>
+              <div class="od-rrow"><div class="od-rcell"><b class="grn">65%</b><span>CJC Range Selling</span></div><div class="od-rcell"><b class="org">80%</b><span>LJC Range Selling</span></div><div class="od-rcell"><b>14</b><span>CJC Visits</span></div></div>
+            </div>
+
             <!-- visit stats -->
             <div class="od-mini">
               <div class="odm"><b>30</b><span>Total Orders</span></div>
@@ -2629,7 +2689,44 @@
             <div class="fgroup"><label class="field-label">Manager Remarks</label><textarea class="co-ta" placeholder="Manager remarks"></textarea></div>
             <div class="ow-q">Overall Outlet Rating</div><div class="rate-pills star"><span class="rate">★</span><span class="rate">★</span><span class="rate">★</span><span class="rate sel">★</span><span class="rate">★</span></div>
           </div>
-          <button class="btn sub-cta" id="jwSubmit">Submit &amp; Checkout</button>
+          <button class="btn sub-cta" id="jwSubmit">Review Summary</button>
+        </section>
+
+        <!-- ============ JOINT WORK SUMMARY ============ -->
+        <section class="view" data-view="jw_summary">
+          <div class="topbar"><div class="back-btn" data-go="jw_form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Joint Work Summary</div></div>
+          <div class="sub-wrap pad-btn">
+            <div class="dcard">
+              <h4>Visit Summary</h4>
+              <div class="jws-row"><span>Team Member</span><b id="jwsUser">Ravi Teja · SO</b></div>
+              <div class="jws-row"><span>Outlet</span><b id="jwsOutlet">Sri Balaji Kirana Store</b></div>
+              <div class="jws-row"><span>Coaching Given</span><b>Yes</b></div>
+              <div class="jws-row"><span>SKU Availability</span><b>72%</b></div>
+              <div class="jws-row"><span>POSM Audited</span><b>4 / 5</b></div>
+              <div class="jws-row"><span>Issues Logged</span><b>2</b></div>
+              <div class="jws-row"><span>Photos Captured</span><b>4</b></div>
+              <div class="jws-row"><span>Overall Rating</span><b>★★★★☆ (4/5)</b></div>
+            </div>
+            <div class="dcard">
+              <h4>Action Plan</h4>
+              <p style="font-size:13px;color:var(--ink-2);line-height:1.5;">Improve Kopiko shelf facing and follow up on Malkist availability by next visit. Coach on scheme communication to retailer.</p>
+            </div>
+          </div>
+          <button class="btn sub-cta" id="jwCheckout">Check Out</button>
+        </section>
+
+        <!-- ============ GROUP WORK VISIT (comment only) ============ -->
+        <section class="view" data-view="gwvisit">
+          <div class="topbar avhead od-head">
+            <div class="back-btn" data-go="beats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+            <div class="av-head-body"><div class="av-title" id="gwName">Outlet</div><div class="av-sub">Group Work · Temp Shared Beat</div></div>
+          </div>
+          <div class="sub-wrap pad-btn">
+            <div class="od-loc ok" style="margin-bottom:14px;"><div class="ci-vrow"><span class="ci-ok">✓</span><div><b>Checked In</b><div class="ci-vs">📍 Location captured at the outlet.</div></div></div></div>
+            <div class="fgroup"><label class="field-label">Visit Comment<span class="req">*</span></label><textarea class="co-ta" id="gwComment" placeholder="Add your comment for this outlet visit"></textarea></div>
+            <p class="sd-intro">As a temp user on this shared beat, ordering &amp; outlet edits are disabled. Add a comment and check out.</p>
+          </div>
+          <button class="btn sub-cta" id="gwCheckout">Check Out</button>
         </section>
 
         <!-- ============ PENDING ITEMS ============ -->
@@ -2770,27 +2867,60 @@
           <button class="btn sub-cta" id="pjpSave">Save PJP</button>
         </section>
 
-        <!-- ============ CLAIMS ============ -->
+        <!-- ============ CLAIMS (JC list) ============ -->
         <section class="view" data-view="claims">
-          <div class="topbar"><div class="back-btn" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Claims</div><div class="pv-edit" id="claimNew">+ New</div></div>
+          <div class="topbar"><div class="back-btn" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Claims</div></div>
           <div class="sub-wrap pad-btn2">
-            <div class="jc-tot"><div class="jct sub"><b>₹6,200</b><span>Submitted</span></div><div class="jct app"><b>₹4,100</b><span>Approved</span></div><div class="jct rej"><b>₹800</b><span>Rejected</span></div></div>
-            <div class="cl-filters"><span class="cl-fchip sel">All</span><span class="cl-fchip">Date</span><span class="cl-fchip">JC 6</span><span class="cl-fchip">Type</span><span class="cl-fchip">Status</span><span class="cl-fchip">Amount</span></div>
-            <div class="cl-list">
-              <div class="cl-card"><div class="cl-b"><div class="cl-t">DA · Daily Allowance</div><div class="cl-m">14/05/2026</div></div><div class="cl-r"><b>₹350</b><span class="pi-st appr">Approved</span></div></div>
-              <div class="cl-card"><div class="cl-b"><div class="cl-t">TA · Bus (AC Seater)</div><div class="cl-m">14/05/2026 · GST</div></div><div class="cl-r"><b>₹220</b><span class="pi-st pend">Pending</span></div></div>
-              <div class="cl-card"><div class="cl-b"><div class="cl-t">Fuel</div><div class="cl-m">13/05/2026</div></div><div class="cl-r"><b>₹600</b><span class="pi-st pend">Pending</span></div></div>
-              <div class="cl-card"><div class="cl-b"><div class="cl-t">Hotel Stay</div><div class="cl-m">11/05/2026 · GST</div></div><div class="cl-r"><b>₹1,800</b><span class="pi-st rej">Rejected</span></div></div>
-            </div>
-            <button class="btn cl-pdf" id="clPdf">⬇ Generate PDF (selected dates)</button>
+            <p class="sd-intro" style="margin-bottom:12px;">Your recent Journey Cycles. Tap a JC to view day-wise expenses, add bills and submit for approval.</p>
+            <div id="jcList"></div>
           </div>
         </section>
-        <!-- New expense -->
-        <section class="view" data-view="claim_new">
-          <div class="topbar"><div class="back-btn" data-go="claims"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">New Expense</div></div>
-          <div class="sub-wrap pad-btn"><div id="expCardsWrap"></div><button class="tk-addcard" id="expAddCard">+ Add Expense</button></div>
-          <button class="btn sub-cta" id="clSubmit">Submit for Approval</button>
+
+        <!-- Claim detail (date-wise) -->
+        <section class="view" data-view="claim_detail">
+          <div class="topbar"><div class="back-btn" data-go="claims"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title" id="cdTitle">JC07</div><div class="cd-acts"><span class="cd-act" id="cdExport">⤓ Export</span></div></div>
+          <div class="sub-wrap pad-btn">
+            <div class="cd-meta" id="cdMeta"></div>
+            <div id="cdDates"></div>
+          </div>
+          <button class="btn sub-cta" id="cdSubmit">Submit for Approval</button>
         </section>
+
+        <!-- Add expense bottom sheet -->
+        <div class="csheet-mask" id="claimAddMask">
+          <div class="csheet" id="claimAddSheet">
+            <div class="csheet-head"><span id="caTitle">Add Expense</span><button class="csheet-x" id="caClose">✕</button></div>
+            <div class="csheet-body">
+              <div class="fgroup"><label class="field-label">Expense Type</label><div class="select-wrap"><select class="input" id="caType">
+                <option value="DA">DA · Daily Allowance</option>
+                <option value="Food">Food Allowance</option>
+                <option value="Local">Local Conveyance</option>
+                <option value="Hotel">Hotel Accommodation</option>
+                <option value="Mobile">Mobile / Internet</option>
+                <option value="TA">TA · Travel</option>
+              </select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>
+              <div class="ca-hint" id="caHint"></div>
+              <!-- DA -->
+              <div class="ca-blk" data-cablk="DA"><div class="da-calc">Auto-calculated DA (HQ / Ex-HQ): <b id="caDaAuto">Full DA · ₹350</b></div></div>
+              <!-- TA -->
+              <div class="ca-blk" data-cablk="TA" style="display:none;">
+                <div class="fgroup"><label class="field-label">Mode</label><div class="select-wrap"><select class="input" id="caMode"><option>Own bike</option><option>Own car</option><option>Bus</option><option>Train</option><option>Flight</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>
+                <div class="fgroup ca-km" style="display:none;"><label class="field-label">KM Travelled</label><input class="input" id="caKm" inputmode="numeric" placeholder="0 km"></div>
+                <div class="fgroup ca-class" style="display:none;"><label class="field-label">Class</label><div class="select-wrap"><select class="input" id="caClass"></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>
+              </div>
+              <!-- Hotel GST -->
+              <div class="ca-blk" data-cablk="Hotel" style="display:none;">
+                <div class="exp-gst" id="caGst"><span class="box"></span> Is GST bill?</div>
+                <div class="ca-mayora" id="caMayoraWrap" style="display:none;"><div class="exp-gst" id="caMayora"><span class="box"></span> Billed to Mayora name?</div></div>
+                <div class="fgroup ca-gstpct" style="display:none;"><label class="field-label">GST %</label><input class="input" id="caGstPct" inputmode="numeric" placeholder="e.g. 12"></div>
+              </div>
+              <div class="fgroup"><label class="field-label">Amount (₹)</label><input class="input" id="caAmt" inputmode="numeric" placeholder="Enter amount"></div>
+              <div class="fgroup"><label class="field-label">Remarks</label><input class="input" id="caRemark" placeholder="Optional remarks"></div>
+              <div class="fgroup"><label class="field-label">Bill Photo</label><label class="ba-up wide"><span class="ba-cam">📷</span><span class="ba-lab">Capture / upload bill</span></label></div>
+            </div>
+            <button class="btn" id="caSave" style="width:100%;height:50px;">Add Expense</button>
+          </div>
+        </div>
 
         <!-- ============ ANALYTICS ============ -->
         <section class="view" data-view="analytics">
@@ -2798,6 +2928,9 @@
           <div class="sub-wrap pad-btn2">
             <div class="rep-card" data-go="dsr"><span class="rep-ic" style="background:#EA5B23;">📊</span><div class="rep-b"><div class="rep-t">DSR</div><div class="rep-m">Daily Sales Report — today</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
             <div class="rep-card" data-go="msr"><span class="rep-ic" style="background:#2F6BD8;">📈</span><div class="rep-b"><div class="rep-t">MSR</div><div class="rep-m">Monthly Sales Report</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+            <div class="rep-card" data-go="salesrep" data-rep-kind="P1"><span class="rep-ic" style="background:#7C3AED;">P1</span><div class="rep-b"><div class="rep-t">P1 Sales Report</div><div class="rep-m">Primary sales — date &amp; customer wise</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+            <div class="rep-card" data-go="salesrep" data-rep-kind="P2"><span class="rep-ic" style="background:#0EA5A0;">P2</span><div class="rep-b"><div class="rep-t">P2 Sales Report</div><div class="rep-m">Secondary sales — date &amp; customer wise</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+            <div class="rep-card an-mgr" data-go="teamperf" style="display:none;"><span class="rep-ic" style="background:#D97706;">👥</span><div class="rep-b"><div class="rep-t">Team Performance</div><div class="rep-m">Team-wide KPIs &amp; user ranking</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
             <div class="rep-card" data-go="attendance"><span class="rep-ic" style="background:#27A745;">🗓</span><div class="rep-b"><div class="rep-t">Attendance</div><div class="rep-m">Days worked, leave, week-off, %</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
             <div class="rep-card" data-go="tgt"><span class="rep-ic" style="background:#C79A1E;">🎯</span><div class="rep-b"><div class="rep-t">Target vs Actual</div><div class="rep-m">Overall &amp; brand/SKU wise</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
             <div class="rep-card" data-go="empclaims"><span class="rep-ic" style="background:#D01F2F;">🧾</span><div class="rep-b"><div class="rep-t">Employee Claims</div><div class="rep-m">Claim totals by status, type, user</div></div><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
@@ -2810,12 +2943,26 @@
           <div class="sub-wrap pad-btn2">
             <div class="select-wrap rep-user"><select class="input"><option>Akhil Kumar (me)</option><option>Ravi Teja</option><option>Suresh K</option><option>All Team</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
             <div class="rep-mini"><div class="rm"><b>52</b><span>TC</span></div><div class="rm"><b>38</b><span>PC</span></div><div class="rm"><b>5.2</b><span>LPC</span></div><div class="rm"><b>₹42.8K</b><span>Order Value</span></div><div class="rm"><b>6</b><span>Tele Orders</span></div><div class="rm"><b>3</b><span>Activities</span></div></div>
+            <div class="rep-mini rep-mgr" style="display:none;"><div class="rm"><b>8</b><span>No. of Users</span></div><div class="rm"><b>6</b><span>Day Started</span></div><div class="rm"><b>1</b><span>Leave</span></div><div class="rm"><b>1</b><span>Absent</span></div></div>
             <div class="seg2"><div class="seg2-btn active" data-rep="sales">Sales</div><div class="seg2-btn" data-rep="orders">Orders</div><div class="seg2-btn" data-rep="team">Team</div></div>
             <div class="rep-pane active" data-reppane="sales">
               <div class="rep-stbl"><div class="rep-h"><span>Brand</span><span>Qty</span><span>Value</span></div><div class="rep-tr"><span>Kopiko</span><b>120</b><b>₹12,400</b></div><div class="rep-tr"><span>Malkist</span><b>95</b><b>₹9,800</b></div><div class="rep-tr"><span>Choki Choki</span><b>60</b><b>₹6,200</b></div></div>
               <div class="rep-stbl"><div class="rep-h"><span>Sub Brand</span><span>Qty</span><span>Value</span></div><div class="rep-tr"><span>Kopiko Cappuccino</span><b>70</b><b>₹7,200</b></div><div class="rep-tr"><span>Malkist Cheese</span><b>55</b><b>₹5,700</b></div></div>
               <div class="rep-stbl"><div class="rep-h"><span>Brand Alias</span><span>Qty</span><span>Value</span></div><div class="rep-tr"><span>Kopiko Small Pouch</span><b>40</b><b>₹2,000</b></div><div class="rep-tr"><span>Malkist Cheese FP</span><b>30</b><b>₹1,590</b></div></div>
               <div class="rep-stbl"><div class="rep-h"><span>SKU</span><span>Qty</span><span>Value</span></div><div class="rep-tr"><span>Kopiko Small Pouch 50g</span><b>40</b><b>₹2,000</b></div><div class="rep-tr"><span>Malkist Cheese 120g</span><b>30</b><b>₹1,590</b></div></div>
+              <div class="rep-mt" style="display:none;">
+                <div class="rep-stbl"><div class="rep-h" style="grid-template-columns:1.4fr .9fr 1fr;"><span>Chain</span><span>Sales</span><span>Last Order</span></div>
+                  <div class="rep-tr" style="grid-template-columns:1.4fr .9fr 1fr;"><span>More</span><b>₹1.8L</b><b>12 May</b></div>
+                  <div class="rep-tr" style="grid-template-columns:1.4fr .9fr 1fr;"><span>Maa Mart</span><b>₹1.2L</b><b>10 May</b></div>
+                  <div class="rep-tr" style="grid-template-columns:1.4fr .9fr 1fr;"><span>Ratnadeep</span><b>₹2.1L</b><b>13 May</b></div>
+                </div>
+              </div>
+              <div class="rng-block" data-rngkey="dsr">
+                <div class="sub-label" style="margin:12px 0 8px;">Range Selling (Coverage)</div>
+                <div class="rng-tabs"><div class="rng-tab active" data-rng="brand">Brand</div><div class="rng-tab" data-rng="sub">Sub-Brand</div><div class="rng-tab" data-rng="alias">Brand Alias</div><div class="rng-tab" data-rng="sku">SKU</div></div>
+                <div class="rng-th"><span>Name</span><span>Outlets</span><span>%</span></div>
+                <div class="rng-body"></div>
+              </div>
             </div>
             <div class="rep-pane" data-reppane="orders">
               <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Balaji Super Mart</div><div class="cl-m">5 SKUs · 62 qty</div></div><div class="cl-r"><b>₹4,200</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
@@ -2838,11 +2985,25 @@
           <div class="sub-wrap pad-btn2">
             <div class="select-wrap rep-user"><select class="input"><option>Akhil Kumar (me)</option><option>Ravi Teja</option><option>All Team</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
             <div class="rep-mini"><div class="rm"><b>1,240</b><span>TC</span></div><div class="rm"><b>910</b><span>PC</span></div><div class="rm"><b>5.4</b><span>LPC</span></div><div class="rm"><b>₹11.2L</b><span>Order Value</span></div><div class="rm"><b>148</b><span>Tele Orders</span></div><div class="rm"><b>72</b><span>Activities</span></div></div>
+            <div class="rep-mini rep-mgr" style="display:none;"><div class="rm"><b>8</b><span>No. of Users</span></div><div class="rm"><b>8</b><span>Day Started</span></div><div class="rm"><b>9</b><span>Leave</span></div><div class="rm"><b>3</b><span>Absent</span></div></div>
             <div class="seg2"><div class="seg2-btn active" data-rep="sales">Sales</div><div class="seg2-btn" data-rep="orders">Orders</div><div class="seg2-btn" data-rep="team">Team</div></div>
             <div class="rep-pane active" data-reppane="sales">
               <div class="rep-stbl"><div class="rep-h"><span>Brand</span><span>Qty</span><span>Value</span></div><div class="rep-tr"><span>Kopiko</span><b>3,200</b><b>₹3.3L</b></div><div class="rep-tr"><span>Malkist</span><b>2,600</b><b>₹2.7L</b></div><div class="rep-tr"><span>Choki Choki</span><b>1,500</b><b>₹1.5L</b></div></div>
               <div class="rep-stbl"><div class="rep-h"><span>Sub Brand</span><span>Qty</span><span>Value</span></div><div class="rep-tr"><span>Kopiko Cappuccino</span><b>1,900</b><b>₹1.9L</b></div><div class="rep-tr"><span>Malkist Cheese</span><b>1,400</b><b>₹1.4L</b></div></div>
               <div class="rep-stbl"><div class="rep-h"><span>SKU</span><span>Qty</span><span>Value</span></div><div class="rep-tr"><span>Kopiko Small Pouch 50g</span><b>1,050</b><b>₹52K</b></div><div class="rep-tr"><span>Malkist Cheese 120g</span><b>820</b><b>₹43K</b></div></div>
+              <div class="rep-mt" style="display:none;">
+                <div class="rep-stbl"><div class="rep-h" style="grid-template-columns:1.4fr .9fr 1fr;"><span>Chain</span><span>Sales</span><span>Last Order</span></div>
+                  <div class="rep-tr" style="grid-template-columns:1.4fr .9fr 1fr;"><span>More</span><b>₹4.6L</b><b>12 May</b></div>
+                  <div class="rep-tr" style="grid-template-columns:1.4fr .9fr 1fr;"><span>Maa Mart</span><b>₹3.1L</b><b>11 May</b></div>
+                  <div class="rep-tr" style="grid-template-columns:1.4fr .9fr 1fr;"><span>Ratnadeep</span><b>₹5.2L</b><b>13 May</b></div>
+                </div>
+              </div>
+              <div class="rng-block" data-rngkey="msr">
+                <div class="sub-label" style="margin:12px 0 8px;">Range Selling (Coverage)</div>
+                <div class="rng-tabs"><div class="rng-tab active" data-rng="brand">Brand</div><div class="rng-tab" data-rng="sub">Sub-Brand</div><div class="rng-tab" data-rng="alias">Brand Alias</div><div class="rng-tab" data-rng="sku">SKU</div></div>
+                <div class="rng-th"><span>Name</span><span>Outlets</span><span>%</span></div>
+                <div class="rng-body"></div>
+              </div>
             </div>
             <div class="rep-pane" data-reppane="orders">
               <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Balaji Super Mart</div><div class="cl-m">Monthly · 42 orders</div></div><div class="cl-r"><b>₹1.1L</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
@@ -2853,6 +3014,55 @@
                 <div class="rep-tr" style="grid-template-columns:1.6fr .7fr .7fr .7fr 1fr;"><span>Akhil Kumar</span><b>1240</b><b>910</b><b>5.4</b><b>₹11.2L</b></div>
                 <div class="rep-tr" style="grid-template-columns:1.6fr .7fr .7fr .7fr 1fr;"><span>Ravi Teja</span><b>1180</b><b>860</b><b>5.1</b><b>₹10.4L</b></div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- P1 / P2 SALES REPORT -->
+        <section class="view" data-view="salesrep">
+          <div class="topbar"><div class="back-btn" data-go="analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title" id="salesrepTitle">P1 Sales Report</div></div>
+          <div class="sub-wrap pad-btn2">
+            <div class="frow">
+              <div class="select-wrap"><input class="input" value="01–28 May 2026" readonly><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+              <div class="select-wrap"><select class="input" id="srCust"><option>All Customers</option><option>Sri Balaji Kirana Store</option><option>Anand Bakery &amp; Foods</option><option>Brew &amp; Bite Cafe</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <div class="rep-mini"><div class="rm"><b>₹1.06L</b><span>Total Order Value</span></div><div class="rm"><b>38</b><span>No. of Orders</span></div><div class="rm"><b>₹2,790</b><span>Avg Order Value</span></div><div class="rm"><b>80%</b><span>Brand Coverage</span></div></div>
+            <div class="seg2 four"><div class="seg2-btn active" data-srtab="brand">Brand</div><div class="seg2-btn" data-srtab="sub">Sub-Brand</div><div class="seg2-btn" data-srtab="alias">Alias</div><div class="seg2-btn" data-srtab="sku">SKU</div></div>
+            <div class="rep-stbl"><div class="rep-h"><span id="srColName">Brand</span><span>Qty</span><span>Value</span></div><div id="srBody"></div></div>
+            <div id="srCustWrap">
+              <div class="sub-label" style="margin:14px 0 8px;">Customer-wise Order Value</div>
+              <div class="rep-stbl"><div class="rep-h" style="grid-template-columns:1.5fr 1fr 1fr;"><span>Customer</span><span>Order Val</span><span>Last Order</span></div><div id="srCustBody"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TEAM PERFORMANCE -->
+        <section class="view" data-view="teamperf">
+          <div class="topbar"><div class="back-btn" data-go="analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Team Performance</div></div>
+          <div class="sub-wrap pad-btn2">
+            <div class="frow">
+              <div class="select-wrap"><input class="input" value="01–28 May 2026" readonly><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div>
+              <div class="select-wrap"><select class="input"><option>All Team</option><option>Akhil Kumar</option><option>Ravi Teja</option><option>Suresh K</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
+            </div>
+            <div class="sub-label" style="margin:6px 0 8px;">Workforce</div>
+            <div class="rep-mini"><div class="rm"><b>8</b><span>No. Users</span></div><div class="rm"><b>176</b><span>Working Days</span></div><div class="rm"><b>9</b><span>Leaves</span></div><div class="rm"><b>3</b><span>Absent</span></div></div>
+            <div class="sub-label" style="margin:14px 0 8px;">Activities</div>
+            <div class="rep-mini"><div class="rm"><b>112</b><span>Retailing</span></div><div class="rm"><b>14</b><span>Group Work</span></div><div class="rm"><b>22</b><span>Official</span></div><div class="rm"><b>18</b><span>Joint Work</span></div></div>
+            <div class="sub-label" style="margin:14px 0 8px;">Orders &amp; Coverage</div>
+            <div class="rep-mini"><div class="rm"><b>286</b><span>No. Orders</span></div><div class="rm"><b>₹2,640</b><span>Avg Order Val</span></div><div class="rm"><b>320</b><span>TC</span></div><div class="rm"><b>248</b><span>PC</span></div><div class="rm"><b>14</b><span>UPC</span></div><div class="rm"><b>72</b><span>No-Sale Outlets</span></div><div class="rm"><b>21</b><span>New Outlets</span></div><div class="rm"><b>₹7.55L</b><span>Total Order Val</span></div></div>
+            <div class="rng-block" data-rngkey="teamperf">
+              <div class="sub-label" style="margin:14px 0 8px;">Sales — Brand / Sub-Brand / Alias / SKU</div>
+              <div class="rng-tabs"><div class="rng-tab active" data-rng="brand">Brand</div><div class="rng-tab" data-rng="sub">Sub-Brand</div><div class="rng-tab" data-rng="alias">Brand Alias</div><div class="rng-tab" data-rng="sku">SKU</div></div>
+              <div class="rng-th"><span>Name</span><span>Outlets</span><span>%</span></div>
+              <div class="rng-body"></div>
+            </div>
+            <div class="sub-label" style="margin:14px 0 8px;">User-wise Sales &amp; Ranking</div>
+            <div class="rep-stbl"><div class="rep-h" style="grid-template-columns:.5fr 1.6fr 1fr;"><span>#</span><span>User</span><span>Sales Value</span></div>
+              <div class="rep-tr" style="grid-template-columns:.5fr 1.6fr 1fr;"><b>1</b><span>Akhil Kumar</span><b>₹1.42L</b></div>
+              <div class="rep-tr" style="grid-template-columns:.5fr 1.6fr 1fr;"><b>2</b><span>Ravi Teja</span><b>₹1.28L</b></div>
+              <div class="rep-tr" style="grid-template-columns:.5fr 1.6fr 1fr;"><b>3</b><span>Suresh K</span><b>₹1.05L</b></div>
+              <div class="rep-tr" style="grid-template-columns:.5fr 1.6fr 1fr;"><b>4</b><span>Mahesh B</span><b>₹0.92L</b></div>
+              <div class="rep-tr" style="grid-template-columns:.5fr 1.6fr 1fr;"><b>5</b><span>Kiran V</span><b>₹0.81L</b></div>
             </div>
           </div>
         </section>
@@ -2922,15 +3132,33 @@
         <section class="view" data-view="notifications">
           <div class="topbar"><div class="back-btn" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Notifications</div></div>
           <div class="sub-wrap pad-btn2">
-            <div class="nt-card unread"><span class="nt-ic grn">✓</span><div class="nt-b"><div class="nt-t">Your claim is approved</div><div class="nt-m">EXP-123 · ₹1,200 approved by manager</div><div class="nt-d">2h ago</div></div></div>
-            <div class="nt-card unread"><span class="nt-ic org">⇄</span><div class="nt-b"><div class="nt-t">Activity change request</div><div class="nt-m">Manoj is requesting an activity change</div><div class="nt-d">3h ago</div></div></div>
-            <div class="nt-card"><span class="nt-ic blu">🗓</span><div class="nt-b"><div class="nt-t">Leave application</div><div class="nt-m">Arun applied for leave (22–23 May)</div><div class="nt-d">5h ago</div></div></div>
-            <div class="nt-card"><span class="nt-ic org">🎯</span><div class="nt-b"><div class="nt-t">Target update</div><div class="nt-m">JC 6 targets have been revised</div><div class="nt-d">Yesterday</div></div></div>
-            <div class="nt-card"><span class="nt-ic grn">🪙</span><div class="nt-b"><div class="nt-t">Coins earned</div><div class="nt-m">You earned 50 coins for hitting PC target</div><div class="nt-d">Yesterday</div></div></div>
+            <div class="nt-banner" id="ntBanner">📩 You have <b id="ntUnreadN">3</b> unread notifications. Read all to start / continue your day.</div>
+            <div class="nt-card unread"><span class="nt-ic grn">✓</span><div class="nt-b"><div class="nt-t">Your claim is approved</div><div class="nt-m">EXP-123 · ₹1,200 approved by manager</div><div class="nt-d">2h ago</div></div><button class="nt-read">Read</button></div>
+            <div class="nt-card unread"><span class="nt-ic org">⇄</span><div class="nt-b"><div class="nt-t">Activity change request</div><div class="nt-m">Manoj is requesting an activity change</div><div class="nt-d">3h ago</div></div><button class="nt-read">Read</button></div>
+            <div class="nt-card unread"><span class="nt-ic blu">🗓</span><div class="nt-b"><div class="nt-t">Leave application</div><div class="nt-m">Arun applied for leave (22–23 May)</div><div class="nt-d">5h ago</div></div><button class="nt-read">Read</button></div>
+            <div class="nt-card"><span class="nt-ic org">🎯</span><div class="nt-b"><div class="nt-t">Target update</div><div class="nt-m">JC 6 targets have been revised</div><div class="nt-d">Yesterday</div></div><span class="nt-readmark">✓ Read</span></div>
+            <div class="nt-card"><span class="nt-ic grn">🪙</span><div class="nt-b"><div class="nt-t">Coins earned</div><div class="nt-m">You earned 50 coins for hitting PC target</div><div class="nt-d">Yesterday</div></div><span class="nt-readmark">✓ Read</span></div>
           </div>
         </section>
 
         <!-- ============ COINS / GAMIFICATION ============ -->
+        <section class="view" data-view="launchdetail">
+          <div class="topbar"><div class="back-btn" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Scheme Details</div></div>
+          <div class="sub-wrap pad-btn">
+            <div class="dcard">
+              <span class="lc-k nl" id="ldKind" style="margin-bottom:10px;display:inline-block;">Scheme</span>
+              <h3 id="ldTitle" style="font-size:18px;font-weight:800;margin-bottom:8px;">Scheme</h3>
+              <p id="ldDesc" style="font-size:13.5px;color:var(--ink-2);line-height:1.55;">—</p>
+              <div class="ld-meta">
+                <div class="ld-mrow"><span>Validity</span><b>06 May – 02 Jun 2026 (JC 6)</b></div>
+                <div class="ld-mrow"><span>Applies to</span><b>GT Secondary Outlets</b></div>
+                <div class="ld-mrow"><span>Billing</span><b>Secondary</b></div>
+              </div>
+            </div>
+          </div>
+          <button class="btn sub-cta" data-go="home">Close</button>
+        </section>
+
         <section class="view" data-view="coins">
           <div class="topbar"><div class="back-btn" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Coins &amp; Rewards</div></div>
           <div class="sub-wrap pad-btn2">
@@ -3034,10 +3262,10 @@
             </div>
             <div class="to-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="scSearch" placeholder="Search SKU"></div>
             <div id="scList">
-              <div class="sc-row" data-sku="Kopiko Small Pouch"><img src="KOPIKO" class="crow-img"><div class="sc-body"><div class="prod-name">Kopiko Small Pouch</div><div class="prod-price">₹50 · MRP</div></div><div class="sc-qty"><input class="sc-cs" value="0" inputmode="numeric"><span>Cs</span><input class="sc-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
-              <div class="sc-row" data-sku="Malkist Cheese Family Pack"><img src="MALKIST" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Cheese Family Pack</div><div class="prod-price">₹53 · MRP</div></div><div class="sc-qty"><input class="sc-cs" value="0" inputmode="numeric"><span>Cs</span><input class="sc-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
-              <div class="sc-row" data-sku="Malkist Combo Pack"><img src="COMBO" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Combo Pack</div><div class="prod-price">₹50 · MRP</div></div><div class="sc-qty"><input class="sc-cs" value="0" inputmode="numeric"><span>Cs</span><input class="sc-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
-              <div class="sc-row" data-sku="Choki Duo Pouch"><img src="C1" class="crow-img"><div class="sc-body"><div class="prod-name">Choki Duo Pouch</div><div class="prod-price">₹10 · MRP</div></div><div class="sc-qty"><input class="sc-cs" value="0" inputmode="numeric"><span>Cs</span><input class="sc-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
+              <div class="sc-row" data-sku="Kopiko Small Pouch"><img src="KOPIKO" class="crow-img"><div class="sc-body"><div class="prod-name">Kopiko Small Pouch</div><div class="prod-price">₹50 · MRP</div></div><div class="sc-qty single"><input class="sc-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
+              <div class="sc-row" data-sku="Malkist Cheese Family Pack"><img src="MALKIST" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Cheese Family Pack</div><div class="prod-price">₹53 · MRP</div></div><div class="sc-qty single"><input class="sc-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
+              <div class="sc-row" data-sku="Malkist Combo Pack"><img src="COMBO" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Combo Pack</div><div class="prod-price">₹50 · MRP</div></div><div class="sc-qty single"><input class="sc-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
+              <div class="sc-row" data-sku="Choki Duo Pouch"><img src="C1" class="crow-img"><div class="sc-body"><div class="prod-name">Choki Duo Pouch</div><div class="prod-price">₹10 · MRP</div></div><div class="sc-qty single"><input class="sc-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
             </div>
           </div>
           <button class="btn sub-cta" id="scConfirm">Confirm Stock</button>
@@ -3048,7 +3276,7 @@
           <div class="topbar"><div class="back-btn" data-go="stockcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Stock Summary</div></div>
           <div class="sub-wrap pad-btn">
             <div class="to-outlet"><div class="val">Balaji Super Mart</div></div>
-            <div class="ss-tblhead"><span>Product</span><span>Cases</span><span>Pieces</span></div>
+            <div class="ss-tblhead two"><span>Product</span><span>Qty</span></div>
             <div id="ssRows"><div class="sc-sum-empty">No quantities entered.</div></div>
             <div class="sc-sum-tot"><span>Total SKUs Entered</span><b id="ssTot">0</b></div>
           </div>
@@ -3114,10 +3342,10 @@
             </div>
             <div class="to-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="roSearch" placeholder="Search SKU"></div>
             <div id="roList">
-              <div class="sc-row ro-listrow" data-sku="Kopiko Small Pouch"><img src="KOPIKO" class="crow-img"><div class="sc-body"><div class="prod-name">Kopiko Small Pouch</div><div class="prod-price">₹50 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty"><input class="ro-cs" value="0" inputmode="numeric"><span>Cs</span><input class="ro-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
-              <div class="sc-row ro-listrow" data-sku="Malkist Cheese Family Pack"><img src="MALKIST" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Cheese Family Pack</div><div class="prod-price">₹53 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty"><input class="ro-cs" value="0" inputmode="numeric"><span>Cs</span><input class="ro-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
-              <div class="sc-row ro-listrow" data-sku="Malkist Combo Pack"><img src="COMBO" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Combo Pack</div><div class="prod-price">₹50 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty"><input class="ro-cs" value="0" inputmode="numeric"><span>Cs</span><input class="ro-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
-              <div class="sc-row ro-listrow" data-sku="Choki Duo Pouch"><img src="C1" class="crow-img"><div class="sc-body"><div class="prod-name">Choki Duo Pouch</div><div class="prod-price">₹10 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty"><input class="ro-cs" value="0" inputmode="numeric"><span>Cs</span><input class="ro-pc" value="0" inputmode="numeric"><span>Pc</span></div></div>
+              <div class="sc-row ro-listrow" data-sku="Kopiko Small Pouch"><img src="KOPIKO" class="crow-img"><div class="sc-body"><div class="prod-name">Kopiko Small Pouch</div><div class="prod-price">₹50 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty single"><input class="ro-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
+              <div class="sc-row ro-listrow" data-sku="Malkist Cheese Family Pack"><img src="MALKIST" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Cheese Family Pack</div><div class="prod-price">₹53 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty single"><input class="ro-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
+              <div class="sc-row ro-listrow" data-sku="Malkist Combo Pack"><img src="COMBO" class="crow-img"><div class="sc-body"><div class="prod-name">Malkist Combo Pack</div><div class="prod-price">₹50 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty single"><input class="ro-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
+              <div class="sc-row ro-listrow" data-sku="Choki Duo Pouch"><img src="C1" class="crow-img"><div class="sc-body"><div class="prod-name">Choki Duo Pouch</div><div class="prod-price">₹10 · MRP</div><div class="ro-reason"><div class="select-wrap"><select class="ro-rsel"><option value="">Return reason</option><option>Expired Product</option><option>Damaged</option><option>Wrong Pack</option><option>Quality Issue</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div><div class="sc-qty single"><input class="ro-qtyv" value="0" inputmode="numeric"><span>Qty</span></div></div>
             </div>
           </div>
           <button class="btn sub-cta red" id="roConfirm">Confirm Return</button>
@@ -3128,7 +3356,7 @@
           <div class="topbar"><div class="back-btn" data-go="returnorder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Return Summary</div></div>
           <div class="sub-wrap pad-btn">
             <div class="to-outlet"><div class="val">Balaji Super Mart</div></div>
-            <div class="ss-tblhead"><span>Product</span><span>Cases</span><span>Pieces</span></div>
+            <div class="ss-tblhead two"><span>Product</span><span>Qty</span></div>
             <div id="roSumRows"><div class="sc-sum-empty">No return quantities entered.</div></div>
             <div class="sc-sum-tot"><span>Total SKUs Returned</span><b id="roSumTot">0</b></div>
             <div class="fgroup" style="margin-top:14px;"><label class="field-label">Upload Photo (multiple)</label><label class="lv-upload"><span class="lv-up-ic">📷</span><span class="lv-up-txt">Upload return photos</span></label></div>
@@ -3207,23 +3435,18 @@
             <div class="demo-row">⚙ Demo: <span class="demo-chip sel" data-demo="has">Has orders</span><span class="demo-chip" data-demo="none">No orders</span></div>
             <div class="to-outlet"><div class="val">Balaji Super Mart</div></div>
             <div id="ordCards">
-              <div class="sub-label">Orders placed today</div>
+              <div class="sub-label">Order placed today</div>
               <div class="ord-card">
                 <div class="oc-head"><span class="oc-id">Order #7841</span><span class="oc-date">📅 14/05/2026</span></div>
                 <div class="oc-meta"><div class="oc-cell"><span>No. of SKUs</span><b>5</b></div><div class="oc-cell"><span>Order Value</span><b>₹2,450</b></div></div>
                 <button class="oc-edit" data-go="takeorder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4v16h16v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4z"/></svg> Edit Order</button>
               </div>
-              <div class="ord-card">
-                <div class="oc-head"><span class="oc-id">Order #7838</span><span class="oc-date">📅 14/05/2026</span></div>
-                <div class="oc-meta"><div class="oc-cell"><span>No. of SKUs</span><b>3</b></div><div class="oc-cell"><span>Order Value</span><b>₹1,120</b></div></div>
-                <button class="oc-edit" data-go="takeorder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4v16h16v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4z"/></svg> Edit Order</button>
-              </div>
+              <div class="ord-note">📌 Only one order per outlet per day. You can edit today's order until end of day.</div>
             </div>
             <div id="ordEmpty" style="display:none;">
-              <div class="ord-empty"><div class="oe-ic">🧾</div><div class="oe-t">No orders placed today</div><div class="oe-s">In the live app this screen is skipped — tapping Take Order goes straight to the order screen.</div></div>
+              <div class="ord-empty"><div class="oe-ic">🧾</div><div class="oe-t">No order placed today</div><div class="oe-s">In the live app this screen is skipped — tapping Take Order goes straight to the order screen.</div></div>
             </div>
           </div>
-          <button class="btn sub-cta" data-go="takeorder">+ Create New Order</button>
         </section>
 
         <!-- ============ TAKE ORDER ============ -->
@@ -3252,6 +3475,7 @@
               <span class="qf-chip" data-qf="focused">Focused Sell</span>
               <span class="qf-chip" data-qf="schemes" id="qfSchemes">Schemes</span>
               <span class="qf-chip" data-qf="suggested">Suggested</span>
+              <span class="qf-chip" data-qf="last2">Last 2 Orders</span>
             </div>
             <div class="to-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><input id="toSearch" placeholder="Search products or SKU"></div>
             <div id="toSchemes" class="to-schemes" style="display:none;">
@@ -3288,6 +3512,26 @@
                 </div>
               </div>
             </div>
+            <div id="toLast2" class="to-last2" style="display:none;">
+              <div class="l2-card">
+                <div class="l2-head" data-l2><div><div class="l2-id">Order #7841</div><div class="l2-meta">📅 12/05/2026 · ₹2,450</div></div><svg class="l2-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="l2-body">
+                  <div class="l2-th"><span>SKU</span><span>Qty</span><span>Value</span></div>
+                  <div class="l2-row"><span>Kopiko Small Pouch</span><b>20</b><b>₹1,000</b></div>
+                  <div class="l2-row"><span>Malkist Cheese FP</span><b>15</b><b>₹795</b></div>
+                  <div class="l2-row"><span>Beng Beng 30g</span><b>22</b><b>₹655</b></div>
+                </div>
+              </div>
+              <div class="l2-card">
+                <div class="l2-head" data-l2><div><div class="l2-id">Order #7836</div><div class="l2-meta">📅 06/05/2026 · ₹1,980</div></div><svg class="l2-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></div>
+                <div class="l2-body">
+                  <div class="l2-th"><span>SKU</span><span>Qty</span><span>Value</span></div>
+                  <div class="l2-row"><span>Kopiko Cappuccino</span><b>18</b><b>₹540</b></div>
+                  <div class="l2-row"><span>Malkist Combo Pack</span><b>14</b><b>₹700</b></div>
+                  <div class="l2-row"><span>Jam O Jam Assorted</span><b>6</b><b>₹740</b></div>
+                </div>
+              </div>
+            </div>
             <div id="toList">
               <div class="prod ms-prod" data-tag="mustsell" data-stock="240"><div class="prod-main"><img class="prod-img" src="KOPIKO" alt=""><div class="prod-body"><div class="prod-tags"><span class="ptag-box ms">Must Sell</span></div><div class="prod-name">KOPIKO SMALL POUCH</div><div class="prod-price">₹50</div><div class="prod-stock">Avail: <b>240 Pc</b></div><div class="prod-scheme grn scheme-tag" data-scheme-for="Kopiko Small Pouch">🏷 BUY 4 GET 20% Discount</div></div><button class="addbtn">ADD</button></div><div class="ms-reason"><span class="ms-rl">No sale reason</span><div class="select-wrap"><select class="ms-rsel"><option value="">Select reason</option><option>Out of Stock</option><option>Customer Refused</option><option>High Price</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div></div>
               <div class="prod" data-tag="focused" data-stock="180"><div class="prod-main"><img class="prod-img" src="MALKIST" alt=""><div class="prod-body"><div class="prod-tags"><span class="ptag-box fs">Focused Sell</span></div><div class="prod-name">MALKIST CHEESE FAMILY PACK</div><div class="prod-price">₹53</div><div class="prod-stock">Avail: <b>0 Pc</b></div><div class="prod-scheme org scheme-tag" data-scheme-for="Malkist Cheese Family Pack">🏷 View Scheme</div></div><button class="addbtn">ADD</button></div></div>
@@ -3302,7 +3546,11 @@
         <section class="view" data-view="importsec">
           <div class="topbar"><div class="back-btn" id="impBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">Import from Secondary</div></div>
           <div class="sub-wrap pad-btn">
-            <p class="sd-intro" style="margin-bottom:12px;">Secondary order lines with suggested quantities. Add lines individually, or add all to the cart.</p>
+            <p class="sd-intro" style="margin-bottom:12px;">Secondary sales for the selected period. Review available, purchase &amp; sales quantities, set the shortage to order, then add lines or add all.</p>
+            <div class="imp-dates">
+              <div class="fgroup"><label class="field-label">From Date</label><input type="date" class="input" id="impFrom" value="2026-06-01"></div>
+              <div class="fgroup"><label class="field-label">To Date</label><input type="date" class="input" id="impTo" value="2026-06-28"></div>
+            </div>
             <div id="impList"></div>
           </div>
           <button class="btn sub-cta" id="impAddAll">Add All to Cart</button>
@@ -3407,7 +3655,8 @@
               <div class="cs-row"><span>Scheme Discount</span><b class="grn">– ₹57</b></div>
               <div class="cs-row"><span>Free items</span><b class="grn">2 Items</b></div>
               <div class="cs-row"><span>GST (18%)</span><b>₹129</b></div>
-              <div class="cs-row total"><span>Total Order</span><b>₹846</b></div>
+              <div class="cs-row total"><span>Total Order</span><b id="cartTotalVal">₹846</b></div>
+              <div class="cs-growth" id="cartGrowth"></div>
             </div>
           </div>
           <button class="btn cart-place" id="placeOrder">Place Order</button>
@@ -3474,21 +3723,30 @@
             <div><div class="ds-h-title">End Day</div><div class="ds-h-meta">📅 14/05/2026 · ⊕ 08:30 AM</div><span class="dayprog">Day in Progress</span></div>
           </div>
           <div class="ed-wrap">
+            <div class="ds-sec-title">Day Summary</div>
             <div class="ed-grid">
-              <div class="eds"><span class="eds-ic blu">📋</span><div class="eds-n">24</div><div class="eds-l">Total Visits</div></div>
-              <div class="eds"><span class="eds-ic grn">✓</span><div class="eds-n">18</div><div class="eds-l">Completed Visits</div></div>
-              <div class="eds"><span class="eds-ic red">✕</span><div class="eds-n">6</div><div class="eds-l">Missed Visits</div></div>
-              <div class="eds"><span class="eds-ic org">📞</span><div class="eds-n">16</div><div class="eds-l">Productive Calls</div></div>
-              <div class="eds"><span class="eds-ic org">📦</span><div class="eds-n">12</div><div class="eds-l">Order Received</div></div>
-              <div class="eds"><span class="eds-ic grn">₹</span><div class="eds-n">₹28,450</div><div class="eds-l">Order Value</div></div>
+              <div class="eds"><span class="eds-ic blu">📋</span><div class="eds-n">24</div><div class="eds-l">Planned</div></div>
+              <div class="eds"><span class="eds-ic blu">📍</span><div class="eds-n">20</div><div class="eds-l">Visits</div></div>
+              <div class="eds"><span class="eds-ic grn">✓</span><div class="eds-n">18</div><div class="eds-l">Completed</div></div>
+              <div class="eds"><span class="eds-ic red">✕</span><div class="eds-n">6</div><div class="eds-l">Missed</div></div>
+              <div class="eds"><span class="eds-ic org">📦</span><div class="eds-n">12</div><div class="eds-l">No. of Orders</div></div>
+              <div class="eds"><span class="eds-ic grn">₹</span><div class="eds-n">₹28,450</div><div class="eds-l">Total Order Value</div></div>
+              <div class="eds"><span class="eds-ic org">≈</span><div class="eds-n">₹2,371</div><div class="eds-l">Avg Order Value</div></div>
+              <div class="eds"><span class="eds-ic vio">📈</span><div class="eds-n">3.2</div><div class="eds-l">LPC</div></div>
+              <div class="eds"><span class="eds-ic grn">🏪</span><div class="eds-n">4</div><div class="eds-l">New Outlets</div></div>
             </div>
-            <div class="dcard">
-              <h4>Top Performing Brands</h4>
-              <div class="tpb"><span>Kopiko</span><div class="tpb-bar"><i class="grn" style="width:90%"></i></div></div>
-              <div class="tpb"><span>Malkist</span><div class="tpb-bar"><i class="org" style="width:65%"></i></div></div>
-              <div class="tpb"><span>Choki Choki</span><div class="tpb-bar"><i class="brown" style="width:45%"></i></div></div>
-              <div class="tpb"><span>Cafe Blend</span><div class="tpb-bar"><i class="red" style="width:30%"></i></div></div>
+            <div class="dcard rng-block" data-rngkey="endday">
+              <h4>Range Selling</h4>
+              <div class="rng-tabs">
+                <div class="rng-tab active" data-rng="brand">Brand</div>
+                <div class="rng-tab" data-rng="sub">Sub-Brand</div>
+                <div class="rng-tab" data-rng="alias">Brand Alias</div>
+                <div class="rng-tab" data-rng="sku">SKU</div>
+              </div>
+              <div class="rng-th"><span>Name</span><span>Outlets</span><span>%</span></div>
+              <div class="rng-body"></div>
             </div>
+            <button class="ed-wa" id="edShareWa"><svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A2.8 2.8 0 0 0 6.5 10a4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c2 .8 2 .5 2.4.5a2.5 2.5 0 0 0 1.6-1.2 2 2 0 0 0 .2-1.2c-.1-.1-.2-.2-.4-.3z"/></svg> Share Summary on WhatsApp</button>
           </div>
           <button class="btn ed-submit" id="endDayBtn">End Day</button>
         </section>
@@ -3497,6 +3755,7 @@
         <section class="view" data-view="calendar">
           <div class="topbar"><div class="back-btn" data-go="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">JC Calendar</div><div class="pv-edit" id="newPjpBtn">+ New PJP</div></div>
           <div class="cal-wrap">
+            <div class="select-wrap js-userfilter cal-userfilter"><select class="input"><option>Akhil Kumar (me)</option><option>Ravi Teja</option><option>Suresh K</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
             <div class="cal-card">
               <div class="cal-jc"><button class="cal-jcnav" id="jcPrev">‹</button><div class="cal-jctitle" id="jcTitle">JC 6</div><button class="cal-jcnav" id="jcNext">›</button></div>
               <div class="cal-jcsub" id="jcSub">06 May – 02 Jun 2026 · 28 days</div>
@@ -3510,6 +3769,15 @@
               <span><i class="lg ho"></i> Holiday</span>
               <span><i class="lg wo"></i> Week-off</span>
             </div>
+          </div>
+        </section>
+
+        <!-- ============ DAY TIMELINE (past date) ============ -->
+        <section class="view" data-view="daytimeline">
+          <div class="topbar"><div class="back-btn" data-go="calendar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title" id="dtTitle">Day Timeline</div></div>
+          <div class="sub-wrap pad-btn2">
+            <div class="dt-sumrow" id="dtSum"></div>
+            <div class="dt-timeline" id="dtList"></div>
           </div>
         </section>
 
@@ -3583,7 +3851,7 @@
         <div class="bsheet">
           <div class="bsheet-grab"></div>
           <div class="bsheet-head">
-            <span>Select Beat</span>
+            <span id="beatSheetTitle">Select Beat</span>
             <div class="bsheet-x" id="beatClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></div>
           </div>
           <div class="bsheet-search">
@@ -3696,6 +3964,7 @@
           <div class="of-body">
             <div class="of-cats">
               <div class="of-cat active" data-fcat="beatometer">Beat-O-Meter</div>
+              <div class="of-cat" data-fcat="segment">Segmentation</div>
               <div class="of-cat" data-fcat="shoptype">Shop Type</div>
               <div class="of-cat" data-fcat="customtags">Custom Tags</div>
             </div>
@@ -3867,8 +4136,20 @@
     statusbar.classList.remove('light');
     screen.classList.toggle('home-active', name==='home'); // fixed tab bar + white bg
     if(name==='home' && typeof applyHomeState==='function') applyHomeState();
-    if(name==='home') window._teleMode=false;
+    if(name==='home'){ window._teleMode=false; if(typeof applySrCards==='function') applySrCards(); }
     if(name==='ordersuccess'){ const ob=document.getElementById('osucBack'); if(ob) ob.textContent = window._teleMode ? 'Go Back' : 'Go Back to Visit'; }
+    if(['endday','dsr','msr','teamperf'].includes(name) && typeof renderRangeBlocks==='function'){ renderRangeBlocks(name); }
+    if(name==='salesrep' && typeof renderSrTab==='function'){ document.querySelectorAll('.seg2-btn[data-srtab]').forEach(x=>x.classList.toggle('active', x.dataset.srtab==='brand')); renderSrTab('brand'); renderSrCust(); }
+    if(name==='analytics'){ const mgr=(window._role||'').endsWith('Manager'); document.querySelectorAll('.view[data-view="analytics"] .an-mgr').forEach(el=> el.style.display=mgr?'':'none'); }
+    if(name==='cart'){ const tv=document.getElementById('cartTotalVal'), gr=document.getElementById('cartGrowth');
+      if(tv){ const total=846, last=window._lastOrderValue||720; tv.classList.remove('val-red','val-org','val-grn');
+        let cls,msg; const g=((total-last)/last*100);
+        if(total<last){ cls='val-red'; msg='▼ Below last order (₹'+last+')'; }
+        else if(g<=10){ cls='val-org'; msg='▲ '+g.toFixed(1)+'% vs last order (₹'+last+')'; }
+        else { cls='val-grn'; msg='▲ '+g.toFixed(1)+'% growth vs last order (₹'+last+')'; }
+        tv.classList.add(cls); if(gr){ gr.textContent=msg; gr.className='cs-growth '+cls; }
+      }
+    }
     // ===== Role gating =====
     if(name==='pendingitems'){
       const mgr=(window._role||'').endsWith('Manager');
@@ -3879,11 +4160,14 @@
         document.querySelectorAll('.pi-pane').forEach(pn=>pn.classList.toggle('active', pn.dataset.pipane==='req'));
       }
     }
-    if(['dsr','msr','attendance','tgt','empclaims'].includes(name)){
+    if(['dsr','msr','attendance','tgt','empclaims','calendar'].includes(name)){
       const mgr=(window._role||'').endsWith('Manager');
       const v=document.querySelector('.view[data-view="'+name+'"]');
       if(v){
         v.querySelectorAll('.rep-user, .js-userfilter').forEach(el=> el.style.display = mgr?'':'none');
+        v.querySelectorAll('.rep-mgr').forEach(el=> el.style.display = mgr?'':'none');
+        const mt=(window._role||'').startsWith('MT');
+        v.querySelectorAll('.rep-mt').forEach(el=> el.style.display = mt?'':'none');
         if(name==='dsr'||name==='msr'){
           const tb=v.querySelector('.seg2-btn[data-rep="team"]'); if(tb) tb.style.display=mgr?'':'none';
           if(!mgr && v.querySelector('.seg2-btn[data-rep="team"].active')){
@@ -3894,7 +4178,7 @@
       }
     }
     // global menu hidden on onboarding + order screens
-    const noMenu = ['login','otp','profile','sync','ordersuccess','checkout','cart','takeorder','orderslist','outletdetail','visit','stockcheck','stocksummary','schemeslist','schemedetail','task_selfba','task_smgr','task_expiry','task_facing','task_addvis','task_comp','ow_dvs_list','ow_dvs_form','ow_promo_list','ow_promo_form','ow_train_list','ow_train_form','ow_meet_list','ow_meet_form','ow_dsearch_list','ow_dsearch_form','ow_other_list','ow_other_form','jw_form','pendingitems','helpdesk','helpdesk_form','resource','advleave','advleave_form','shareorder','approval','profileview','pjp_build','claims','claim_new','analytics','dsr','msr','attendance','tgt','empclaims','order_detail','notifications','coins','importsec','teleorder'];
+    const noMenu = ['login','otp','profile','sync','ordersuccess','checkout','cart','takeorder','orderslist','outletdetail','visit','stockcheck','stocksummary','schemeslist','schemedetail','task_selfba','task_smgr','task_expiry','task_facing','task_addvis','task_comp','ow_dvs_list','ow_dvs_form','ow_promo_list','ow_promo_form','ow_train_list','ow_train_form','ow_meet_list','ow_meet_form','ow_dsearch_list','ow_dsearch_form','ow_other_list','ow_other_form','jw_form','pendingitems','helpdesk','helpdesk_form','resource','advleave','advleave_form','shareorder','approval','profileview','pjp_build','claims','claim_detail','analytics','dsr','msr','attendance','tgt','empclaims','order_detail','notifications','coins','importsec','teleorder','launchdetail','jw_summary','gwvisit','daytimeline','salesrep','teamperf'];
     const gm = document.getElementById('globalMenu');
     if(gm) gm.style.display = (noMenu.includes(name) || name==='home') ? 'none' : 'flex';
     fpMask.classList.remove('show');
@@ -3911,16 +4195,17 @@
     if(name==='sync') runSync();
     if(name==='otp') startTimer();
     if(name==='startday') resetStartDay();
-    if(name==='beats' && typeof applyOutletFilter==='function') applyOutletFilter();
-    if(name==='beats'){ const nb=document.getElementById('goNewOutlet'), fp=document.getElementById('goFootPlan'); const j=window._isJoint||window._teleMode; if(nb) nb.style.display=j?'none':''; if(fp) fp.style.display=j?'none':'';
+    if(name==='beats' && typeof applyOutletFilter==='function'){ if(typeof resetBeatTabs==='function') resetBeatTabs(); applyOutletFilter(); }
+    if(name==='beats'){ const nb=document.getElementById('goNewOutlet'), fp=document.getElementById('goFootPlan'); const j=window._isJoint||window._teleMode; const mt=(window._role||'').startsWith('MT'); const gm=window._groupMode; if(nb) nb.style.display=(j||mt||gm)?'none':''; if(fp) fp.style.display=(j||gm)?'none':''; const pt=document.querySelector('.view[data-view="beats"] .bt-tab[data-cust="primary"]'); if(pt) pt.style.display = gm ? 'none' : '';
       const tw=document.getElementById('teleBeatWrap'), tt=document.getElementById('btTitle'), ts=document.getElementById('btSub');
       if(tw){ tw.style.display = window._teleMode?'':'none'; } if(tt){ tt.style.display = window._teleMode?'none':''; } if(ts){ ts.style.display = window._teleMode?'none':''; }
     }
     if(name==='calendar' && typeof buildCalendar==='function') buildCalendar();
     if(name==='outletdetail'){ const w=document.getElementById('odLocWarn'), k=document.getElementById('odLocOk'); if(w&&k){ w.style.display=''; k.style.display='none'; }
       const pr=window._isPrimary; const dots=document.getElementById('odDots'), miss=document.getElementById('odMissed');
-      if(dots) dots.style.display = pr ? 'none' : ''; if(miss) miss.style.display = (pr||window._isJoint) ? 'none' : '';
+      if(dots) dots.style.display = (pr||window._groupMode) ? 'none' : ''; if(miss) miss.style.display = (pr||window._isJoint) ? 'none' : '';
       const tg=document.getElementById('odTags'); if(tg) tg.style.display = pr ? 'none' : '';
+      const rg=document.getElementById('odRange'); if(rg) rg.style.display = pr ? 'none' : '';
     }
     if(name==='visit'){ const pr=window._isPrimary, mr=window._isMerch;
       const av=document.getElementById('avDots'); if(av) av.style.display = pr ? 'none' : '';
@@ -3935,7 +4220,7 @@
       });
     }
     const _cf=document.getElementById('goCart'); if(_cf) _cf.style.display = (name==='takeorder') ? 'flex' : 'none';
-    if(name==='takeorder'){ const ts=document.getElementById('toSchemes'), tl=document.getElementById('toList'); if(ts&&tl){ ts.style.display='none'; tl.style.display=''; } document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.toggle('sel', x.dataset.qf==='mustsell')); const imp=document.getElementById('toImportSec'); if(imp) imp.style.display = window._isPrimary ? '' : 'none'; if(typeof toFilter==='function') toFilter(); }
+    if(name==='takeorder'){ const imp=document.getElementById('toImportSec'); if(imp) imp.style.display = window._isPrimary ? '' : 'none'; if(typeof setToFilter==='function') setToFilter(window._toEntryFilter||'last2'); window._toEntryFilter=null; }
     if(name==='teleorder' && typeof buildTele==='function') buildTele();
   }
 
@@ -3969,16 +4254,52 @@
     const pv=document.querySelector('.pv-role'); if(pv) pv.textContent = rl+' · EMP-10245';
     const rr=document.querySelector('.rank-top .role'); if(rr) rr.textContent = isMgr?'Manager':'SR';
   }));
-  // Outlet Coverage carousel
+  // Outlet Coverage carousel (dynamic title)
   (function(){
     const track=document.getElementById('covTrack'); if(!track) return;
     const slides=[...track.querySelectorAll('.cov-slide')];
     const dots=[...document.querySelectorAll('#covDots i')];
+    const title=document.getElementById('covTitle');
+    const names=['PC Target','TC Target','UPC Target'];
     let i=0;
-    function go(n){ i=(n+slides.length)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); dots.forEach((d,k)=>d.classList.toggle('on',k===i)); }
+    function go(n){ i=(n+slides.length)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); dots.forEach((d,k)=>d.classList.toggle('on',k===i)); if(title) title.textContent=(names[i]||'Outlet Coverage')+' · Outlet Coverage'; }
     dots.forEach((d,k)=> d.onclick=()=>go(k));
     setInterval(()=>{ if(document.querySelector('.view.active')?.dataset.view==='home') go(i+1); }, 3800);
   })();
+  // Ongoing Schemes & Launches carousel (auto-scroll cards)
+  (function(){
+    const track=document.getElementById('schemeTrack'); if(!track) return;
+    const slides=[...track.querySelectorAll('.cov-slide')];
+    const dots=[...document.querySelectorAll('#schemeDots i')];
+    let i=0;
+    function go(n){ i=(n+slides.length)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); dots.forEach((d,k)=>d.classList.toggle('on',k===i)); }
+    dots.forEach((d,k)=> d.onclick=()=>go(k));
+    track.querySelectorAll('.lc-card').forEach(c=>{ c.onclick=()=>{
+      const k=document.getElementById('ldKind'), t=document.getElementById('ldTitle'), d=document.getElementById('ldDesc');
+      if(k){ k.textContent=c.dataset.lk; k.className='lc-k '+(c.querySelector('.lc-k').classList[1]||'sc'); }
+      if(t) t.textContent=c.dataset.lt; if(d) d.textContent=c.dataset.ld;
+      show('launchdetail');
+    }; });
+    setInterval(()=>{ if(document.querySelector('.view.active')?.dataset.view==='home') go(i+1); }, 4200);
+  })();
+  // SR-only home cards (Incentive, Sales Performance) + Gamification tabs
+  function applySrCards(){
+    const mgr = (window._role||'').endsWith('Manager');
+    document.querySelectorAll('.sr-only').forEach(e=> e.style.display = mgr ? 'none' : '');
+    document.querySelectorAll('.mgr-only').forEach(e=> e.style.display = mgr ? '' : 'none');
+    // gamification name: manager sees team top performer, SR sees self
+    const gn=document.getElementById('gmName'); if(gn) gn.textContent='Akhil';
+    // managers: force the Gamification tab active (others hidden)
+    if(mgr){
+      document.querySelectorAll('.gm-tab').forEach(t=>t.classList.toggle('active', t.dataset.gm==='game'));
+      document.querySelectorAll('.gm-pane').forEach(p=>p.classList.toggle('active', p.dataset.gmpane==='game'));
+    }
+  }
+  document.querySelectorAll('.gm-tab').forEach(t=>{ t.onclick=()=>{
+    document.querySelectorAll('.gm-tab').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+    const p=t.dataset.gm;
+    document.querySelectorAll('.gm-pane').forEach(pn=> pn.classList.toggle('active', pn.dataset.gmpane===p));
+  }; });
   // reusable confirm popup
   const confirmMask=document.getElementById('confirmMask');
   function askConfirm(title, sub, onYes){
@@ -3994,25 +4315,29 @@
 
   /* ===== Import from Secondary ===== */
   const IMPORT_SKUS = [
-    {n:'Kopiko Small Pouch 50g', m:'₹50 · Kopiko', q:10},
-    {n:'Malkist Cheese FP 120g', m:'₹53 · Malkist', q:6},
-    {n:'Malkist Combo Pack', m:'₹50 · Malkist', q:8},
-    {n:'Choki Duo Pouch 10g', m:'₹10 · Choki Choki', q:24},
-    {n:'Beng Beng 30g', m:'₹30 · Beng Beng', q:12},
-    {n:'Jam O Jam Assorted GB', m:'₹120 · Jam O Jam', q:4}
+    {n:'Kopiko Small Pouch 50g', avail:30, purchase:200, sales:160},
+    {n:'Malkist Cheese FP 120g', avail:12, purchase:120, sales:96},
+    {n:'Malkist Combo Pack', avail:8, purchase:90, sales:78},
+    {n:'Choki Duo Pouch 10g', avail:48, purchase:240, sales:180},
+    {n:'Beng Beng 30g', avail:20, purchase:150, sales:130},
+    {n:'Jam O Jam Assorted GB', avail:4, purchase:40, sales:34}
   ];
   function buildImport(){ const box=document.getElementById('impList'); if(!box) return; box.innerHTML='';
-    IMPORT_SKUS.forEach(s=>{ const row=document.createElement('div'); row.className='imp-row';
-      row.innerHTML='<div class="imp-b"><div class="imp-n">'+s.n+'</div><div class="imp-m">'+s.m+'</div></div>'+
-        '<div class="imp-qty"><button class="qd">–</button><span>'+s.q+'</span><button class="qu">+</button></div>'+
+    IMPORT_SKUS.forEach(s=>{ const shortage=Math.max(0, s.purchase - s.sales - s.avail);
+      const row=document.createElement('div'); row.className='imp-card';
+      row.innerHTML='<div class="imp-n">'+s.n+'</div>'+
+        '<div class="imp-grid">'+
+          '<div class="impc"><span>Available</span><b>'+s.avail+'</b></div>'+
+          '<div class="impc"><span>Purchase</span><b>'+s.purchase+'</b></div>'+
+          '<div class="impc"><span>Sales</span><b>'+s.sales+'</b></div>'+
+          '<div class="impc edit"><span>Shortage</span><input class="imp-short" value="'+shortage+'" inputmode="numeric"></div>'+
+        '</div>'+
         '<button class="imp-add">Add</button>';
-      const span=row.querySelector('.imp-qty span');
-      row.querySelector('.qd').onclick=()=>{ let v=parseInt(span.textContent)||0; if(v>0) span.textContent=v-1; };
-      row.querySelector('.qu').onclick=()=>{ span.textContent=(parseInt(span.textContent)||0)+1; };
-      row.querySelector('.imp-add').onclick=function(){ if(!row.classList.contains('added')){ row.classList.add('added'); this.textContent='Added'; showToast(s.n+' added to cart'); } };
+      row.querySelector('.imp-add').onclick=function(){ if(!row.classList.contains('added')){ row.classList.add('added'); this.textContent='Added ✓'; showToast(s.n+' added to cart'); } };
       box.appendChild(row);
     });
   }
+  ['impFrom','impTo'].forEach(id=>{ const e=document.getElementById(id); if(e) e.onchange=()=> showToast('Period updated — refreshing secondary data'); });
   function openImport(origin){ window._impOrigin=origin; buildImport(); show('importsec'); }
   document.getElementById('toImportSec') && (document.getElementById('toImportSec').onclick=()=>openImport('takeorder'));
   document.getElementById('teleoImportSec') && (document.getElementById('teleoImportSec').onclick=()=>openImport('teleorder'));
@@ -4116,7 +4441,7 @@
   document.getElementById('toPwdLogin') && (document.getElementById('toPwdLogin').onclick = ()=>{ document.getElementById('loginOtp').style.display='none'; document.getElementById('loginPwd').style.display=''; });
 
   /* ===== Floating buttons ===== */
-  document.getElementById('startDayBtn').onclick = ()=>{ window._changeMode=false; window._switchMode=false; resetStartDay(); const tt=document.getElementById('sdTitle'); if(tt) tt.textContent='Start Your Day'; show('startday'); };
+  document.getElementById('startDayBtn').onclick = ()=>{ if(typeof allNotifsRead==='function' && !allNotifsRead()){ showToast('Please read all notifications first'); show('notifications'); return; } window._changeMode=false; window._switchMode=false; resetStartDay(); const tt=document.getElementById('sdTitle'); if(tt) tt.textContent='Start Your Day'; show('startday'); };
   document.getElementById('leaveBtn').onclick    = ()=> leaveMask.classList.add('show');
 
   /* ===== Start Day multi-step flow ===== */
@@ -4133,7 +4458,7 @@
   function resetStartDay(){
     selActivity = null;
     sdView.querySelectorAll('.sd-opt,.sd-pill,.sd-user,.beat-row,.plan-card').forEach(e=>e.classList.remove('sel'));
-    ['travel','city','beat','subact','user','jwbeat','photo','reason'].forEach(hide);
+    ['travel','city','stay','beat','subact','user','jwbeat','photo','reason'].forEach(hide);
     document.getElementById('sdChange').classList.add('hidden');
     document.getElementById('beatSelText').textContent='Choose a beat';
     document.getElementById('beatSelect').classList.remove('has');
@@ -4156,6 +4481,8 @@
     if(a==='Retailing') return !isMT();
     if(a==='Merchandising') return isMT();
     if(a==='Joint Work') return isManager();
+    if(a==='Official Work') return isManager();   // managers only
+    if(a==='Group Work') return !isManager();      // SRs only (replaces Official Work)
     return true;
   }
   function filterActivityPills(){ const planned=plannedActs(); sdView.querySelectorAll('#actGrid .sd-opt').forEach(o=> o.style.display = (activityAllowed(o.dataset.act) && !planned.has(o.dataset.act)) ? '' : 'none'); }
@@ -4171,7 +4498,7 @@
     let list = (PLAN[window._role]||PLAN['GT-SR']);
     if(window._switchMode) list = list.filter(p=> p.a!==window._activity);
     list.forEach((p,idx)=>{
-      const meta = p.beat || (p.sub?('Sub-activity: '+p.sub):'') || (p.user?('Joint with: '+p.user):'');
+      const meta = p.beat || (p.sub?('Sub-activity: '+p.sub):'') || (p.user?('Joint with: '+p.user):'') || (p.shared?'Temp shared beat – assigned by manager':'');
       const card=document.createElement('div'); card.className='plan-card'; card.dataset.idx=idx;
       card.innerHTML='<span class="plan-ic">'+p.icon+'</span><div class="plan-b"><div class="plan-t">'+p.a+'</div><div class="plan-m">'+meta+'</div></div><span class="plan-chk"></span>';
       card.onclick=()=>{
@@ -4186,8 +4513,8 @@
         box.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('sel')); card.classList.add('sel');
         selActivity = p.a; window._selSub = p.sub || null; window._planBeat = p.beat || null;
         if(p.beat){ const bn=document.getElementById('beatName'); if(bn) bn.textContent=p.beat; }
-        sdView.querySelectorAll('[data-step="travel"] .sd-pill,[data-step="city"] .sd-pill').forEach(x=>x.classList.remove('sel'));
-        hide('city'); hide('photo'); sdStart.classList.add('hidden');
+        sdView.querySelectorAll('[data-step="travel"] .sd-pill,[data-step="city"] .sd-pill,[data-step="stay"] .sd-pill').forEach(x=>x.classList.remove('sel'));
+        hide('city'); hide('stay'); hide('photo'); sdStart.classList.add('hidden');
         reveal('travel');
       };
       box.appendChild(card);
@@ -4197,7 +4524,7 @@
   // step 4 depends on activity
   function step4For(act){
     hide('beat'); hide('subact'); hide('user'); hide('jwbeat'); hide('photo'); sdStart.classList.add('hidden');
-    if(act==='Retailing' || act==='Merchandising') reveal('beat');
+    if(act==='Retailing' || act==='Merchandising' || act==='Group Work') reveal('beat');
     else if(act==='Official Work') reveal('subact');
     else if(act==='Joint Work') reveal('user');
   }
@@ -4209,8 +4536,8 @@
       opt.classList.add('sel');
       selActivity = opt.dataset.act;
       // reset downstream selections
-      sdView.querySelectorAll('[data-step="travel"] .sd-pill,[data-step="city"] .sd-pill').forEach(p=>p.classList.remove('sel'));
-      hide('city'); step4For(''); // clear step4
+      sdView.querySelectorAll('[data-step="travel"] .sd-pill,[data-step="city"] .sd-pill,[data-step="stay"] .sd-pill').forEach(p=>p.classList.remove('sel'));
+      hide('city'); hide('stay'); step4For(''); // clear step4
       reveal('travel');
     };
   });
@@ -4218,19 +4545,28 @@
   sdView.querySelectorAll('[data-step="travel"] .sd-pill').forEach(p=>{
     p.onclick = ()=>{
       sdView.querySelectorAll('[data-step="travel"] .sd-pill').forEach(x=>x.classList.remove('sel'));
-      p.classList.add('sel');
-      sdView.querySelectorAll('[data-step="city"] .sd-pill').forEach(x=>x.classList.remove('sel'));
-      step4For('');
+      p.classList.add('sel'); window._travel = p.dataset.travel;
+      sdView.querySelectorAll('[data-step="city"] .sd-pill,[data-step="stay"] .sd-pill').forEach(x=>x.classList.remove('sel'));
+      hide('stay'); step4For('');
       reveal('city');
     };
   });
-  // 3. city -> reveal step 4 based on activity (change mode) or photo+start (plan mode)
+  function sdProceed(){ if(selActivity==='Group Work'){ step4For('Group Work'); } else if(window._planMode){ finishStep(); } else step4For(selActivity); }
+  // 3. city -> (outstation: ask stay) else reveal step 4
   sdView.querySelectorAll('[data-step="city"] .sd-pill').forEach(p=>{
     p.onclick = ()=>{
       sdView.querySelectorAll('[data-step="city"] .sd-pill').forEach(x=>x.classList.remove('sel'));
-      p.classList.add('sel');
-      if(window._planMode){ finishStep(); }   // beat/sub already from PJP — skip to photo+start
-      else step4For(selActivity);
+      p.classList.add('sel'); window._city = p.dataset.city;
+      if(window._travel==='Outstation'){ sdView.querySelectorAll('[data-step="stay"] .sd-pill').forEach(x=>x.classList.remove('sel')); step4For(''); reveal('stay'); }
+      else { hide('stay'); sdProceed(); }
+    };
+  });
+  // 3b. stay (outstation) -> reveal step 4
+  sdView.querySelectorAll('[data-step="stay"] .sd-pill').forEach(p=>{
+    p.onclick = ()=>{
+      sdView.querySelectorAll('[data-step="stay"] .sd-pill').forEach(x=>x.classList.remove('sel'));
+      p.classList.add('sel'); window._stay = p.dataset.stay;
+      sdProceed();
     };
   });
   // plan-mode buttons
@@ -4252,7 +4588,7 @@
   });
 
   // beat selector opens sheet
-  document.getElementById('beatSelect').onclick = ()=> beatMask.classList.add('show');
+  document.getElementById('beatSelect').onclick = ()=>{ window._beatTarget='beat'; renderBeatList(selActivity==='Group Work'); beatMask.classList.add('show'); };
   // Joint Work: user selector -> user sheet
   const userSelMask=document.getElementById('userSelMask');
   document.getElementById('userSelect') && (document.getElementById('userSelect').onclick = ()=> userSelMask.classList.add('show'));
@@ -4264,25 +4600,36 @@
   });
   // Joint Work: jw beat selector -> reuse beat sheet
   window._beatTarget='beat';
-  document.getElementById('jwBeatSelect') && (document.getElementById('jwBeatSelect').onclick = ()=>{ window._beatTarget='jwbeat'; beatMask.classList.add('show'); });
+  document.getElementById('jwBeatSelect') && (document.getElementById('jwBeatSelect').onclick = ()=>{ window._beatTarget='jwbeat'; renderBeatList(false); beatMask.classList.add('show'); });
   document.getElementById('beatClose').onclick  = ()=> beatMask.classList.remove('show');
   beatMask.addEventListener('click', e=>{ if(e.target===beatMask) beatMask.classList.remove('show'); });
-  document.querySelectorAll('#beatList .beat-row').forEach(r=>{
-    r.onclick = ()=>{
-      document.querySelectorAll('#beatList .beat-row').forEach(x=>x.classList.remove('sel'));
-      r.classList.add('sel');
-      if(window._beatTarget==='jwbeat'){
-        document.getElementById('jwBeatSelText').textContent = r.dataset.beat;
-        document.getElementById('jwBeatSelect').classList.add('has');
-      } else {
-        document.getElementById('beatSelText').textContent = r.dataset.beat;
-        document.getElementById('beatSelect').classList.add('has');
-      }
-      const bn = document.getElementById('beatName'); if(bn) bn.textContent = 'Beat 01 – ' + r.dataset.beat;
-      finishStep();
-      setTimeout(()=> beatMask.classList.remove('show'), 180);
-    };
-  });
+  const OWN_BEATS=[['Ameerpet',50],['SR Nagar',27],['Begumpet',32],['Panjagutta',55],['Erragadda',22],['Bharath Nagar',50],['Moosapet',42],['Kukatpally',38]];
+  const SHARED_BEATS=[['Shared Beat A – KPHB (Ramesh K)',34],['Shared Beat B – Miyapur (Suresh G)',28],['Shared Beat C – Madhapur (Kiran V)',41],['Shared Beat D – Gachibowli (Anil R)',30]];
+  function renderBeatList(shared){
+    const box=document.getElementById('beatList'); const title=document.getElementById('beatSheetTitle');
+    if(title) title.textContent = shared ? 'Select Temp Shared Beat' : 'Select Beat';
+    box.innerHTML = (shared?SHARED_BEATS:OWN_BEATS).map(([n,c])=> '<div class="beat-row" data-beat="'+n+'"><span>'+n+'</span><b>'+c+'</b></div>').join('');
+    bindBeatRows();
+  }
+  function bindBeatRows(){
+    document.querySelectorAll('#beatList .beat-row').forEach(r=>{
+      r.onclick = ()=>{
+        document.querySelectorAll('#beatList .beat-row').forEach(x=>x.classList.remove('sel'));
+        r.classList.add('sel');
+        if(window._beatTarget==='jwbeat'){
+          document.getElementById('jwBeatSelText').textContent = r.dataset.beat;
+          document.getElementById('jwBeatSelect').classList.add('has');
+        } else {
+          document.getElementById('beatSelText').textContent = r.dataset.beat;
+          document.getElementById('beatSelect').classList.add('has');
+        }
+        const bn = document.getElementById('beatName'); if(bn) bn.textContent = (selActivity==='Group Work' ? '' : 'Beat 01 – ') + r.dataset.beat;
+        finishStep();
+        setTimeout(()=> beatMask.classList.remove('show'), 180);
+      };
+    });
+  }
+  bindBeatRows();
   // beat search filter
   document.getElementById('beatSearch').addEventListener('input', e=>{
     const q = e.target.value.toLowerCase();
@@ -4301,6 +4648,7 @@
     window._teleMode=false; window._switchMode=false;
     window._isMerch = (window._activity==='Merchandising');
     window._isJoint = (window._activity==='Joint Work');
+    window._groupMode = (window._activity==='Group Work');
     if(window._activity==='Official Work'){
       const owMap={'Distributor Visit':'ow_dvs_list','Promotional Activity':'ow_promo_list','Training':'ow_train_list','Meeting':'ow_meet_list','Distributor Search':'ow_dsearch_list','Other':'ow_other_list'};
       const t=owMap[window._selSub]; if(t){ show(t); return; }
@@ -4325,6 +4673,7 @@
   };
   // Activity floating button
   document.getElementById('activityBtn').onclick = ()=>{
+    if(typeof allNotifsRead==='function' && !allNotifsRead()){ showToast('Please read all notifications first'); show('notifications'); return; }
     if(!window._dayStarted){ window._changeMode=false; window._switchMode=false; resetStartDay(); const tt=document.getElementById('sdTitle'); if(tt) tt.textContent='Start Your Day'; show('startday'); return; }
     routeActivity();
   };
@@ -4445,11 +4794,13 @@
   function actRow(){
     const wrap=document.createElement('div'); wrap.className='pjp-arow';
     const sel=document.createElement('select');
-    sel.innerHTML='<option value="">Select activity</option><option>Retailing</option><option>Merchandising</option><option>Official Work</option><option>Joint Work</option>';
+    const mgr=(window._role||'').endsWith('Manager');
+    sel.innerHTML='<option value="">Select activity</option><option>Retailing</option><option>Merchandising</option>'+(mgr?'<option>Official Work</option><option>Joint Work</option>':'<option>Group Work</option>');
     const dep=document.createElement('select'); dep.style.display='none';
     sel.onchange=()=>{
       const v=sel.value;
       if(v==='Retailing'||v==='Merchandising'){ dep.innerHTML='<option value="">Select beat</option><option>Ameerpet</option><option>SR Nagar</option><option>Begumpet</option><option>Kukatpally</option>'; dep.style.display=''; }
+      else if(v==='Group Work'){ dep.innerHTML='<option value="">Select temp shared beat</option><option>Shared Beat A – KPHB</option><option>Shared Beat B – Miyapur</option><option>Shared Beat C – Madhapur</option>'; dep.style.display=''; }
       else if(v==='Joint Work'){ dep.innerHTML='<option value="">Select user</option><option>Ravi Teja · SO</option><option>Suresh K · SO</option><option>Mahesh B · PSR</option>'; dep.style.display=''; }
       else if(v==='Official Work'){ dep.innerHTML='<option value="">Select sub-activity</option><option>Distributor Visit</option><option>Promotional Activity</option><option>Training</option><option>Meeting</option><option>Distributor Search</option><option>Other</option>'; dep.style.display=''; }
       else dep.style.display='none';
@@ -4471,46 +4822,138 @@
   }
   document.getElementById('pjpSave') && (document.getElementById('pjpSave').onclick=()=>{ goApproval('pjp'); });
 
-  /* ===== Claims / Expenses ===== */
-  function expCard(){
-    const c=document.createElement('div'); c.className='exp-card';
-    c.innerHTML =
-      '<div class="fgroup"><label class="field-label">Date (max 6 days back)</label><div class="select-wrap"><select class="input ec-date"></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div></div>'+
-      '<div class="fgroup"><label class="field-label">Type</label><div class="select-wrap"><select class="input ec-type"><option>DA</option><option>TA</option><option>Hotel Stay</option><option>Recharge</option><option>Fuel</option><option>KM Travelled</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>'+
-      '<div class="ec-da" style="display:none;"><div class="da-calc">System DA (from KPIs): <span class="ec-dacalc">₹350</span></div><div class="fgroup"><label class="field-label">Request different DA (optional)</label><input class="input ec-dareq" inputmode="numeric" placeholder="Enter requested DA"></div></div>'+
-      '<div class="ec-ta" style="display:none;">'+
-        '<div class="fgroup"><label class="field-label">Transport Mode</label><div class="select-wrap"><select class="input ec-mode"><option>Public</option><option>Own</option><option>Company</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>'+
-        '<div class="fgroup"><label class="field-label">Vehicle Type</label><div class="select-wrap"><select class="input ec-veh"><option>Own car</option><option>Own bike</option><option>Cab</option><option>Auto</option><option>Train</option><option>Bus</option><option>Flight</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>'+
-        '<div class="fgroup ec-subwrap" style="display:none;"><label class="field-label">Sub-type</label><div class="select-wrap"><select class="input ec-sub"></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div></div>'+
-        '<div class="fgroup ec-kmwrap" style="display:none;"><label class="field-label">KM Travelled</label><input class="input" inputmode="numeric" placeholder="0 km"></div>'+
-      '</div>'+
-      '<div class="fgroup"><label class="field-label">Amount</label><input class="input ec-amt" inputmode="numeric" placeholder="₹"></div>'+
-      '<div class="fgroup"><label class="field-label">Photo</label><label class="ba-up wide"><span class="ba-cam">📷</span><span class="ba-lab">Capture bill / proof</span></label></div>'+
-      '<div class="exp-gst"><span class="box"></span> Is GST bill</div>';
-    // date options (today + up to 6 days back)
-    const ds=c.querySelector('.ec-date'); const today=14; for(let i=0;i<=6;i++){ const d=today-i; const o=document.createElement('option'); o.textContent=d+' May 2026'+(i===0?' (today)':''); ds.appendChild(o); }
-    const type=c.querySelector('.ec-type'), da=c.querySelector('.ec-da'), ta=c.querySelector('.ec-ta');
-    function syncType(){ const v=type.value; da.style.display=(v==='DA')?'':'none'; ta.style.display=(v==='TA'||v==='KM Travelled')?'':'none'; syncVeh(); }
-    type.onchange=syncType;
-    const veh=c.querySelector('.ec-veh'), subw=c.querySelector('.ec-subwrap'), sub=c.querySelector('.ec-sub'), kmw=c.querySelector('.ec-kmwrap');
-    function syncVeh(){ const v=veh.value; let opts=null;
-      if(v==='Train') opts=['3rd AC','2nd AC','1st AC','Sleeper'];
-      else if(v==='Bus') opts=['AC Sleeper','Non-AC Sleeper','AC Seater','Non-AC Seater'];
-      else if(v==='Flight') opts=['Economy','Business'];
-      if(opts){ sub.innerHTML=opts.map(o=>'<option>'+o+'</option>').join(''); subw.style.display=''; } else subw.style.display='none';
-      kmw.style.display=((v==='Own car'||v==='Own bike') && (type.value==='KM Travelled'||type.value==='TA'))?'':'none';
-    }
-    veh.onchange=syncVeh;
-    c.querySelector('.exp-gst').onclick=function(){ this.classList.toggle('on'); };
-    syncType();
-    return c;
+  /* ===== Claims (JC-based) ===== */
+  const JC_DATA = [
+    {jc:'JC07', start:'03 Jun 2026', end:'30 Jun 2026', status:'Not Submitted', statCls:'ns', amount:8450, startDay:3, mon:'Jun'},
+    {jc:'JC06', start:'06 May 2026', end:'02 Jun 2026', status:'Approved by Finance', statCls:'afin', amount:11200, startDay:6, mon:'May'},
+    {jc:'JC05', start:'08 Apr 2026', end:'05 May 2026', status:'Released', statCls:'rel', amount:9800, startDay:8, mon:'Apr'}
+  ];
+  // Day-level work/city/stay (comes from Attendance — varies day to day)
+  const ATT_CYCLE=[
+    {work:'HQ', city:'Metro city', stay:''},
+    {work:'Ex-HQ', city:'Non-metro city', stay:''},
+    {work:'Outstation', city:'Hill station', stay:'Night Stay'},
+    {work:'Outstation', city:'Metro city', stay:'Same Day Return'},
+    {work:'HQ', city:'Metro city', stay:''},
+    {work:'Ex-HQ', city:'Others', stay:''}
+  ];
+  function renderJcList(){ const box=document.getElementById('jcList'); if(!box) return;
+    box.innerHTML=JC_DATA.map((j,i)=>{
+      return '<div class="jc-card" data-jc="'+i+'"><div class="jc-top"><span class="jc-no">'+j.jc+'</span><span class="jc-amt">\u20b9'+j.amount.toLocaleString('en-IN')+'</span></div>'+
+        '<div class="jc-dates">'+j.start+' \u2013 '+j.end+'</div>'+
+        '<span class="jc-stat '+j.statCls+'">'+j.status+'</span></div>';
+    }).join('');
+    box.querySelectorAll('.jc-card').forEach(c=> c.onclick=()=> openClaim(parseInt(c.dataset.jc)));
   }
-  function addExpCard(){ const w=document.getElementById('expCardsWrap'); if(w) w.appendChild(expCard()); }
-  document.getElementById('claimNew') && (document.getElementById('claimNew').onclick=()=>{ const w=document.getElementById('expCardsWrap'); if(w) w.innerHTML=''; addExpCard(); show('claim_new'); });
-  document.getElementById('expAddCard') && (document.getElementById('expAddCard').onclick=addExpCard);
-  document.getElementById('clSubmit') && (document.getElementById('clSubmit').onclick=()=>{ show('claims'); showToast('Expenses submitted for approval'); });
-  document.getElementById('clPdf') && (document.getElementById('clPdf').onclick=()=> showToast('Generating PDF…'));
-  document.querySelectorAll('.cl-fchip').forEach(c=>{ c.onclick=()=>{ document.querySelectorAll('.cl-fchip').forEach(x=>x.classList.remove('sel')); c.classList.add('sel'); }; });
+  const DOWX=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const CA_RULES={
+    DA:'Auto-calculated daily (Full / Half / Nil) for HQ & Ex-HQ. You may enter a different amount and request a change.',
+    Food:'Allowed only on Outstation \u00b7 Night Stay. Cannot be claimed on the same day as DA.',
+    Local:'Allowed for HQ or Outstation \u00b7 Night Stay only.',
+    Hotel:'Allowed only on Outstation \u00b7 Night Stay.',
+    Mobile:'Mobile / Internet can be claimed only once per JC.',
+    TA:'Own bike \u20b94/km, Own car \u20b910/km (auto-calculated). For Bus / Train / Flight, pick the class.'
+  };
+  let _cdState=null, _cdActiveDay=0;
+  function openClaim(i){ const j=JC_DATA[i]; window._cdJC=j;
+    document.getElementById('cdTitle').textContent=j.jc;
+    document.getElementById('cdMeta').innerHTML='<span class="jc-stat '+j.statCls+'">'+j.status+'</span><span class="jc-tag">'+j.start+' \u2013 '+j.end+'</span>';
+    const today=(j.mon==='Jun')?10:(j.startDay+5);
+    _cdState={ days:[] };
+    const seed=[
+      [{type:'DA',label:'DA',claimed:350,appr:0,rm:'Full day field work',photo:true},{type:'TA',label:'TA \u00b7 Own bike (28 km)',claimed:112,appr:0,rm:'Beat travel',photo:true}],
+      [{type:'TA',label:'TA \u00b7 Bus (AC Seater)',claimed:220,appr:0,rm:'To Ex-HQ town',photo:true},{type:'Local',label:'Local Conveyance',claimed:80,appr:0,rm:'Auto to market',photo:false}],
+      [{type:'DA',label:'DA',claimed:350,appr:0,rm:'',photo:true}]
+    ];
+    // descending order: today first, back to JC start
+    let dn=0;
+    for(let d=today; d>=j.startDay; d--){ const dow=DOWX[(d+2)%7]; const att=ATT_CYCLE[d%ATT_CYCLE.length];
+      const exps=(dn<seed.length)?seed[dn].slice():[]; dn++;
+      _cdState.days.push({ d:d, mon:j.mon, dow:dow, exps:exps, work:att.work, city:att.city, stay:att.stay });
+    }
+    renderClaimDates(); show('claim_detail');
+  }
+  function dayAmt(day){ return day.exps.reduce((s,e)=>s+(e.claimed||0),0); }
+  function renderClaimDates(){ const box=document.getElementById('cdDates'); if(!box||!_cdState) return;
+    box.innerHTML=_cdState.days.map((day,idx)=>{
+      const att=[day.work, day.city].concat(day.stay?[day.stay]:[]).map(t=>'<span class="cd-att">'+t+'</span>').join('');
+      const exps=day.exps.map(e=>'<div class="cd-exp"><div class="cd-exp-h"><b>'+(e.label||e.type)+'</b><span class="cd-exp-amt">\u20b9'+e.claimed+'</span></div>'+
+        '<div class="cd-exp-g"><div><span>Claimed</span><b>\u20b9'+e.claimed+'</b></div><div><span>Approved</span><b>'+(e.appr?('\u20b9'+e.appr):'\u2013')+'</b></div></div>'+
+        (e.rm?'<div class="cd-exp-rm">Remark: '+e.rm+'</div>':'')+
+        (e.photo?'<div class="cd-exp-photo">\ud83d\udcce Bill attached</div>':'')+'</div>').join('');
+      return '<div class="cd-day'+(idx===0?' open':'')+'" data-day="'+idx+'"><div class="cd-dhead"><div><b>'+day.d+' '+day.mon+' 2026</b><span class="dow">'+day.dow+'</span></div><div class="cd-damt">\u20b9'+dayAmt(day)+' <svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></div></div>'+
+        '<div class="cd-dbody"><div class="cd-attrow">'+att+'</div>'+exps+'<button class="cd-addexp">+ Add Expense</button></div></div>';
+    }).join('');
+    box.querySelectorAll('.cd-dhead').forEach(h=> h.onclick=()=> h.parentElement.classList.toggle('open'));
+    box.querySelectorAll('.cd-addexp').forEach(btn=> btn.onclick=()=>{ _cdActiveDay=parseInt(btn.closest('.cd-day').dataset.day); openAddExpense(); });
+  }
+  // ----- Add expense sheet -----
+  const caMask=document.getElementById('claimAddMask');
+  const caType=document.getElementById('caType'), caHint=document.getElementById('caHint');
+  function caBlk(name){ return document.querySelector('.ca-blk[data-cablk="'+name+'"]'); }
+  function syncCaType(){ const v=caType.value;
+    ['DA','TA','Hotel'].forEach(n=>{ const b=caBlk(n); if(b) b.style.display=(n===v)?'':'none'; });
+    caHint.textContent=CA_RULES[v]||'';
+    if(v==='TA') syncCaMode();
+  }
+  function syncCaMode(){ const mode=document.getElementById('caMode').value; const km=document.querySelector('.ca-km'), cl=document.querySelector('.ca-class');
+    const own=(mode==='Own bike'||mode==='Own car');
+    km.style.display=own?'':'none'; cl.style.display=own?'none':'';
+    if(!own){ const sel=document.getElementById('caClass'); let opts=[];
+      if(mode==='Train') opts=['1st AC','2nd AC','3rd AC','Sleeper','AC Seater','Seater'];
+      else if(mode==='Flight') opts=['Economy','Business class'];
+      else if(mode==='Bus') opts=['AC Sleeper','Non-AC Sleeper','AC Seater','Non-AC Seater'];
+      sel.innerHTML=opts.map(o=>'<option>'+o+'</option>').join('');
+    }
+  }
+  function caKmCalc(){ const mode=document.getElementById('caMode').value; const km=parseFloat(document.getElementById('caKm').value)||0;
+    if(mode==='Own bike'||mode==='Own car'){ const rate=(mode==='Own car')?10:4; document.getElementById('caAmt').value=km*rate; }
+  }
+  function openAddExpense(){
+    const day=_cdState.days[_cdActiveDay]||{}; const t=document.getElementById('caTitle'); if(t) t.textContent='Add Expense · '+day.d+' '+day.mon;
+    caType.value='DA'; document.getElementById('caAmt').value=''; document.getElementById('caRemark').value='';
+    document.getElementById('caKm').value=''; document.getElementById('caGstPct').value='';
+    document.getElementById('caGst').classList.remove('on'); const my=document.getElementById('caMayora'); if(my) my.classList.remove('on');
+    document.getElementById('caMayoraWrap').style.display='none'; document.querySelector('.ca-gstpct').style.display='none';
+    syncCaType();
+    caMask.classList.add('show');
+  }
+  caType.onchange=()=>{
+    const v=caType.value, day=_cdState.days[_cdActiveDay]||{}; const isNight=(day.stay==='Night Stay'); const isHQ=(day.work==='HQ');
+    if(v==='Food' && !isNight){ showToast('Food allowed only on Outstation \u00b7 Night Stay (this day: '+day.work+(day.stay?' \u00b7 '+day.stay:'')+')'); }
+    if(v==='Hotel' && !isNight){ showToast('Hotel allowed only on Outstation \u00b7 Night Stay (this day: '+day.work+')'); }
+    if(v==='Local' && !(isHQ||isNight)){ showToast('Local Conveyance: HQ or Outstation \u00b7 Night Stay only'); }
+    if(v==='Mobile'){ const used=_cdState.days.some(d=>d.exps.some(e=>e.type==='Mobile')); if(used) showToast('Mobile / Internet already claimed once in this JC'); }
+    if(v==='Food'){ if(day.exps && day.exps.some(e=>e.type==='DA')) showToast('Cannot claim Food and DA on the same day'); }
+    syncCaType();
+  };
+  document.getElementById('caMode').onchange=()=>{ syncCaMode(); caKmCalc(); };
+  document.getElementById('caKm').oninput=caKmCalc;
+  document.getElementById('caGst').onclick=function(){ this.classList.toggle('on'); const on=this.classList.contains('on'); document.getElementById('caMayoraWrap').style.display=on?'':'none'; if(!on){ document.getElementById('caMayora').classList.remove('on'); document.querySelector('.ca-gstpct').style.display='none'; } };
+  document.getElementById('caMayora').onclick=function(){ this.classList.toggle('on'); document.querySelector('.ca-gstpct').style.display=this.classList.contains('on')?'':'none'; };
+  document.getElementById('caClose').onclick=()=> caMask.classList.remove('show');
+  caMask.addEventListener('click', e=>{ if(e.target===caMask) caMask.classList.remove('show'); });
+  document.getElementById('caSave').onclick=()=>{
+    const v=caType.value; const day=_cdState.days[_cdActiveDay]; const isNight=(day.stay==='Night Stay'); const isHQ=(day.work==='HQ');
+    if(v==='Food' && !isNight) return showToast('Food allowance not allowed on this day ('+day.work+')');
+    if(v==='Hotel' && !isNight) return showToast('Hotel not allowed on this day ('+day.work+')');
+    if(v==='Local' && !(isHQ||isNight)) return showToast('Local Conveyance not allowed on this day');
+    if(v==='Mobile' && _cdState.days.some(d=>d.exps.some(e=>e.type==='Mobile'))) return showToast('Mobile already claimed this JC');
+    if(v==='Food' && day.exps.some(e=>e.type==='DA')) return showToast('Cannot claim Food and DA same day');
+    if(v==='DA' && day.exps.some(e=>e.type==='Food')) return showToast('Cannot claim DA and Food same day');
+    let amt=parseInt(document.getElementById('caAmt').value)||0;
+    let label=({DA:'DA',Food:'Food Allowance',Local:'Local Conveyance',Hotel:'Hotel Accommodation',Mobile:'Mobile / Internet',TA:'TA'})[v];
+    if(v==='TA'){ const mode=document.getElementById('caMode').value; if(mode==='Own bike'||mode==='Own car'){ label='TA \u00b7 '+mode+' ('+(document.getElementById('caKm').value||0)+' km)'; } else { label='TA \u00b7 '+mode+' ('+document.getElementById('caClass').value+')'; } }
+    if(v==='Hotel' && document.getElementById('caGst').classList.contains('on')){ const pct=document.getElementById('caGstPct').value; label='Hotel Accommodation'+(pct?(' \u00b7 GST '+pct+'%'):' \u00b7 GST'); }
+    if(amt<=0) return showToast('Enter a valid amount');
+    day.exps.push({type:v, label:label, claimed:amt, appr:0, rm:document.getElementById('caRemark').value||'', photo:true});
+    renderClaimDates(); caMask.classList.remove('show'); showToast(label+' added');
+    // keep that day open
+    const dd=document.querySelector('.cd-day[data-day="'+_cdActiveDay+'"]'); if(dd) dd.classList.add('open');
+  };
+  document.getElementById('cdSubmit') && (document.getElementById('cdSubmit').onclick=()=>{ show('claims'); showToast('JC submitted for approval'); });
+  document.getElementById('cdExport') && (document.getElementById('cdExport').onclick=()=> showToast('Exporting claim statement\u2026'));
+  renderJcList();
 
   /* ===== Reports sub-tabs ===== */
   document.querySelectorAll('.seg2-btn[data-rep]').forEach(btn=>{ btn.onclick=()=>{ const root=btn.closest('.sub-wrap'); root.querySelectorAll('.seg2-btn[data-rep]').forEach(x=>x.classList.remove('active')); btn.classList.add('active'); root.querySelectorAll('.rep-pane').forEach(pn=>pn.classList.toggle('active', pn.dataset.reppane===btn.dataset.rep)); }; });
@@ -4519,6 +4962,16 @@
   document.getElementById('toBack') && (document.getElementById('toBack').onclick = ()=> show(window._teleMode ? 'beats' : 'visit'));
   // Notifications + Coins
   document.getElementById('notifBtn') && (document.getElementById('notifBtn').onclick = ()=> show('notifications'));
+  function notifUnread(){ return document.querySelectorAll('.view[data-view="notifications"] .nt-card.unread').length; }
+  function updateBellCount(){ const n=notifUnread(); const badge=document.getElementById('bellBadge'); if(badge){ badge.textContent=n; badge.style.display=n>0?'':'none'; }
+    const bn=document.getElementById('ntBanner'), un=document.getElementById('ntUnreadN'); if(un) un.textContent=n;
+    if(bn) bn.style.display = n>0 ? '' : 'none';
+  }
+  function allNotifsRead(){ return notifUnread()===0; }
+  document.querySelectorAll('.view[data-view="notifications"] .nt-read').forEach(btn=>{
+    btn.onclick=()=>{ const card=btn.closest('.nt-card'); card.classList.remove('unread'); const m=document.createElement('span'); m.className='nt-readmark'; m.textContent='✓ Read'; btn.replaceWith(m); updateBellCount(); };
+  });
+  updateBellCount();
   document.getElementById('coinsCard') && (document.getElementById('coinsCard').onclick = ()=> show('coins'));
   document.querySelectorAll('.seg2-btn[data-cn]').forEach(btn=>{ btn.onclick=()=>{ document.querySelectorAll('.seg2-btn[data-cn]').forEach(x=>x.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.cn-pane').forEach(pn=>pn.classList.toggle('active', pn.dataset.cnpane===btn.dataset.cn)); }; });
 
@@ -4539,24 +4992,97 @@
   $('dsfStart').onclick = ()=>{ show('beats'); showToast('Day started successfully'); };
 
   // Secondary / Primary tabs (Secondary = all customers, Primary = distributors only)
-  let custTab = 'secondary';
+  let custTab = 'secondary', statusTab = 'pending';
+  const LOGOS=['brown','org','grn','blu','vio'];
+  const OUTLETS = {
+    GT:{
+      secondary:[
+        {name:'Sri Balaji Kirana Store', code:'FO_617586336', area:'Kukatpally', seg:'A+', type:'Kirana Store'},
+        {name:'Anand Bakery & Foods', code:'FO_622923477', area:'Secunderabad', seg:'A', type:'Bakery'},
+        {name:'City College Canteen', code:'FO_627411768', area:'Ameerpet', seg:'B', type:'Canteen'},
+        {name:'Brew & Bite Cafe', code:'FO_631120945', area:'Madhapur', seg:'A', type:'Cafe'},
+        {name:'Daily Fresh Supermart', code:'FO_641223090', area:'KPHB', seg:'C', type:'Small Supermarket', done:true},
+        {name:'Sai Kirana General Store', code:'FO_652910477', area:'Miyapur', seg:'B', type:'Kirana Store', done:true}
+      ],
+      primary:[
+        {name:'Mayora Super Stockist', code:'PR_700112233', area:'Balanagar', seg:'A+', type:'Super Stockist'},
+        {name:'Sri Venkateswara Distributors', code:'PR_700556677', area:'KPHB 5th Phase', seg:'A', type:'Distributor'},
+        {name:'Kompally Sub-Distributor', code:'PR_700990011', area:'Kompally', seg:'B', type:'Sub Distributor', done:true}
+      ]
+    },
+    MT:{
+      secondary:[
+        {name:'More Supermarket', code:'MT_810112233', area:'Gachibowli', seg:'A+', type:'Supermarket'},
+        {name:'Ratnadeep Retail Mall', code:'MT_810556677', area:'Jubilee Hills', seg:'A', type:'Mall'},
+        {name:"Spencer's Departmental", code:'MT_810990011', area:'Banjara Hills', seg:'B', type:'Departmental Store'},
+        {name:'D-Mart Express', code:'MT_811223344', area:'Kukatpally', seg:'A', type:'Supermarket', done:true}
+      ],
+      primary:[
+        {name:'MT Modern Distributor', code:'MT_900112233', area:'Balanagar', seg:'A+', type:'Distributor'},
+        {name:'City MT Sub-Distributor', code:'MT_900556677', area:'Secunderabad', seg:'B', type:'Sub Distributor', done:true}
+      ]
+    }
+  };
+  window._completedOutlets = window._completedOutlets || new Set();
+  // seed completed from data
+  Object.values(OUTLETS).forEach(g=>Object.values(g).forEach(l=>l.forEach(o=>{ if(o.done) window._completedOutlets.add(o.name); })));
+  const SEG_OPTS=['A+','A','B','C'];
+  function selectedSegs(){ const s=new Set(); SEG_OPTS.forEach(o=>{ if(ofSel.has('of_'+o)) s.add(o); }); return s; }
+  function curOutletSet(){ const mt=(window._role||'').startsWith('MT'); return mt?OUTLETS.MT:OUTLETS.GT; }
+  function initials(n){ const w=n.replace(/[^A-Za-z ]/g,'').trim().split(/\s+/); return ((w[0]||'')[0]||'')+((w[1]||'')[0]||(w[0]||'')[1]||''); }
   function applyOutletFilter(){
-    const q = ($('outletSearch').value||'').toLowerCase();
-    document.querySelectorAll('#outletList .ocard').forEach(c=>{
-      const okTab = c.dataset.cust===custTab;
-      const okSearch = c.dataset.outlet.toLowerCase().includes(q);
-      c.style.display = (okTab && okSearch) ? '' : 'none';
+    const box=$('outletList'); if(!box) return;
+    const q=($('outletSearch').value||'').toLowerCase();
+    const segs=selectedSegs();
+    const isMT=(window._role||'').startsWith('MT'); const gtmt=isMT?'MT':'GT';
+    const list=(curOutletSet()[custTab]||[]);
+    box.innerHTML='';
+    let n=0;
+    list.forEach((o,i)=>{
+      const done=window._completedOutlets.has(o.name);
+      if(statusTab==='completed' ? !done : done) return;
+      if(q && o.name.toLowerCase().indexOf(q)<0) return;
+      if(segs.size && !segs.has(o.seg)) return;
+      const logo=LOGOS[i%LOGOS.length];
+      const stCls=done?'completed':'planned'; const stTxt=done?'Completed':'Planned';
+      const card=document.createElement('div');
+      card.className='ocard'; card.dataset.outlet=o.name; card.dataset.cust=custTab; card.dataset.seg=o.seg;
+      card.dataset.code=o.code; card.dataset.area=o.area; card.dataset.type=o.type;
+      card.innerHTML='<span class="ocard-bar '+stCls+'"></span><span class="ol-logo '+logo+'">'+initials(o.name).toUpperCase()+'</span>'+
+        '<div class="ocard-body"><div class="ocard-name">'+o.name+'</div><div class="ocard-erp">Code: '+o.code+' · '+o.area+'</div>'+
+        '<div class="ocard-row"><span class="otag a">'+o.seg+'</span><span class="otag gt">'+gtmt+'</span><span class="otag type">'+o.type+'</span></div></div>'+
+        '<div class="ocard-actions"><span class="ocard-map" title="Navigate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span></div>'+
+        '<span class="ocard-st '+stCls+'">'+stTxt+'</span>';
+      card.querySelector('.ocard-map').onclick=(e)=>{ e.stopPropagation(); showToast('Opening Google Maps navigation…'); };
+      card.onclick=()=> openOutlet(card, o);
+      box.appendChild(card); n++;
     });
+    if(!n) box.innerHTML='<div class="empty-list">No '+statusTab+' outlets</div>';
+  }
+  function openOutlet(card, o){
+    $('odName').textContent = o.name;
+    $('odErp').textContent  = 'Code: '+o.code+' · '+o.area;
+    const odLogo=$('odLogo'); const lg=card.querySelector('.ol-logo');
+    odLogo.textContent=lg.textContent; odLogo.className='ol-logo '+(lg.className.split(' ')[1]||'brown');
+    window._currentOutlet=card; window._currentOutletName=o.name; window._isPrimary=(custTab==='primary');
+    const visitTitle=document.querySelector('.view[data-view="visit"] .av-title');
+    if(visitTitle){ visitTitle.innerHTML = o.name+' <span class="gt-chip">'+((window._role||'').startsWith('MT')?'MT':'GT')+'</span>'; }
+    const visitSub=document.querySelector('.view[data-view="visit"] .av-sub'); if(visitSub) visitSub.textContent='Code: '+o.code+' · '+o.area;
+    if(window._teleMode){ const tn=document.getElementById('teleoName'); if(tn) tn.textContent=o.name; show('teleorder'); return; }
+    show('outletdetail');
   }
   document.querySelectorAll('.bt-tab').forEach(t=>{
-    t.onclick = ()=>{
-      document.querySelectorAll('.bt-tab').forEach(x=>x.classList.remove('active'));
-      t.classList.add('active');
-      custTab = t.dataset.cust;
-      applyOutletFilter();
-    };
+    t.onclick=()=>{ document.querySelectorAll('.bt-tab').forEach(x=>x.classList.remove('active')); t.classList.add('active'); custTab=t.dataset.cust; applyOutletFilter(); };
+  });
+  document.querySelectorAll('.bt-stab').forEach(t=>{
+    t.onclick=()=>{ document.querySelectorAll('.bt-stab').forEach(x=>x.classList.remove('active')); t.classList.add('active'); statusTab=t.dataset.stat; applyOutletFilter(); };
   });
   $('outletSearch').addEventListener('input', applyOutletFilter);
+  function resetBeatTabs(){ custTab='secondary'; statusTab='pending';
+    document.querySelectorAll('.bt-tab').forEach(x=>x.classList.toggle('active', x.dataset.cust==='secondary'));
+    document.querySelectorAll('.bt-stab').forEach(x=>x.classList.toggle('active', x.dataset.stat==='pending'));
+    const se=$('outletSearch'); if(se) se.value='';
+  }
 
   // New Outlet + Foot Plan
   $('goNewOutlet').onclick = ()=> show('newoutlet');
@@ -4598,6 +5124,7 @@
   const ofMask = $('outletFilterMask');
   const ofData = {
     beatometer:['New','Ordered','Active','Never Visited'],
+    segment:['A+','A','B','C'],
     shoptype:['Super Market','Bakery','Tea Shop','Wholesale','School/College Canteen'],
     customtags:['Alpha+','Non Alpha']
   };
@@ -4618,32 +5145,18 @@
   document.querySelectorAll('.of-cat').forEach(c=>{
     c.onclick=()=>{ document.querySelectorAll('.of-cat').forEach(x=>x.classList.remove('active')); c.classList.add('active'); renderOfOpts(c.dataset.fcat); };
   });
-  document.querySelector('.of-reset').onclick=()=>{ ofSel.clear(); $('ofCount').textContent='0'; document.querySelectorAll('#ofOpts .of-chk').forEach(r=>r.classList.remove('on')); };
+  document.querySelector('.of-reset').onclick=()=>{ ofSel.clear(); $('ofCount').textContent='0'; document.querySelectorAll('#ofOpts .of-chk').forEach(r=>r.classList.remove('on')); if(typeof applyOutletFilter==='function') applyOutletFilter(); };
   $('ofClose').onclick=()=> ofMask.classList.remove('show');
   ofMask.addEventListener('click', e=>{ if(e.target===ofMask) ofMask.classList.remove('show'); });
-  $('ofApply').onclick=()=>{ ofMask.classList.remove('show'); showToast(ofSel.size+' filter(s) applied'); };
-  // Outlet card -> Outlet Detail (summary + location)
-  document.querySelectorAll('#outletList .ocard').forEach(o=>{
-    const map = o.querySelector('.ocard-map');
-    if(map) map.onclick = (e)=>{ e.stopPropagation(); showToast('Opening Google Maps navigation…'); };
-    o.onclick = ()=>{
-      const logo = o.querySelector('.ol-logo');
-      $('odName').textContent = o.dataset.outlet;
-      $('odErp').textContent  = o.querySelector('.ocard-erp').textContent;
-      const odLogo = $('odLogo');
-      odLogo.textContent = logo.textContent;
-      odLogo.className = 'ol-logo ' + (logo.className.split(' ')[1]||'brown');
-      window._currentOutlet = o;        // remember for missed marking
-      window._isPrimary = (o.dataset.cust === 'primary');
-      if(window._teleMode){ const tn=document.getElementById('teleoName'); if(tn){ const nm=o.querySelector('.ocard-name'); tn.textContent = nm?nm.textContent:'Outlet'; } show('teleorder'); return; }
-      show('outletdetail');
-    };
-  });
+  $('ofApply').onclick=()=>{ ofMask.classList.remove('show'); if(typeof applyOutletFilter==='function') applyOutletFilter(); showToast(ofSel.size+' filter(s) applied'); };
+  // (Outlet card click is wired dynamically in applyOutletFilter -> openOutlet)
   // Begin Visit -> checked-in toast -> Active Visit (fresh visit clears ticks)
   $('odStart').onclick = ()=>{
     if(window._isJoint){ show('jw_form'); showToast('Checked in successfully'); return; }
+    if(window._groupMode){ const g=document.getElementById('gwName'); if(g) g.textContent=window._currentOutletName||'Outlet'; show('gwvisit'); showToast('Checked in successfully'); return; }
     document.querySelectorAll('.av-act.done').forEach(e=>e.classList.remove('done')); show('visit'); showToast('Checked in successfully');
   };
+  $('gwCheckout') && ($('gwCheckout').onclick = ()=>{ if(window._currentOutletName){ window._completedOutlets.add(window._currentOutletName); } if(typeof applyOutletFilter==='function') applyOutletFilter(); show('beats'); showToast('Checked out successfully'); });
   // Joint Work form: availability % auto, submit
   document.querySelectorAll('#jw_form .jw-trow .jw-av, .view[data-view="jw_form"] .jw-trow .jw-av').forEach(()=>{});
   document.querySelectorAll('.view[data-view="jw_form"] .jw-trow').forEach(row=>{
@@ -4651,7 +5164,8 @@
     const inp=row.querySelector('.jw-av'), pct=row.querySelector('.jw-pct');
     if(inp&&pct) inp.addEventListener('input', ()=>{ const a=parseInt(inp.value)||0; pct.textContent = exp? Math.min(100,Math.round(a/exp*100))+'%':'0%'; });
   });
-  $('jwSubmit') && ($('jwSubmit').onclick = ()=>{ show('beats'); showToast('Visit submitted & checked out'); });
+  $('jwSubmit') && ($('jwSubmit').onclick = ()=>{ const u=document.getElementById('jwsUser'); const o=document.getElementById('jwsOutlet'); if(o&&window._currentOutletName) o.textContent=window._currentOutletName; show('jw_summary'); });
+  $('jwCheckout') && ($('jwCheckout').onclick = ()=>{ show('beats'); showToast('Visit submitted & checked out'); });
 
   /* ===== Stock Check: filters, search, live summary ===== */
   function scBuildSummary(){
@@ -4659,9 +5173,8 @@
     const box = $('ssRows'); if(!box) return 0;
     let html='', count=0;
     rows.forEach(r=>{
-      const cs=parseInt(r.querySelector('.sc-cs').value)||0;
-      const pc=parseInt(r.querySelector('.sc-pc').value)||0;
-      if(cs>0||pc>0){ count++; html += '<div class="ss-row"><span class="ss-n">'+r.dataset.sku+'</span><b>'+cs+'</b><b>'+pc+'</b></div>'; }
+      const qv=parseInt(r.querySelector('.sc-qtyv').value)||0;
+      if(qv>0){ count++; html += '<div class="ss-row two"><span class="ss-n">'+r.dataset.sku+'</span><b>'+qv+'</b></div>'; }
     });
     box.innerHTML = html || '<div class="sc-sum-empty">No quantities entered.</div>';
     $('ssTot').textContent = count;
@@ -4851,10 +5364,9 @@
     const box=$('roSumRows'); if(!box) return 0;
     let html='', count=0;
     document.querySelectorAll('#roList .sc-row').forEach(r=>{
-      const cs=parseInt(r.querySelector('.ro-cs').value)||0;
-      const pc=parseInt(r.querySelector('.ro-pc').value)||0;
+      const qv=parseInt(r.querySelector('.ro-qtyv').value)||0;
       const reason=(r.querySelector('.ro-rsel')||{}).value||'';
-      if(cs>0||pc>0){ count++; html += '<div class="ss-row"><span class="ss-n">'+r.dataset.sku+(reason?' · '+reason:'')+'</span><b>'+cs+'</b><b>'+pc+'</b></div>'; }
+      if(qv>0){ count++; html += '<div class="ss-row two"><span class="ss-n">'+r.dataset.sku+(reason?' · '+reason:'')+'</span><b>'+qv+'</b></div>'; }
     });
     box.innerHTML = html || '<div class="sc-sum-empty">No return quantities entered.</div>';
     $('roSumTot').textContent = count;
@@ -4911,7 +5423,9 @@
       const cell=document.createElement('div');
       cell.className='cal-day'+(d===today?' today':'')+(future?' muted':'');
       cell.innerHTML = d + (future ? '' : '<span class="dot '+t+'"></span>');
-      if(!future || true){ cell.onclick = ()=> openDay(d); }
+      if(future) cell.onclick = ()=> openDay(d);
+      else if(d < today) cell.onclick = ()=> openDayTimeline(d);
+      else cell.onclick = ()=> openDay(d);
       grid.appendChild(cell);
     }
   }
@@ -4955,6 +5469,44 @@
   }
   $('dayClose').onclick = ()=> $('dayMask').classList.remove('show');
   $('dayMask').addEventListener('click', e=>{ if(e.target===$('dayMask')) $('dayMask').classList.remove('show'); });
+  // Past-date day timeline
+  function openDayTimeline(d){
+    const m = calMeta[d]||{type:'ret'};
+    const dowIdx=(5+(d-1))%7;
+    const dateStr = DOW[dowIdx]+', '+d+' May 2026';
+    const tt=document.getElementById('dtTitle'); if(tt) tt.textContent='Timeline · '+d+' May';
+    const isOff = (m.type==='off');
+    // summary row
+    const sum=document.getElementById('dtSum');
+    if(m.type==='lv'||m.type==='ho'||m.type==='wo'){
+      sum.innerHTML='<div class="dts" style="flex:1;text-align:left;"><b>'+typeLabel[m.type]+'</b><span>'+dateStr+'</span></div>';
+      document.getElementById('dtList').innerHTML='<div class="dt-node end"><div class="dt-dot"></div><div class="dt-card"><div class="dt-h"><b>'+typeLabel[m.type]+'</b></div><div class="dt-sub">No field activity recorded for this day.</div></div></div>';
+      show('daytimeline'); return;
+    }
+    const visits = isOff ? 2 : 5, orders = isOff?1:4, val = (isOff?6400:18450)+d*120;
+    sum.innerHTML = '<div class="dts"><b>'+visits+'</b><span>Visits</span></div><div class="dts"><b>'+orders+'</b><span>Orders</span></div><div class="dts"><b>₹'+val.toLocaleString('en-IN')+'</b><span>Order Val</span></div>';
+    const nodes=[];
+    nodes.push({cls:'start', title:'Day Started', time:'08:'+(28+d%20)+' AM', sub:'📍 Location captured · HQ · Metro'});
+    const outlets=[
+      ['Sri Balaji Kirana Store','09:10 AM','09:34 AM','₹4,200',6,3,4,2],
+      ['Anand Bakery & Foods','09:46 AM','10:08 AM','₹2,650',4,2,3,1],
+      ['Brew & Bite Cafe','10:20 AM','10:41 AM','₹3,310',5,3,3,2]
+    ];
+    const showN = isOff?1:3;
+    for(let i=0;i<showN;i++){ const o=outlets[i];
+      nodes.push({cls:'', title:o[0], time:'In '+o[1]+' · Out '+o[2], chips:[['Order',o[3]],['SKUs',o[4]],['Brands',o[5]],['Sub-Br',o[6]],['Alias',o[7]]]});
+    }
+    nodes.push({cls:'off', title:'Official Work · DB Search', time:'In 11:05 AM · Out 11:40 AM', sub:'Distributor stock & order review'});
+    if(!isOff){ const o=outlets[2]; }
+    nodes.push({cls:'', title:'Daily Fresh Supermart', time:'In 12:02 PM · Out 12:25 PM', chips:[['Order','₹2,980'],['SKUs','5'],['Brands','2'],['Sub-Br','3'],['Alias','2']]});
+    nodes.push({cls:'end', title:'Day Ended', time:'06:'+(40+d%18)+' PM', sub:'End-day summary submitted'});
+    document.getElementById('dtList').innerHTML = nodes.map(n=>{
+      const chips = n.chips ? '<div class="dt-chips">'+n.chips.map(c=>'<div class="dt-chip"><b>'+c[1]+'</b><span>'+c[0]+'</span></div>').join('')+'</div>' : '';
+      const sub = n.sub ? '<div class="dt-sub">'+n.sub+'</div>' : '';
+      return '<div class="dt-node '+n.cls+'"><div class="dt-dot"></div><div class="dt-card"><div class="dt-h"><b>'+n.title+'</b><span class="dt-time">'+n.time+'</span></div>'+sub+chips+'</div></div>';
+    }).join('');
+    show('daytimeline');
+  }
 
   // Mark Missed flow
   const missedMask = $('missedMask');
@@ -5040,16 +5592,14 @@
       return qty===0 && !reason;
     });
     if(pending){
-      document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.toggle('sel', x.dataset.qf==='mustsell'));
-      const ts=$('toSchemes'), tl=$('toList'); if(ts&&tl){ ts.style.display='none'; tl.style.display=''; }
-      if(typeof toFilter==='function') toFilter();
+      if(typeof setToFilter==='function') setToFilter('mustsell');
       showToast('Add quantity or a reason for Must-Sell items');
       return;
     }
     window._cartOrigin='takeorder'; show('cart');
   };
-  $('cartClear') && ($('cartClear').onclick = ()=>{ show(window._cartOrigin||'takeorder'); showToast('Cart cleared'); });
-  $('cartBack') && ($('cartBack').onclick = ()=> show(window._cartOrigin||'takeorder'));
+  $('cartClear') && ($('cartClear').onclick = ()=>{ const o=window._cartOrigin||'takeorder'; if(o==='takeorder') window._toEntryFilter='all'; show(o); showToast('Cart cleared'); });
+  $('cartBack') && ($('cartBack').onclick = ()=>{ const o=window._cartOrigin||'takeorder'; if(o==='takeorder') window._toEntryFilter='all'; show(o); });
   $('placeOrder').onclick = ()=>{ markAct('takeorder'); show('ordersuccess'); };
   document.querySelectorAll('.ms-reasons').forEach(row=>{
     row.querySelectorAll('.ms-r').forEach(r=>{
@@ -5059,31 +5609,70 @@
   document.querySelector('.osuc-wa').onclick = ()=> showToast('Shared via WhatsApp');
 
   // Check out -> End day
-  $('doCheckout').onclick = ()=>{ show('beats'); showToast('Checked out successfully'); };
+  $('doCheckout').onclick = ()=>{ if(window._currentOutletName){ window._completedOutlets.add(window._currentOutletName); } if(typeof applyOutletFilter==='function') applyOutletFilter(); show('beats'); showToast('Checked out successfully'); };
   $('endDayBtn').onclick = ()=>{ show('home'); showToast('Day ended successfully'); };
+  /* ===== End Day range selling ===== */
+  const RANGE_DATA = {
+    brand:[['Kopiko',36,40],['Malkist',30,40],['Choki Choki',22,40],['Beng Beng',18,40],['Cafe Blend',12,40]],
+    sub:[['Kopiko Cappuccino',28,40],['Malkist Cheese',24,40],['Malkist Combo',18,40],['Choki Duo',14,40],['Coffee Joy',9,40]],
+    alias:[['Kopiko Small Pouch',30,40],['Malkist Cheese FP',22,40],['Malkist Combo Pack',16,40],['Choki Duo Pouch',11,40]],
+    sku:[['Kopiko Small Pouch 50g',26,40],['Malkist Cheese FP 120g',20,40],['Beng Beng 30g',15,40],['Jam O Jam Assorted',8,40]]
+  };
+  function renderRangeBlock(block, tab){ const body=block.querySelector('.rng-body'); if(!body) return;
+    body.innerHTML=(RANGE_DATA[tab]||[]).map(([n,x,y])=>{ const pct=Math.round(x/y*100);
+      return '<div class="rng-row"><span>'+n+'</span><span class="rng-out">'+x+'/'+y+'</span><span class="rng-pct"><span class="rng-pbar"><i style="width:'+pct+'%"></i></span><b class="rng-pv">'+pct+'%</b></span></div>';
+    }).join('');
+  }
+  function renderRangeBlocks(view){ document.querySelectorAll('.view[data-view="'+view+'"] .rng-block').forEach(block=>{ block.querySelectorAll('.rng-tab').forEach(x=>x.classList.toggle('active', x.dataset.rng==='brand')); renderRangeBlock(block,'brand'); }); }
+  /* ===== P1/P2 Sales Report ===== */
+  const SR_SALES = {
+    brand:[['Kopiko',420,'₹43,200'],['Malkist',310,'₹32,500'],['Choki Choki',180,'₹18,600'],['Beng Beng',120,'₹12,400']],
+    sub:[['Kopiko Cappuccino',240,'₹24,800'],['Malkist Cheese',190,'₹19,700'],['Malkist Combo',120,'₹12,000']],
+    alias:[['Kopiko Small Pouch',160,'₹8,000'],['Malkist Cheese FP',110,'₹5,830'],['Malkist Combo Pack',70,'₹3,500']],
+    sku:[['Kopiko Small Pouch 50g',160,'₹8,000'],['Malkist Cheese FP 120g',95,'₹5,035'],['Beng Beng 30g',80,'₹2,400']]
+  };
+  const SR_COL={brand:'Brand',sub:'Sub-Brand',alias:'Brand Alias',sku:'SKU'};
+  const SR_CUST=[['Sri Balaji Kirana Store','₹12,400','12 May'],['Anand Bakery & Foods','₹8,600','11 May'],['Brew & Bite Cafe','₹6,900','13 May'],['Daily Fresh Supermart','₹5,200','10 May']];
+  function renderSrTab(tab){ const body=document.getElementById('srBody'); if(!body) return; const col=document.getElementById('srColName'); if(col) col.textContent=SR_COL[tab]||'Brand';
+    body.innerHTML=(SR_SALES[tab]||[]).map(([n,q,v])=>'<div class="rep-tr"><span>'+n+'</span><b>'+q+'</b><b>'+v+'</b></div>').join(''); }
+  function renderSrCust(){ const wrap=document.getElementById('srCustWrap'), sel=document.getElementById('srCust'); const all=(sel && sel.value==='All Customers');
+    if(wrap) wrap.style.display = all?'':'none';
+    const cb=document.getElementById('srCustBody'); if(cb) cb.innerHTML=SR_CUST.map(([n,v,d])=>'<div class="rep-tr" style="grid-template-columns:1.5fr 1fr 1fr;"><span>'+n+'</span><b>'+v+'</b><b>'+d+'</b></div>').join(''); }
+  document.querySelectorAll('.seg2-btn[data-srtab]').forEach(btn=>{ btn.onclick=()=>{ document.querySelectorAll('.seg2-btn[data-srtab]').forEach(x=>x.classList.remove('active')); btn.classList.add('active'); renderSrTab(btn.dataset.srtab); }; });
+  document.getElementById('srCust') && (document.getElementById('srCust').onchange=renderSrCust);
+  document.querySelectorAll('.rep-card[data-rep-kind]').forEach(c=>{ c.addEventListener('click', ()=>{ const t=document.getElementById('salesrepTitle'); if(t) t.textContent=c.dataset.repKind+' Sales Report'; }); });
+  document.querySelectorAll('.rng-block .rng-tab').forEach(t=>{ t.onclick=()=>{ const block=t.closest('.rng-block'); block.querySelectorAll('.rng-tab').forEach(x=>x.classList.remove('active')); t.classList.add('active'); renderRangeBlock(block, t.dataset.rng); }; });
+  document.getElementById('edShareWa') && (document.getElementById('edShareWa').onclick = ()=> showToast('Day summary shared via WhatsApp'));
 
   /* ===== Take Order new controls ===== */
   // DB stock toggle -> show available stock numbers on cards
   $('dbStock') && ($('dbStock').onchange = (e)=>{
     document.querySelector('.to-wrap.pad-fab').classList.toggle('show-stock', e.target.checked);
   });
-  // brand / sub / alias chip selection
+  // brand / sub / alias chip selection  (Set 1 -> resets Set 2 to All)
+  function resetQfToAll(){ document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.toggle('sel', x.dataset.qf==='all')); const ts=$('toSchemes'), tl=$('toList'), l2=$('toLast2'); if(ts) ts.style.display='none'; if(l2) l2.style.display='none'; if(tl) tl.style.display=''; }
+  function resetSet1ToAll(){ ['toBrand','toSub','toAlias'].forEach(id=>{ const row=$(id); if(row) row.querySelectorAll('.sc-chip').forEach(x=>x.classList.toggle('sel', x.dataset.v==='All')); }); }
   ['toBrand','toSub','toAlias'].forEach(id=>{
     const row=$(id); if(!row) return;
-    row.querySelectorAll('.sc-chip').forEach(c=>{ c.onclick=()=>{ row.querySelectorAll('.sc-chip').forEach(x=>x.classList.remove('sel')); c.classList.add('sel'); toFilter(); }; });
+    row.querySelectorAll('.sc-chip').forEach(c=>{ c.onclick=()=>{ row.querySelectorAll('.sc-chip').forEach(x=>x.classList.remove('sel')); c.classList.add('sel'); resetQfToAll(); toFilter(); }; });
   });
-  // quick filters: All / Must Sell / Focused / Schemes / Suggested
+  // quick filters (Set 2 -> resets Set 1 to All): All / Must Sell / Focused / Schemes / Suggested / Last 2 Orders
   const toSchemes = $('toSchemes'), toListEl = $('toList');
-  document.querySelectorAll('.qf-chip[data-qf]').forEach(c=>{
-    c.onclick=()=>{
-      document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.remove('sel')); c.classList.add('sel');
-      if(c.dataset.qf==='schemes'){
-        toSchemes.style.display=''; toListEl.style.display='none';
-      } else {
-        toSchemes.style.display='none'; toListEl.style.display=''; toFilter();
-      }
-    };
-  });
+  function setToFilter(qf){
+    document.querySelectorAll('.qf-chip[data-qf]').forEach(x=>x.classList.toggle('sel', x.dataset.qf===qf));
+    if(typeof resetSet1ToAll==='function') resetSet1ToAll();
+    const ts=$('toSchemes'), tl=$('toList'), l2=$('toLast2');
+    if(qf==='schemes'){ if(ts) ts.style.display=''; if(tl) tl.style.display='none'; if(l2) l2.style.display='none'; }
+    else if(qf==='last2'){ if(l2) l2.style.display=''; if(ts) ts.style.display='none'; if(tl) tl.style.display='none'; }
+    else { if(ts) ts.style.display='none'; if(l2) l2.style.display='none'; if(tl) tl.style.display=''; if(typeof toFilter==='function') toFilter(); }
+    // scroll the active chip into view in the quick-filter row
+    const chip=document.querySelector('.view[data-view="takeorder"] .qf-chip[data-qf="'+qf+'"]');
+    const wrap=document.querySelector('.view[data-view="takeorder"] .to-quickf');
+    if(chip&&wrap){ wrap.scrollTo({left:Math.max(0, chip.offsetLeft-12), behavior:'smooth'}); }
+  }
+  document.querySelectorAll('.qf-chip[data-qf]').forEach(c=>{ c.onclick=()=> setToFilter(c.dataset.qf); });
+  // Last 2 orders: expand/collapse
+  document.querySelectorAll('#toLast2 .l2-head').forEach(h=>{ h.onclick=()=> h.parentElement.classList.toggle('open'); });
   $('toSearch') && $('toSearch').addEventListener('input', toFilter);
   function toFilter(){
     const q=($('toSearch').value||'').toLowerCase();
