@@ -478,6 +478,13 @@
   .att-legend{ flex:1; display:flex; flex-direction:column; gap:9px;}
   .att-legend div{ display:flex; align-items:center; gap:8px; font-size:13px;}
   .att-legend i{ width:11px; height:11px; border-radius:3px; flex:none;} .att-legend span{ flex:1; color:var(--ink-2); font-weight:600;} .att-legend b{ font-weight:800;}
+  .rep-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin-bottom:12px; padding-bottom:2px;}
+  .rep-scroll .rep-stbl{ min-width:470px; margin-bottom:0;}
+  .rep-scroll .rep-h, .rep-scroll .rep-tr{ grid-template-columns:128px 62px 62px 70px 56px 64px;}
+  .rep-h.tg-5, .rep-tr.tg-5{ grid-template-columns:138px 62px 62px 72px 78px 60px;}
+  .rep-scroll .rep-h span:not(:first-child), .rep-scroll .rep-tr b{ text-align:right;}
+  .grow-pos{ color:var(--green);} .grow-neg{ color:var(--red);}
+  .cjc-sum{ display:flex; align-items:center; justify-content:space-between; background:var(--orange-soft); border-radius:10px; padding:10px 14px; margin-bottom:10px;} .cjc-sum span{ font-size:12.5px; font-weight:700; color:var(--ink-2);} .cjc-sum b{ font-size:16px; font-weight:800; color:var(--orange);}
   .rank-sub{ display:flex; margin-top:14px; background:var(--cream); border-radius:14px; overflow:hidden;}
   .rank-sub .c{ flex:1; display:flex; align-items:center; justify-content:center; gap:7px; padding:12px; font-size:14px; font-weight:700;}
   .rank-sub .c svg{ width:16px; height:16px;}
@@ -3001,9 +3008,10 @@
                 </div>
             </div>
             <div class="rep-pane" data-reppane="orders">
-              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Balaji Super Mart</div><div class="cl-m">5 SKUs · 62 qty</div></div><div class="cl-r"><b>₹4,200</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
-              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">S Mart</div><div class="cl-m">3 SKUs · 28 qty</div></div><div class="cl-r"><b>₹2,100</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
-              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Hyderabad Bakery</div><div class="cl-m">8 SKUs · 75 qty</div></div><div class="cl-r"><b>₹3,300</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+              <div class="cjc-sum"><span>CJC Visits</span><b>18</b></div>
+              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Balaji Super Mart</div><div class="cl-m">5 SKUs · 62 qty · 4 CJC visits</div></div><div class="cl-r"><b>₹4,200</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">S Mart</div><div class="cl-m">3 SKUs · 28 qty · 3 CJC visits</div></div><div class="cl-r"><b>₹2,100</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Hyderabad Bakery</div><div class="cl-m">8 SKUs · 75 qty · 6 CJC visits</div></div><div class="cl-r"><b>₹3,300</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
             </div>
             <div class="rep-pane" data-reppane="team">
               <div class="rep-stbl"><div class="rep-h" style="grid-template-columns:1.6fr .7fr .7fr .7fr 1fr;"><span>User</span><span>TC</span><span>PC</span><span>LPC</span><span>Value</span></div>
@@ -3020,13 +3028,13 @@
           <div class="topbar"><div class="back-btn" data-go="analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></div><div class="topbar-title">MSR · This Month</div></div>
           <div class="sub-wrap pad-btn2">
             <div class="select-wrap rep-user"><select class="input"><option>Akhil Kumar (me)</option><option>Ravi Teja</option><option>All Team</option></select><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></div>
-            <div class="rep-mini"><div class="rm lc"><span>TC</span><em>LJC 1,180</em><b>CJC 1,240</b></div><div class="rm lc"><span>PC</span><em>LJC 860</em><b>CJC 910</b></div><div class="rm lc"><span>RS-SKU</span><em>LJC 58%</em><b>CJC 62%</b></div><div class="rm lc"><span>Order Value</span><em>LJC ₹10.4L</em><b>CJC ₹11.2L</b></div><div class="rm lc"><span>Tele Orders</span><em>LJC 132</em><b>CJC 148</b></div><div class="rm lc"><span>Activities</span><em>LJC 68</em><b>CJC 72</b></div></div>
+            <div class="rep-mini"><div class="rm lc"><span>TC</span><em>LJC 1,180</em><b>CJC 1,240</b></div><div class="rm lc"><span>PC</span><em>LJC 860</em><b>CJC 910</b></div><div class="rm lc"><span>UBO</span><em>LJC 1,150</em><b>CJC 1,210</b></div><div class="rm lc"><span>RS-SKU</span><em>LJC 58%</em><b>CJC 62%</b></div><div class="rm lc"><span>Order Value</span><em>LJC ₹10.4L</em><b>CJC ₹11.2L</b></div><div class="rm lc"><span>Tele Orders</span><em>LJC 132</em><b>CJC 148</b></div><div class="rm lc"><span>Activities</span><em>LJC 68</em><b>CJC 72</b></div></div>
             <div class="rep-mini rep-mgr" style="display:none;"><div class="rm"><b>8</b><span>No. of Users</span></div><div class="rm"><b>8</b><span>Day Started</span></div><div class="rm"><b>9</b><span>Leave</span></div><div class="rm"><b>3</b><span>Absent</span></div></div>
             <div class="seg2"><div class="seg2-btn active" data-rep="sales">Sales</div><div class="seg2-btn" data-rep="orders">Orders</div><div class="seg2-btn" data-rep="team">Team</div></div>
             <div class="rep-pane active" data-reppane="sales">
-              <div class="rep-stbl"><div class="rep-h"><span>Brand</span><span>LJC</span><span>CJC</span></div><div class="rep-tr"><span>Kopiko</span><b>₹3.0L</b><b>₹3.3L</b></div><div class="rep-tr"><span>Malkist</span><b>₹2.4L</b><b>₹2.7L</b></div><div class="rep-tr"><span>Choki Choki</span><b>₹1.3L</b><b>₹1.5L</b></div></div>
-              <div class="rep-stbl"><div class="rep-h"><span>Sub Brand</span><span>LJC</span><span>CJC</span></div><div class="rep-tr"><span>Kopiko Cappuccino</span><b>₹1.7L</b><b>₹1.9L</b></div><div class="rep-tr"><span>Malkist Cheese</span><b>₹1.2L</b><b>₹1.4L</b></div></div>
-              <div class="rep-stbl"><div class="rep-h"><span>SKU</span><span>LJC</span><span>CJC</span></div><div class="rep-tr"><span>Kopiko Small Pouch 50g</span><b>₹46K</b><b>₹52K</b></div><div class="rep-tr"><span>Malkist Cheese 120g</span><b>₹38K</b><b>₹43K</b></div></div>
+              <div class="rep-scroll"><div class="rep-stbl"><div class="rep-h"><span>Brand</span><span>LJC</span><span>CJC</span><span>Target</span><span>Ach%</span><span>Growth</span></div><div class="rep-tr"><span>Kopiko</span><b>₹3.0L</b><b>₹3.3L</b><b>₹3.6L</b><b>92%</b><b class="grow-pos">+10%</b></div><div class="rep-tr"><span>Malkist</span><b>₹2.4L</b><b>₹2.7L</b><b>₹3.0L</b><b>90%</b><b class="grow-pos">+13%</b></div><div class="rep-tr"><span>Choki Choki</span><b>₹1.3L</b><b>₹1.5L</b><b>₹1.8L</b><b>83%</b><b class="grow-pos">+15%</b></div></div></div>
+              <div class="rep-scroll"><div class="rep-stbl"><div class="rep-h"><span>Sub Brand</span><span>LJC</span><span>CJC</span><span>Target</span><span>Ach%</span><span>Growth</span></div><div class="rep-tr"><span>Kopiko Cappuccino</span><b>₹1.7L</b><b>₹1.9L</b><b>₹2.1L</b><b>90%</b><b class="grow-pos">+12%</b></div><div class="rep-tr"><span>Malkist Cheese</span><b>₹1.2L</b><b>₹1.4L</b><b>₹1.6L</b><b>88%</b><b class="grow-pos">+17%</b></div></div></div>
+              <div class="rep-scroll"><div class="rep-stbl"><div class="rep-h"><span>SKU</span><span>LJC</span><span>CJC</span><span>Target</span><span>Ach%</span><span>Growth</span></div><div class="rep-tr"><span>Kopiko Small Pouch 50g</span><b>₹46K</b><b>₹52K</b><b>₹58K</b><b>90%</b><b class="grow-pos">+13%</b></div><div class="rep-tr"><span>Malkist Cheese 120g</span><b>₹38K</b><b>₹43K</b><b>₹50K</b><b>86%</b><b class="grow-pos">+13%</b></div></div></div>
               <div class="rep-mt" style="display:none;">
                 <div class="rep-stbl"><div class="rep-h" style="grid-template-columns:1.4fr .9fr 1fr;"><span>Chain</span><span>Sales</span><span>Last Order</span></div>
                   <div class="rep-tr" style="grid-template-columns:1.4fr .9fr 1fr;"><span>More</span><b>₹4.6L</b><b>12 May</b></div>
@@ -3051,8 +3059,9 @@
                 </div>
             </div>
             <div class="rep-pane" data-reppane="orders">
-              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Balaji Super Mart</div><div class="cl-m">Monthly · 42 orders</div></div><div class="cl-r"><b>₹1.1L</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
-              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">S Mart</div><div class="cl-m">Monthly · 28 orders</div></div><div class="cl-r"><b>₹74K</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+              <div class="cjc-sum"><span>CJC Visits</span><b>286</b></div>
+              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">Balaji Super Mart</div><div class="cl-m">Monthly · 42 orders · 58 CJC visits</div></div><div class="cl-r"><b>₹1.1L</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
+              <div class="cl-card ord-open" data-go="order_detail"><div class="cl-b"><div class="cl-t">S Mart</div><div class="cl-m">Monthly · 28 orders · 40 CJC visits</div></div><div class="cl-r"><b>₹74K</b><svg class="chev" viewBox="0 0 24 24" width="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div></div>
             </div>
             <div class="rep-pane" data-reppane="team">
               <div class="rep-stbl"><div class="rep-h" style="grid-template-columns:1.6fr .7fr .7fr .7fr 1fr;"><span>User</span><span>TC</span><span>PC</span><span>LPC</span><span>Value</span></div>
@@ -3097,7 +3106,10 @@
               <div class="rep-tr as-4"><span>Brand Coverage</span><b>80%</b><b>72%</b><b>86%</b></div>
             </div>
             <div class="seg2 four"><div class="seg2-btn active" data-astab="brand">Brand</div><div class="seg2-btn" data-astab="sub">Sub-Brand</div><div class="seg2-btn" data-astab="alias">Alias</div><div class="seg2-btn" data-astab="sku">SKU</div></div>
+            <div class="sub-label" style="margin:4px 0 8px;">Sales Value</div>
             <div class="rep-stbl"><div class="rep-h as-4"><span id="asColName">Brand</span><span>P1</span><span>P2</span><span>Secondary</span></div><div id="asBody"></div></div>
+            <div class="sub-label" style="margin:16px 0 8px;">Quantity</div>
+            <div class="rep-stbl"><div class="rep-h as-4"><span id="asQtyColName">Brand</span><span>P1</span><span>P2</span><span>Secondary</span></div><div id="asQtyBody"></div></div>
           </div>
         </section>
 
@@ -3164,11 +3176,11 @@
             <div class="tgt-overall"><div class="tgt-on">Overall Sales Target</div><div class="tgt-bar"><span style="width:78%"></span></div><div class="tgt-vals"><span>₹8.7L / ₹11.2L</span><b>78%</b></div></div>
             <div class="seg2"><div class="seg2-btn active" data-tg="brand">Brand</div><div class="seg2-btn" data-tg="sub">Sub Brand</div><div class="seg2-btn" data-tg="alias">Alias</div><div class="seg2-btn" data-tg="sku">SKU</div></div>
             <div class="tg-pane active" data-tgpane="brand">
-              <div class="rep-stbl"><div class="rep-h"><span>Brand</span><span>Tgt</span><span>Ach %</span></div><div class="rep-tr"><span>Kopiko</span><b>₹4L</b><b>82%</b></div><div class="rep-tr"><span>Malkist</span><b>₹3L</b><b>74%</b></div><div class="rep-tr"><span>Choki Choki</span><b>₹2L</b><b>69%</b></div></div>
+              <div class="rep-scroll"><div class="rep-stbl"><div class="rep-h tg-5"><span>Brand</span><span>LJC</span><span>CJC</span><span>Target</span><span>Achvd</span><span>Ach%</span></div><div class="rep-tr tg-5"><span>Kopiko</span><b>₹3.0L</b><b>₹3.3L</b><b>₹4L</b><b>₹3.3L</b><b>82%</b></div><div class="rep-tr tg-5"><span>Malkist</span><b>₹2.0L</b><b>₹2.2L</b><b>₹3L</b><b>₹2.2L</b><b>74%</b></div><div class="rep-tr tg-5"><span>Choki Choki</span><b>₹1.2L</b><b>₹1.4L</b><b>₹2L</b><b>₹1.4L</b><b>69%</b></div></div></div>
             </div>
-            <div class="tg-pane" data-tgpane="sub"><div class="rep-stbl"><div class="rep-h"><span>Sub Brand</span><span>Tgt</span><span>Ach %</span></div><div class="rep-tr"><span>Kopiko Cappuccino</span><b>₹2.2L</b><b>85%</b></div><div class="rep-tr"><span>Malkist Cheese</span><b>₹1.5L</b><b>71%</b></div></div></div>
-            <div class="tg-pane" data-tgpane="alias"><div class="rep-stbl"><div class="rep-h"><span>Brand Alias</span><span>Tgt</span><span>Ach %</span></div><div class="rep-tr"><span>Kopiko Small Pouch</span><b>₹90K</b><b>88%</b></div><div class="rep-tr"><span>Malkist Cheese FP</span><b>₹70K</b><b>66%</b></div></div></div>
-            <div class="tg-pane" data-tgpane="sku"><div class="rep-stbl"><div class="rep-h"><span>SKU</span><span>Tgt</span><span>Ach %</span></div><div class="rep-tr"><span>Kopiko Small Pouch 50g</span><b>₹45K</b><b>90%</b></div><div class="rep-tr"><span>Malkist Cheese 120g</span><b>₹38K</b><b>64%</b></div></div></div>
+            <div class="tg-pane" data-tgpane="sub"><div class="rep-scroll"><div class="rep-stbl"><div class="rep-h tg-5"><span>Sub Brand</span><span>LJC</span><span>CJC</span><span>Target</span><span>Achvd</span><span>Ach%</span></div><div class="rep-tr tg-5"><span>Kopiko Cappuccino</span><b>₹1.7L</b><b>₹1.9L</b><b>₹2.2L</b><b>₹1.9L</b><b>85%</b></div><div class="rep-tr tg-5"><span>Malkist Cheese</span><b>₹0.95L</b><b>₹1.07L</b><b>₹1.5L</b><b>₹1.07L</b><b>71%</b></div></div></div></div>
+            <div class="tg-pane" data-tgpane="alias"><div class="rep-scroll"><div class="rep-stbl"><div class="rep-h tg-5"><span>Brand Alias</span><span>LJC</span><span>CJC</span><span>Target</span><span>Achvd</span><span>Ach%</span></div><div class="rep-tr tg-5"><span>Kopiko Small Pouch</span><b>₹70K</b><b>₹79K</b><b>₹90K</b><b>₹79K</b><b>88%</b></div><div class="rep-tr tg-5"><span>Malkist Cheese FP</span><b>₹40K</b><b>₹46K</b><b>₹70K</b><b>₹46K</b><b>66%</b></div></div></div></div>
+            <div class="tg-pane" data-tgpane="sku"><div class="rep-scroll"><div class="rep-stbl"><div class="rep-h tg-5"><span>SKU</span><span>LJC</span><span>CJC</span><span>Target</span><span>Achvd</span><span>Ach%</span></div><div class="rep-tr tg-5"><span>Kopiko Small Pouch 50g</span><b>₹36K</b><b>₹40K</b><b>₹45K</b><b>₹40K</b><b>90%</b></div><div class="rep-tr tg-5"><span>Malkist Cheese 120g</span><b>₹22K</b><b>₹24K</b><b>₹38K</b><b>₹24K</b><b>64%</b></div></div></div></div>
           </div>
         </section>
 
@@ -5730,8 +5742,16 @@
     sku:[['Kopiko Small Pouch 50g','₹8,000','₹6,600','₹10,400'],['Malkist Cheese FP 120g','₹5,035','₹4,100','₹6,400'],['Beng Beng 30g','₹2,400','₹1,900','₹3,100']]
   };
   const AS_COL={brand:'Brand',sub:'Sub-Brand',alias:'Brand Alias',sku:'SKU'};
-  function renderAsTab(tab){ const body=document.getElementById('asBody'); if(!body) return; const col=document.getElementById('asColName'); if(col) col.textContent=AS_COL[tab]||'Brand';
-    body.innerHTML=(AS_SALES[tab]||[]).map(([n,p1,p2,sec])=>'<div class="rep-tr as-4"><span>'+n+'</span><b>'+p1+'</b><b>'+p2+'</b><b>'+sec+'</b></div>').join(''); }
+  const AS_QTY = {
+    brand:[['Kopiko','420','372','510'],['Malkist','310','276','398'],['Choki Choki','180','148','236'],['Beng Beng','120','96','158']],
+    sub:[['Kopiko Cappuccino','240','205','298'],['Malkist Cheese','190','164','232'],['Malkist Combo','120','94','152']],
+    alias:[['Kopiko Small Pouch','160','132','206'],['Malkist Cheese FP','110','90','138']],
+    sku:[['Kopiko Small Pouch 50g','160','132','206'],['Malkist Cheese FP 120g','95','78','120'],['Beng Beng 30g','80','64','104']]
+  };
+  function renderAsTab(tab){ const col=document.getElementById('asColName'); if(col) col.textContent=AS_COL[tab]||'Brand';
+    const qcol=document.getElementById('asQtyColName'); if(qcol) qcol.textContent=AS_COL[tab]||'Brand';
+    const body=document.getElementById('asBody'); if(body) body.innerHTML=(AS_SALES[tab]||[]).map(([n,p1,p2,sec])=>'<div class="rep-tr as-4"><span>'+n+'</span><b>'+p1+'</b><b>'+p2+'</b><b>'+sec+'</b></div>').join('');
+    const qbody=document.getElementById('asQtyBody'); if(qbody) qbody.innerHTML=(AS_QTY[tab]||[]).map(([n,p1,p2,sec])=>'<div class="rep-tr as-4"><span>'+n+'</span><b>'+p1+'</b><b>'+p2+'</b><b>'+sec+'</b></div>').join(''); }
   document.querySelectorAll('.seg2-btn[data-astab]').forEach(btn=>{ btn.onclick=()=>{ document.querySelectorAll('.seg2-btn[data-astab]').forEach(x=>x.classList.remove('active')); btn.classList.add('active'); renderAsTab(btn.dataset.astab); }; });
   document.querySelectorAll('.rng-block .rng-tab').forEach(t=>{ t.onclick=()=>{ const block=t.closest('.rng-block'); block.querySelectorAll('.rng-tab').forEach(x=>x.classList.remove('active')); t.classList.add('active'); renderRangeBlock(block, t.dataset.rng); }; });
   document.getElementById('edShareWa') && (document.getElementById('edShareWa').onclick = ()=> showToast('Day summary shared via WhatsApp'));
